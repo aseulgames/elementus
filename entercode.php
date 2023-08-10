@@ -13,6 +13,12 @@
             text-decoration: none;
             color: #000000de;
         }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
     </style>
 
 
@@ -42,7 +48,7 @@
                     margin-bottom: 5px;
                     color: #032B60;"><b>Enter teacher's code</b></header>
                         <div class="field input" style="padding-top: 5px;">
-                            <input type="number" class="no-arrow" name="confirm" id="confirm" autocomplete="off" style="background-color: #0DADB4; color: aliceblue;">
+                            <input type="number" placeholder="000000" class="no-arrow" name="confirm" id="confirm" style="background-color: #0DADB4; color: aliceblue;">
                         </div>
                         <div class="button-row" style="display: flex; margin-top: 20px; justify-content: center;">
                             <button type="button" class="btn" name="submit" value="Submit"><b>PROCEED</b></button>
