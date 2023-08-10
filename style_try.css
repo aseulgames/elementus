@@ -397,3 +397,8 @@ body {
 .message{
     color: rgb(48, 48, 48);
 }
+
+.no-arrow{
+    -moz-appearance: textfield; 
+    appearance: textfield;
+}
