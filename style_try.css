@@ -397,3 +397,22 @@ body {
 .message{
     color: rgb(48, 48, 48);
 }
+
+/**Home**/
+
+/* Style for the menu container */
+.menu {
+    display: flex; /* Use flexbox for horizontal layout */
+    list-style: none;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Style for each menu item */
+.menu li {
+    padding: 0px 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

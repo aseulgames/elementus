@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #f9f9f9;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background: fffff;
+}
+
+.container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 90vh;
+        padding-top: 20px;
+        padding-bottom: 20px;
+}
+
+.box{
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1),
+                0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+.icon-student, .icon-teacher{
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.icon-student:hover{
+    background-color: rgba(234, 119, 182, 0.664);
+    color: #000000de;
+}
+
+.icon-teacher:hover{
+    background-color: rgba(198, 119, 234, 0.664);
+    color: #000000de;
+}
+
+
+.icon-student header{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.icon-teacher header{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.register-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    transition: transform 0.5s ease;
+}
+
+.register-box{
+position:absolute;
+z-index: 2;
+background: #030039;
+display: flex;
+flex-direction: column;
+padding: 25px 25px;
+border-radius: 30px;
+box-shadow: 0 0 10px 0 rgba(0,0,0,0.1),
+            0 32px 64px -48px rgba(0,0,0,0.5);
+}
+
+.button-box {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px 1px #ff248a1f;
+    border-radius: 30px;
+    overflow: hidden;
+    
+}
+
+.toggle-student.active,
+.toggle-teacher.active {
+    background-color: rgba(234, 119, 203, 0.664);
+    color: #000000de;
+}   
+  
+.toggle-student,
+.toggle-teacher {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: none;
+    color: #0000009a;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-student:hover,
+.toggle-teacher:hover {
+    opacity: 0.8;
+}
+
+.form-box{
+    width: 450px;
+    margin: 0px 10px;
+}
+
+.form-box header{
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e6e6e6;
+    margin-bottom: 10px;
+}
+
+.form-box form .field{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+}
+
+.form-box form .input input{
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #e4e4e4;
+    outline: none;
+}
+
+.btn{
+    height: 35px;
+    background: rgba(234, 119, 203, 0.664);
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 10px;
+    padding: 0px 10px;
+}
+
+.btn:hover{
+    opacity: 0.8;
+}
+
+.submit{
+    width: 100%;
+}
+
+.link{
+    margin-bottom: 15px;
+}
+
+/**Home**/
+
+/* Style for the menu container */
+.menu {
+    display: flex; /* Use flexbox for horizontal layout */
+    list-style: none;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Style for each menu item */
+.menu li {
+    padding: 0px 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for the last menu item (to remove the right border) */
+.menu li:last-child {
+    border-right: none;
+}
+
+/* Style for the menu item links */
+.menu li a {
+    text-decoration: none;
+    color: #737373; /* Change this color to your desired color */
+    transition: background-color 0.2s;
+    display: block;
+    padding: 5px;
+}
+
+/* Style for the menu item links when hovered */
+.menu li a:hover {
+    background-color: #f4f4f4;
+}
+
+.nav{
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 30px;
+    z-index: 50;
+}
+
+.logo{
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #333;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.main-box{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.main-box .top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bottom{
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+
+@media only screen and (max-width:840px){
+    .main-box .top{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .top .box{
+        margin: 10px 10px;
+    }
+    .bottom{
+        margin-top: 0;
+    } 
+}
+
+/* .message{
+    text-align: center;
+    background:#fdfdfd;
+    padding: 15px 0px;
+    border: 1px solid #beff92;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: red;
+} */
