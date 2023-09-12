@@ -328,7 +328,581 @@
                     <div>Strontium</div>
                 </div>
             </a>
-            <!-- trycommit -->
+
+                        <!-- Elements 39 to 48 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 43)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Yttrium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 44)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Zirconium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 45)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Niobium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 46)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Molybdenum</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 47)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Technetium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 48)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Ruthenium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 49)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Rhodium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 50)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Palladium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 51)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Silver</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 52)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Cadmium</div>
+                </div>
+            </a>
+
+            <!-- Elements 49 to 58 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 53)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Indium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 54)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Tin</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 55)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Antimony</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 56)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Tellurium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 57)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Iodine</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 58)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Xenon</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 59)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Cesium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 60)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Barium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 61)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Lanthanum</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 62)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Cerium</div>
+                </div>
+            </a>
+            <!-- Elements 59 to 68 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 63)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Praseodymium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 64)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Neodymium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 65)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Promethium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 66)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Samarium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 67)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Europium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 68)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Gadolinium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 69)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Terbium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 70)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Dysprosium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 71)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Holmium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 72)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Erbium</div>
+                </div>
+            </a>
+
+            <!-- Elements 69 to 78 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 73)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Thulium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 74)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Ytterbium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 75)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Lutetium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 76)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Hafnium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 77)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Tantalum</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 78)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Tungsten</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 79)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Rhenium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 80)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Osmium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 81)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Iridium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 82)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Platinum</div>
+                </div>
+            </a>
+            <!-- Elements 79 to 88 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 83)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Gold</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 84)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Mercury</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 85)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Thallium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 86)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Lead</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 87)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Bismuth</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 88)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Polonium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 89)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Astatine</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 90)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Radon</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 91)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Francium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 92)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Radium</div>
+                </div>
+            </a>
+
+            <!-- Elements 89 to 98 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 93)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Actinium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 94)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Thorium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 95)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Protactinium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 96)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Uranium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 97)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Neptunium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 98)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Plutonium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 99)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Americium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 100)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Curium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 101)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Berkelium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 102)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Californium</div>
+                </div>
+            </a>
+
+            <!-- Elements 99 to 108 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 103)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Einsteinium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 104)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Fermium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 105)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Mendelevium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 106)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Nobelium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 107)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Lawrencium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 108)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Rutherfordium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 109)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Dubnium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 110)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Seaborgium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 111)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Bohrium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 112)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Hassium</div>
+                </div>
+            </a>
+
+            <!-- Elements 109 to 118 -->
+            <a href="#" class="box locked" onclick="unlockColumn(this, 113)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Meitnerium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 114)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Darmstadtium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 115)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Roentgenium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 116)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Copernicium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 117)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Nihonium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 118)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Flerovium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 119)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Moscovium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 120)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Livermorium</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 121)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Tennessine</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 122)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Oganesson</div>
+                </div>
+            </a>
+
 
 
         </div>
@@ -336,9 +910,6 @@
     </div>
         
     </main>
-    <div class="intro-container">
-        <a href="php/logout.php"><button class="btn">Log Out</button></a>
-    </div> 
     <script src="homescript.js"></script>
 </body>
 </html>

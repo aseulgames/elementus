@@ -21,8 +21,8 @@
 <body>
 <div class="nav">
         <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 30%; padding-top:0px;
-            height: auto;">
+        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
+            max-height: 100% ;">
             </a>
         </div>
         <ul class="menu">

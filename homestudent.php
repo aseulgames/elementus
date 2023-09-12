@@ -22,8 +22,8 @@
     
     <div class="nav" style="padding=2%">
         <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 30%; padding-top:0px;
-            height: auto;">
+        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
+            max-height: 100% ;">
             </a>
         </div>
         <ul class="menu">
@@ -58,7 +58,7 @@
     <div class="container">
         <header><b>Introduction</b></header>
         <div class="intro-container">
-            <a href="profileedit_student.php" class="box" onclick="unlockColumn(this, 1)">
+            <a href="" class="box" onclick="unlockColumn(this, 1)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
@@ -127,9 +127,6 @@
     </div>
         
     </main>
-    <div class="intro-container">
-        <a href="php/logout.php"><button class="btn">Log Out</button></a>
-    </div> 
     <script src="homescript.js"></script>
 </body>
 </html>

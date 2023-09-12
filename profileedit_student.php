@@ -22,8 +22,8 @@
 <body>
 <div class="nav">
     <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 30%; padding-top:0px;
-            height: auto;">
+    <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
+            max-height: 100% ;">
             </a>
         </div>
         <ul class="menu">
@@ -52,13 +52,9 @@
     </div>
 <br>
 
-<link rel="stylesheet" href="style.css">
 
     <div class="register-container" style="min-height: 60vh;">
-        <div class="faded-box register-box" style="width: 56%; height: 62%; 
-            border: 2px solid #AF6611;
-            background-color: #F9FAFB;"></div>
-        <div class="register-box form-box" style="background: #f9f9f9; border: 2px solid #AF6611;height: 67%; width: 53%;">
+        <div class="register-box form-box">
         <header style="font-size: 150%; padding: 2px">Manage Profile</header>
             <?php
             $errorMessages = array(); // Array to store error messages
@@ -160,10 +156,16 @@
                 <input placeholder="Confirm Password" type="password" name="confirm" id="confirm" autocomplete="off">
                 </div>
 
-                <div class="button-row" style="display: flex; margin-top: 20px; justify-content: right;">
-                <button type="button" class="btn" onclick="window.history.back()" name="cancel" value="Cancel" style="margin-right: 10px; background-color: #E24B4B; border-radius: 20px;">Cancel</button>
-                <button type="submit" id="submitButton" class="btn" name="submit" value="Submit" style="margin-right: 10px; background-color: #E2AF4B; border-radius: 20px;" disabled>Update</button>
+                
+
+                <div class="button-row">
+                <a href="php/logout.php" onclick="confirmLogout()"><button class="" style="text-align:left;">Log Out</button></a>
+                <div>
+                    <button type="button" class="btn" onclick="window.history.back()" name="cancel" value="Cancel" style="margin-right: 10px; background-color: #E24B4B; border-radius: 20px; border: solid #E24B4B; color:#fff;">Cancel</button>
+                    <button type="submit" id="submitButton" class="btn" name="submit" value="Submit" style="margin-right: 10px; background-color: #E2AF4B; border-radius: 20px; border: solid #E2AF4B; color:#fff;" disabled>Update</button>
                 </div>
+            </div>
+
 
                 <script>
                 const form = document.getElementById('form');
@@ -185,11 +187,20 @@
 
                 // Call the toggleSubmitButton function initially to check for changes
                 toggleSubmitButton();
+
+                function confirmLogout() {
+                    if (confirm("Are you sure you want to log out?")) {
+                        window.location.href = "php/logout.php"; // Redirect to logout page if confirmed
+                    }
+                }
                 </script>
                 </div>
             </form>
         </div>
+
+        
         <?php } ?>
     </div>
 </body>
+    
 </html>
