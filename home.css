@@ -1,28 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
-    font-size: 1vw;
+    font-size: 1.5vw;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container a {
+    display: block; /* Make the anchor element a block-level element */
+    text-decoration: none; /* Remove underlines from links */
+    color: inherit; /* Inherit text color from parent */
+    text-align: center;
+}
+
+.box-img {
+    /* Add styles for the image */
+    background-image: url('logo_light.png'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 80px; /* Adjust the image height */
+}
+
+.box-divider {
+    border-top: 2px solid #ddd; 
+    opacity: .3;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.box.unlocked {
+    pointer-events: auto; /* Enable click events when unlocked */
+}
+
+.box-content {
+    flex-grow: 1; /* Allow the text content to grow and fill the remaining space */
+    padding: 10px;
+    text-decoration: none; /* Remove underlines from links */
+}
+
+/* Change box background color on hover */
+.box:hover {
+    background-color: #fbfbfb;
+}
+
+/* Lower opacity for locked columns */
+.box.locked {
+    opacity: 0.5;
+    pointer-events: none; /* Disable click events on locked columns */
+}
+
+.logo{
+    text-align: left;
+    padding: 0%;
 }
 
 .container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 90vh;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    text-align: left;
 }
 
-.box{
-background: #ffffff;
-display: flex;
-flex-direction: column;
-padding: 25px 25px;
-border-radius: 20px;
-box-shadow: 0 0 10px 0 rgba(0,0,0,0.1),
-            0 32px 64px -48px rgba(0,0,0,0.5);
+.intro-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap to the next row on small screens */
+    justify-content: space-between;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    min-height: 45vh;
+    padding-top: 20px; 
 }
+
+.box {
+    width: 100%; /* By default, columns take full width */
+    background-color: #f2f2f2;
+    padding: 5px;
+    border: 1.5px solid #ddd;
+    text-align: center;
+    margin-right: 10px; /* Add some spacing between columns */
+    margin-bottom: 10px;
+    background: #ffffff;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0),
+    0 0px 64px -30px rgba(0,0,0,0.1);
+}
+
+/* Media query for smaller screens */
+@media screen and (min-width: 768px) {
+    .box {
+        width: calc(20% - 20px); /* Calculate column width with margin */
+    }
+}
+
+@media screen and (max-width: 768px) {
+            .column {
+                width: 100%; /* Set column width to full width on smaller screens */
+            }
+        }
 /**Home**/
+
 
 
 .menu {

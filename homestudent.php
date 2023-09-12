@@ -15,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
+    <script src="homescript.js"></script>
     <title>Home</title>
 </head>
 <body>
@@ -52,17 +53,83 @@
     
     </header>
     <main>
-        <div class="main-box top">
-            <div class="top">
-                <div class="box">
-                    <p>Hello <b><?php echo $res_Uname ?></b></p>
-                </div>
-            </div>
-        </div>
-    </main>
+    <header>Hello,<b><?php echo $res_Uname ?>!</b></header><br>
+
     <div class="container">
+        <header><b>Introduction</b></header>
+        <div class="intro-container">
+            <a href="profileedit_student.php" class="box" onclick="unlockColumn(this, 1)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Origins of the Periodic Table</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 2)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Names, Symbols, & Atomic number of the Elements</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 3)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Groups and Periods in the Periodic Table</div>
+                </div>
+            </a>
+            <a href="#" class="box locked" onclick="unlockColumn(this, 4)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Elements, Compounds, and Mixtures</div>
+                </div>
+            </a>
+        </div>
+    <br>
+        
+    <header style="display: flex; justify-content: space-between; ">
+    <b>Lessons</b>
+    <a href="element_lessons.php"><u style="font-size:1vw">See All</u></a>
+</header>
+        <div class="intro-container">
+            <a href="" class="box locked" onclick="unlockColumn(this, 5)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Hydrogen</div>
+                </div>
+            </a>
+            <a href="" class="box locked" onclick="unlockColumn(this, 6)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Helium</div>
+                </div>
+            </a>
+            <a href="" class="box locked" onclick="unlockColumn(this, 7)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Lithium</div>
+                </div>
+            </a>
+            <a href="" class="box locked" onclick="unlockColumn(this, 8)">
+                <div class="box-img"></div>
+                <div class="box-divider"></div>
+                <div class="box-content">
+                    <div>Beryllium</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    </div>
+        
+    </main>
+    <div class="intro-container">
         <a href="php/logout.php"><button class="btn">Log Out</button></a>
     </div> 
-
+    <script src="homescript.js"></script>
 </body>
 </html>
