@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1vw;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.box{
+background: #ffffff;
+display: flex;
+flex-direction: column;
+padding: 25px 25px;
+border-radius: 20px;
+box-shadow: 0 0 10px 0 rgba(0,0,0,0.1),
+            0 32px 64px -48px rgba(0,0,0,0.5);
+}
+/**Home**/
+
+
+.menu {
+    display: flex; /* Use flexbox for horizontal layout */
+    list-style: none;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.menu li {
+    padding: 0px 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu li:last-child {
+    border-right: none;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #737373; /* Change this color to your desired color */
+    transition: background-color 0.2s;
+    display: block;
+    padding: 5px;
+    font-size: 1.2vw;
+    white-space: nowrap;
+    text-shadow: none;
+}
+
+/* Style for the menu item links when hovered */
+.menu li a:hover {
+    background-color: #f4f4f4;
+}
+
+.nav{
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    line-height: 30px;
+    z-index: 50;
+    padding: 2%;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #333;
+}

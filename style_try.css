@@ -10,7 +10,7 @@
 
 
 body{
-    background: #efefef;
+    background: #fefefe;
 }
 
 header{
@@ -415,4 +415,15 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #737373; /* Change this color to your desired color */
+    transition: background-color 0.2s;
+    display: block;
+    padding: 5px;
+    font-size: 1.2vw;
+    white-space: nowrap;
+    text-shadow: none;
 }

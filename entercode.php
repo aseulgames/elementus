@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style_try.css">
     <title>User type</title>
 </head>
-/*try commit */
 
     <style>
         a {

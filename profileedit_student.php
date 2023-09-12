@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
     <title>User type</title>
 </head>
 <style>
@@ -30,11 +30,29 @@
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
             <li><a class="#" href="#">Games</a></li>
-            <li><a class="#" href="#">History</a></li>
-            <li><a class="#" href="#">Profile</a></li>
+            <li><a class="#" href="periodictable.php">Periodic Table</a></li>
+
+            <?php
+
+            $id = $_SESSION['id'];
+            $query = mysqli_query($con, "SELECT * FROM students WHERE Id=$id");
+
+            while($result = mysqli_fetch_assoc($query)){
+                $res_Uname = $result['Username'];
+                $res_Email = $result['Email'];
+                $res_Fname = $result['FirstName'];
+                $res_Lname = $result['LastName'];
+                $res_id = $result['Id'];
+            }
+
+            ?>
+
+            <li><a class="#" href="profileedit_student.php">Profile</a></li>
         </ul>
     </div>
 <br>
+
+<link rel="stylesheet" href="style.css">
 
     <div class="register-container" style="min-height: 60vh;">
         <div class="faded-box register-box" style="width: 56%; height: 62%; 
