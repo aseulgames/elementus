@@ -1,13 +1,47 @@
 <?php
-    session_start();
+session_start();
 
-    include("php/config.php");
-    if(!isset($_SESSION['valid'])){
-        header("Location: index.php");
+include("php/config.php");
+if (!isset($_SESSION['valid'])) {
+    header("Location: index.php");
+}
+
+$user_id = $_SESSION['id'];
+
+// Query the database to get a list of lessons
+$query = mysqli_query($con, "SELECT lesson_id, lesson_title FROM lessons");
+
+// Create an array to store completion status for each lesson
+$lesson_completion = [];
+
+// Retrieve the ID of the last completed lesson for the current user
+$last_completed_query = mysqli_query($con, "SELECT MAX(lesson_id) AS last_completed FROM student_lesson_progress WHERE Id = $user_id AND completed = 1");
+$last_completed_data = mysqli_fetch_assoc($last_completed_query);
+$last_completed_lesson_id = $last_completed_data['last_completed'];
+
+while ($lesson = mysqli_fetch_assoc($query)) {
+    $lesson_id = $lesson['lesson_id'];
+
+    if ($lesson_id <= $last_completed_lesson_id + 1) {
+        // Check if the lesson has been completed by the user
+        $completed_query = mysqli_query($con, "SELECT completed FROM student_lesson_progress WHERE Id = $user_id AND lesson_id = $lesson_id");
+        $completed_data = mysqli_fetch_assoc($completed_query);
+
+        if ($completed_data && $completed_data['completed'] == 1) {
+            // Lesson has been completed
+            $box_class = 'unlocked';
+        } else {
+            // Lesson has not been completed
+            $box_class = 'locked';
+        }
+    } else {
+        // Lesson is not the next one to unlock
+        $box_class = 'locked';
     }
 
-    
-
+    // Store the completion status in the array
+    $lesson_completion[$lesson_id] = $box_class;
+}
 ?>
 
 <!DOCTYPE html>
@@ -60,28 +94,28 @@
     <div class="container">
         <header><b>Introduction</b></header>
         <div class="intro-container">
-            <a href="origins.php" class="box" onclick="unlockColumn(this, 1)">
+            <a href="origins.php" class="box <?php echo $lesson_completion[1] ?>" onclick="unlockColumn(this, 1)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div>Origins of the Periodic Table</div>
                 </div>
             </a>
-            <a href="namessymbols.php" class="box locked" onclick="unlockColumn(this, 2)">
+            <a href="namessymbols.php" class="box <?php echo $lesson_completion[2] ?>" onclick="unlockColumn(this, 2)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div>Names, Symbols, & Atomic number of the Elements</div>
                 </div>
             </a>
-            <a href="#" class="box locked" onclick="unlockColumn(this, 3)">
+            <a href="groupsperiods.php" class="box <?php echo $lesson_completion[3] ?>" onclick="unlockColumn(this, 3)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div>Groups and Periods in the Periodic Table</div>
                 </div>
             </a>
-            <a href="#" class="box locked" onclick="unlockColumn(this, 4)">
+            <a href="elementscompounds.php" class="box <?php echo $lesson_completion[4] ?>" onclick="unlockColumn(this, 4)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">

@@ -6,6 +6,17 @@
         header("Location: index.php");
     }
 
+    $user_id = $_SESSION['id'];
+
+    // Get the lesson ID for the current lesson (you need to know the lesson ID)
+    $lesson_id = 2; // Replace with the actual lesson ID for this lesson
+
+    // Get the user's ID from the session
+    $user_id = $_SESSION['id'];
+
+    // Update the student_lesson_progress table to mark the lesson as completed
+    // You can use an UPDATE query if the record already exists or an INSERT query if it doesn't
+    $query = mysqli_query($con, "INSERT INTO student_lesson_progress (Id, lesson_id, completed) VALUES ($user_id, $lesson_id, 1) ON DUPLICATE KEY UPDATE completed = 1");
 ?>
 
 <!DOCTYPE html>

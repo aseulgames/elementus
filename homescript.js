@@ -1,11 +1,14 @@
-const unlockedColumns = new Set();
+function unlockColumn(box, lessonId) {
+    // Check if the lesson box is locked
+    if (box.classList.contains('locked')) {
+        // If locked, you can perform additional checks here, e.g., if the user has completed the lesson
 
-    function unlockColumn(element, lessonId) {
-        // Perform any necessary actions when a lesson is unlocked (e.g., update the database)
-        // Example: Send an AJAX request to mark the lesson as unlocked
+        // Assuming you have determined the lesson can be unlocked
+        // Change the class to 'unlocked'
+        box.classList.remove('locked');
+        box.classList.add('unlocked');
 
-        // After the lesson is unlocked, update the element's class to remove the "locked" class
-        element.classList.remove('locked');
+        // You can also update the lesson's completion status in the database here
+        // Using AJAX or a form submission to send the update to your PHP script
     }
-
-        
+}
