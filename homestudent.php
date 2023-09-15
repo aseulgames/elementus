@@ -6,6 +6,8 @@
         header("Location: index.php");
     }
 
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -31,11 +33,12 @@
             <li><a class="#" href="#">About</a></li>
             <li><a class="#" href="#">Games</a></li>
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
+            <li><a class="#" href="profileedit_student.php">Profile</a></li>
 
             <?php
 
             $id = $_SESSION['id'];
-            $query = mysqli_query($con, "SELECT * FROM students WHERE Id=$id");
+            $query = mysqli_query($con, "SELECT * FROM students WHERE Id = $id");
 
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
@@ -44,10 +47,9 @@
                 $res_Lname = $result['LastName'];
                 $res_id = $result['Id'];
             }
-
             ?>
 
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+            
         </ul>
     </div>
     
@@ -58,14 +60,14 @@
     <div class="container">
         <header><b>Introduction</b></header>
         <div class="intro-container">
-            <a href="" class="box" onclick="unlockColumn(this, 1)">
+            <a href="origins.php" class="box" onclick="unlockColumn(this, 1)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div>Origins of the Periodic Table</div>
                 </div>
             </a>
-            <a href="#" class="box locked" onclick="unlockColumn(this, 2)">
+            <a href="namessymbols.php" class="box locked" onclick="unlockColumn(this, 2)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">

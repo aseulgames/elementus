@@ -43,8 +43,7 @@
                 $res_Fname = $result['FirstName'];
                 $res_Lname = $result['LastName'];
                 $res_id = $result['Id'];
-            }
-
+            }   
             ?>
 
             <li><a class="#" href="profileedit_student.php">Profile</a></li>

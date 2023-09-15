@@ -1,9 +1,11 @@
 const unlockedColumns = new Set();
 
-        function unlockColumn(column, columnNumber) {
-            if (!unlockedColumns.has(columnNumber)) {
-                // Unlock the clicked column
-                column.classList.add('unlocked');
-                unlockedColumns.add(columnNumber);
-            }
-        }
+    function unlockColumn(element, lessonId) {
+        // Perform any necessary actions when a lesson is unlocked (e.g., update the database)
+        // Example: Send an AJAX request to mark the lesson as unlocked
+
+        // After the lesson is unlocked, update the element's class to remove the "locked" class
+        element.classList.remove('locked');
+    }
+
+        

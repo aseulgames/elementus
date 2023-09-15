@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
     <title>Home</title>
 </head>
 <body>
@@ -60,8 +60,17 @@
         </div>
     </main>
     <div class="container">
-        <a href="php/logout.php"><button class="btn">Log Out</button></a>
+        <button onclick="logout()" class="btn">Log Out</button>
     </div> 
 
+    <script>
+        function logout() {
+        if (confirm("Are you sure you want to log out?")) { // Added parentheses here
+            // Redirect the user after successful logout
+            window.location.href = "php/logout.php";
+        }
+    }
+    </script>
+    
 </body>
 </html>

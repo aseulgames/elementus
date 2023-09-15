@@ -92,7 +92,7 @@
 		  <ul class="year">
 			<li><b>1766</b></li>
 			<li><i class="discoveredby">Henry Cavendish (England)</i></li>
-			<li>-------------------------</li>
+			<li>----------------</li>
 			<li>Melting Point: <b>-161.79°C</b></li>
 			<li>Boiling Point: <b>-158.21°C</b></li>
 		  </ul>
@@ -125,7 +125,7 @@
 		  <ul class="year">
 			<li><b>1895</b></li>
 			<li><i class="discoveredby">Ramsey, Langet, Cleve (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-272.2°C</b></li>
 			<li>Boiling Point: <b>-268.9°C</b></li>
 		  </ul>
@@ -158,13 +158,13 @@
 		  <ul class="year">
 			<li><b>1817</b></li>
 			<li><i class="discoveredby">Johann Arfwedson (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>180.5°C</b></li>
 			<li>Boiling Point: <b>1342°C</b></li>
 		  </ul>
 		  <div class="atomic-mass">6.94</div>
 		  <ul class="atomic-weight">
-			<li style="font-size: .7vw;">Solid</li>
+			<li>Solid</li>
 			<li>3</li>
 		  </ul>
 		  <!-- Element year end -->
@@ -194,7 +194,7 @@
 		  <ul class="year">
 			<li><b>1798</b></li>
 			<li><i class="discoveredby">Woheler and Bussy (Germany)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1287°C</b></li>
 			<li>Boiling Point: <b>2471°C</b></li>
 		  </ul>
@@ -231,8 +231,8 @@
 		  <!-- Element year start -->
 		  <ul class="year">
 			<li><b>1808</b></li>
-			<li><i class="discoveredby" style="font-size: .4vw;">Davy, Gay-Lussac, and Thenard (England)</i></li>
-			<li>-------------------------</li>
+			<li><i class="discoveredby">Davy, Gay-Lussac, and Thenard (England)</i></li>
+			<li>--------------</li>
 			<li>Melting Point: <b>2200°C</b></li>
 			<li>Boiling Point: <b>2550°C</b></li>
 		  </ul>
@@ -271,7 +271,7 @@
 		  <ul class="year">
 			<li><b>1789 (Antoine Lavoisier)</b></li>
 			<li><i class="discoveredby">Known to the ancients</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>3550°C</b></li>
 			<li>Boiling Point: <b>4827°C</b></li>
 		  </ul>
@@ -312,7 +312,7 @@
 		  <ul class="year">
 			<li><b>1772</b></li>
 			<li><i class="discoveredby">Daniel Rutherford (Scotland)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-209.86°C</b></li>
 			<li>Boiling Point: <b>-195.8°C</b></li>
 		  </ul>
@@ -353,7 +353,7 @@
 		  <ul class="year">
 			<li><b>1774</b></li>
 			<li><i class="discoveredby" style="font-size: 0.4vw">Priestly and Scheele (England/Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-218.4°C</b></li>
 			<li>Boiling Point: <b>-183°C</b></li>
 		  </ul>
@@ -395,7 +395,7 @@
 		  <ul class="year">
 			<li><b>1886</b></li>
 			<li><i class="discoveredby">Henri Moissan (France)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-219.62°C</b></li>
 			<li>Boiling Point: <b>-188°C</b></li>
 		  </ul>
@@ -438,7 +438,7 @@
 		  <ul class="year">
 			<li><b>1898</b></li>
 			<li><i class="discoveredby">Ramsey and Travers (England)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-248.67°C</b></li>
 			<li>Boiling Point: <b>-246.048°C</b></li>
 		  </ul>
@@ -484,7 +484,7 @@
 		  <ul class="year">
 			<li><b>1807</b></li>
 			<li><i class="discoveredby">Humphrey Davy (England)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>97.81°C</b></li>
 			<li>Boiling Point: <b>882.9°C</b></li>
 		  </ul>
@@ -532,7 +532,7 @@
 		  <ul class="year">
 			<li><b>1808</b></li>
 			<li><i class="discoveredby">Humphrey Davy (England)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>650°C</b></li>
 			<li>Boiling Point: <b>1090°C</b></li>
 		  </ul>
@@ -581,7 +581,7 @@
 		  <ul class="year">
 			<li><b>1825</b></li>
 			<li><i class="discoveredby">Hans Christian Oersted (Denmark)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>660.32°C</b></li>
 			<li>Boiling Point: <b>2518.85°C</b></li>
 		  </ul>
@@ -631,7 +631,7 @@
 		  <ul class="year">
 			<li><b>1823</b></li>
 			<li><i class="discoveredby">Johns Berzelius (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1410°C</b></li>
 			<li>Boiling Point: <b>2355°C</b></li>
 		  </ul>
@@ -682,7 +682,7 @@
 		  <ul class="year">
 			<li><b>1669</b></li>
 			<li><i class="discoveredby">Johns Berzelius (Germany)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>44.1°C</b></li>
 			<li>Boiling Point: <b>280°C</b></li>
 		  </ul>
@@ -734,7 +734,7 @@
 		  <ul class="year">
 			<li><b>1777</b></li>
 			<li><i class="discoveredby" style="font-size: 0.4vw">Antoine Lavoisier (India, China, and Greece)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>112.8°C</b></li>
 			<li>Boiling Point: <b>444.6°C</b></li>
 		  </ul>
@@ -787,7 +787,7 @@
 		  <ul class="year">
 			<li><b>1774</b></li>
 			<li><i class="discoveredby">Carl Wilhelm Scheele (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-101.5°C</b></li>
 			<li>Boiling Point: <b>-34.04°C</b></li>
 		  </ul>
@@ -841,7 +841,7 @@
 		  <ul class="year">
 			<li><b>1894</b></li>
 			<li><i class="discoveredby">Ramsey and Rayleigh (Scotland)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-189.2°C</b></li>
 			<li>Boiling Point: <b>-185.7°C</b></li>
 		  </ul>
@@ -898,7 +898,7 @@
 		  <ul class="year">
 			<li><b>1807</b></li>
 			<li><i class="discoveredby">Sir Humphrey Davy (England)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>63.26°C</b></li>
 			<li>Boiling Point: <b>760°C</b></li>
 		  </ul>
@@ -957,7 +957,7 @@
 		  <ul class="year">
 			<li><b>1808</b></li>
 			<li><i class="discoveredby">Sir Humphrey Davy (England)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>842°C</b></li>
 			<li>Boiling Point: <b>1484°C</b></li>
 		  </ul>
@@ -1017,7 +1017,7 @@
 		  <ul class="year">
 			<li><b>1879</b></li>
 			<li><i class="discoveredby">Lars Nilson (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1541°C</b></li>
 			<li>Boiling Point: <b>2836°C</b></li>
 		  </ul>
@@ -1078,7 +1078,7 @@
 		  <ul class="year">
 			<li><b>1791</b></li>
 			<li><i class="discoveredby">William Gregor (England)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1660°C</b></li>
 			<li>Boiling Point: <b>3287°C</b></li>
 		  </ul>
@@ -1140,7 +1140,7 @@
 		  <ul class="year">
 			<li><b>1830</b></li>
 			<li><i class="discoveredby">Nils Sefstrom (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1890°C</b></li>
 			<li>Boiling Point: <b>3380°C</b></li>
 		  </ul>
@@ -1203,7 +1203,7 @@
 		  <ul class="year">
 			<li><b>1797</b></li>
 			<li><i class="discoveredby">Louis Vauquelin (France)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1890°C</b></li>
 			<li>Boiling Point: <b>2482°C</b></li>
 		  </ul>
@@ -1267,7 +1267,7 @@
 		  <ul class="year">
 			<li><b>1774</b></li>
 			<li><i class="discoveredby">Johann Gahn (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1246°C</b></li>
 			<li>Boiling Point: <b>2062°C</b></li>
 		  </ul>
@@ -1332,7 +1332,7 @@
 		  <ul class="year">
 			<li><b>5000 BC</b></li>
 			<li><i class="discoveredby" style="font-size: 0.4vw">Known to the ancients (Egypt and Mesopotamia)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1246°C</b></li>
 			<li>Boiling Point: <b>2062°C</b></li>
 		  </ul>
@@ -1398,7 +1398,7 @@
 		  <ul class="year">
 			<li><b>1739</b></li>
 			<li><i class="discoveredby">George Brandt (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1495°C</b></li>
 			<li>Boiling Point: <b>2927°C</b></li>
 		  </ul>
@@ -1465,7 +1465,7 @@
 		  <ul class="year">
 			<li><b>1751</b></li>
 			<li><i class="discoveredby">Axel Cronstedt (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1453°C</b></li>
 			<li>Boiling Point: <b>2913°C</b></li>
 		  </ul>
@@ -1533,7 +1533,7 @@
 		  <ul class="year">
 			<li><b>9000 BC</b></li>
 			<li><i class="discoveredby" style="font-size:0.4vw">Known to the ancients (Iraq and Africa)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>1083°C</b></li>
 			<li>Boiling Point: <b>2567°C</b></li>
 		  </ul>
@@ -1602,7 +1602,7 @@
 		  <ul class="year">
 			<li><b>1746</b></li>
 			<li><i class="discoveredby">Andreas Marggraf (Germany)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>420°C</b></li>
 			<li>Boiling Point: <b>907°C</b></li>
 		  </ul>
@@ -1672,7 +1672,7 @@
 		  <ul class="year">
 			<li><b>1875</b></li>
 			<li><i class="discoveredby" style="font-size:0.4vw">Paul Emile Lecoq de Boisbaudran (France)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>29.78°C</b></li>
 			<li>Boiling Point: <b>2204°C</b></li>
 		  </ul>
@@ -1743,7 +1743,7 @@
 		  <ul class="year">
 			<li><b>1886</b></li>
 			<li><i class="discoveredby">Clemens Winkler (Germany)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>937.4°C</b></li>
 			<li>Boiling Point: <b>2830°C</b></li>
 		  </ul>
@@ -1815,7 +1815,7 @@
 		  <ul class="year">
 			<li><b>1250</b></li>
 			<li><i class="discoveredby" style="font-size:0.4vw">Magnus (Early Chinese, Greek and Egyptian)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>817°C</b></li>
 			<li>Boiling Point: <b>613°C</b></li>
 		  </ul>
@@ -1888,7 +1888,7 @@
 		  <ul class="year">
 			<li><b>1817</b></li>
 			<li><i class="discoveredby">Jons Berzelius (Sweden)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>217°C</b></li>
 			<li>Boiling Point: <b>684.9°C</b></li>
 		  </ul>
@@ -1962,7 +1962,7 @@
 		  <ul class="year">
 			<li><b>1826</b></li>
 			<li><i class="discoveredby">Antoine J. Balard (France)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-7.2°C</b></li>
 			<li>Boiling Point: <b>58.78°C</b></li>
 		  </ul>
@@ -2037,7 +2037,7 @@
 		  <ul class="year">
 			<li><b>1898</b></li>
 			<li><i class="discoveredby">Ramsey and Rayleigh (Scotland)</i></li>
-			<li>-------------------------</li>
+			<li>--------------</li>
 			<li>Melting Point: <b>-156.6°C</b></li>
 			<li>Boiling Point: <b>-152.3°C</b></li>
 		  </ul>
@@ -5314,8 +5314,17 @@
 			<div class="symbol">Ta</div>
 			<div class="name">Tantalum</div>
 		  </div>
-		  <div class="atomic-mass">180.95</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1783</b></li>
+			<li><i class="discoveredby">Jose and Fausto Elhuyar(Sweden)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>3410°C</b></li>
+			<li>Boiling Point: <b>5660°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">180.948</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -5323,6 +5332,7 @@
 			<li>11</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c6 r6">
@@ -5423,8 +5433,17 @@
 			<div class="symbol">W</div>
 			<div class="name">Tungsten</div>
 		  </div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1766</b></li>
+			<li><i class="discoveredby">Henry Cavendish (England)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>161.79°C</b></li>
+			<li>Boiling Point: <b>158.21°C</b></li>
+		  </ul>
 		  <div class="atomic-mass">183.84</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -5432,6 +5451,7 @@
 			<li>12</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c7 r6">
@@ -5533,8 +5553,17 @@
 			<div class="symbol">Re</div>
 			<div class="name">Rhenium</div>
 		  </div>
-		  <div class="atomic-mass">186.21</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1925</b></li>
+			<li><i class="discoveredby">Walter and Ida Noddack (Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>3180°C</b></li>
+			<li>Boiling Point: <b>5627°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">186.207</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -5542,6 +5571,7 @@
 			<li>13</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c8 r6">
@@ -5644,8 +5674,17 @@
 			<div class="symbol">Os</div>
 			<div class="name">Osmium</div>
 		  </div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1803 </b></li>
+			<li><i class="discoveredby">Smithson Tennant (London)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>3033°C</b></li>
+			<li>Boiling Point: <b>5012°C</b></li>
+		  </ul>
 		  <div class="atomic-mass">190.23</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -5653,6 +5692,7 @@
 			<li>14</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c9 r6">
@@ -5756,8 +5796,17 @@
 			<div class="symbol">Ir</div>
 			<div class="name">Iridium</div>
 		  </div>
-		  <div class="atomic-mass">192.22</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1803 </b></li>
+			<li><i class="discoveredby">Smithson Tennant (London)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>2410°C</b></li>
+			<li>Boiling Point: <b>4130°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">192.217</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -5765,6 +5814,7 @@
 			<li>15</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c10 r6">
@@ -5869,8 +5919,17 @@
 			<div class="symbol">Pt</div>
 			<div class="name">Platinum</div>
 		  </div>
-		  <div class="atomic-mass">195.08</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1735</b></li>
+			<li><i class="discoveredby">Julius Scaliger (South America)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1769°C</b></li>
+			<li>Boiling Point: <b>3827°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">195.084</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -5878,6 +5937,7 @@
 			<li>17</li>
 			<li>1</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c11 r6">
@@ -5983,8 +6043,17 @@
 			<div class="symbol">Au</div>
 			<div class="name">Gold</div>
 		  </div>
-		  <div class="atomic-mass">196.97</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1848</b></li>
+			<li><i class="discoveredby">Known to the ancients (California )</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1064.3°C</b></li>
+			<li>Boiling Point: <b>2808°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">196.967</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -5992,6 +6061,7 @@
 			<li>18</li>
 			<li>1</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c12 r6">
@@ -6098,8 +6168,17 @@
 			<div class="symbol">Hg</div>
 			<div class="name">Mercury</div>
 		  </div>
-		  <div class="atomic-mass">200.59</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>265</b></li>
+			<li><i class="discoveredby">Known to the ancients</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>-38.87°C</b></li>
+			<li>Boiling Point: <b>356.58</b></li>
+		  </ul>
+		  <div class="atomic-mass">200.592</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6107,6 +6186,7 @@
 			<li>18</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element post-transition-metal c13 r6">
@@ -6214,8 +6294,17 @@
 			<div class="symbol">Tl</div>
 			<div class="name">Thallium</div>
 		  </div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1861</b></li>
+			<li><i class="discoveredby">William Crookes (South Korea)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>303.5°C</b></li>
+			<li>Boiling Point: <b>1457</b></li>
+		  </ul>
 		  <div class="atomic-mass">204.38</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6223,6 +6312,7 @@
 			<li>18</li>
 			<li>3</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element post-transition-metal c14 r6">
@@ -6331,8 +6421,17 @@
 			<div class="symbol">Pb</div>
 			<div class="name">Lead</div>
 		  </div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>3000</b></li>
+			<li><i class="discoveredby">Known to the ancients(Turkey)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>327.5°C</b></li>
+			<li>Boiling Point: <b>1740</b></li>
+		  </ul>
 		  <div class="atomic-mass">207.2</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6340,6 +6439,7 @@
 			<li>18</li>
 			<li>4</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element post-transition-metal c15 r6">
@@ -6449,8 +6549,17 @@
 			<div class="symbol">Bi</div>
 			<div class="name">Bismuth</div>
 		  </div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1753</b></li>
+			<li><i class="discoveredby">Known to the ancients(Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>271.3°C</b></li>
+			<li>Boiling Point: <b>1560°C</b></li>
+		  </ul>
 		  <div class="atomic-mass">208.98</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6458,6 +6567,7 @@
 			<li>18</li>
 			<li>5</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element post-transition-metal c16 r6">
@@ -6568,8 +6678,17 @@
 			<div class="symbol">Po</div>
 			<div class="name">Polonium</div>
 		  </div>
-		  <div class="atomic-mass">(209)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1753</b></li>
+			<li><i class="discoveredby"">Marie and Pierre Curie(Czech Republic)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>254°C</b></li>
+			<li>Boiling Point: <b>962°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">209</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6577,6 +6696,7 @@
 			<li>18</li>
 			<li>6</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element metalloid c17 r6">
@@ -6688,8 +6808,17 @@
 			<div class="symbol">At</div>
 			<div class="name">Astatine</div>
 		  </div>
-		  <div class="atomic-mass">(210)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1940</b></li>
+			<li><i class="discoveredby">Corson, MacKenzie, and Segrè(California)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>302°C</b></li>
+			<li>Boiling Point: <b>337°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">210</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6697,6 +6826,7 @@
 			<li>18</li>
 			<li>7</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element noble-gas c18 r6">
@@ -6809,8 +6939,17 @@
 			<div class="symbol">Rn</div>
 			<div class="name">Radon</div>
 		  </div>
-		  <div class="atomic-mass">(222)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1900</b></li>
+			<li><i class="discoveredby">Friedrich Ernst Dorn(Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>-71°C</b></li>
+			<li>Boiling Point: <b>-61.8°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">222</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6818,6 +6957,7 @@
 			<li>18</li>
 			<li>8</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element alkali-metal c1 r7">
@@ -6933,8 +7073,17 @@
 			<div class="symbol">Fr</div>
 			<div class="name">Francium</div>
 		  </div>
-		  <div class="atomic-mass">(223)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1939</b></li>
+			<li><i class="discoveredby">Marguerite Perey(France)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>27°C</b></li>
+			<li>Boiling Point: <b>677°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">223</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -6943,6 +7092,7 @@
 			<li>8</li>
 			<li>1</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element alkaline-earth-metal c2 r7">
@@ -7059,8 +7209,17 @@
 			<div class="symbol">Ra</div>
 			<div class="name">Radium</div>
 		  </div>
-		  <div class="atomic-mass">(226)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1898</b></li>
+			<li><i class="discoveredby">Pierre and Marie Curie(France)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>700°C</b></li>
+			<li>Boiling Point: <b>1737°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">226</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7069,6 +7228,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c4 r10">
@@ -7186,8 +7346,17 @@
 			<div class="symbol">Ac</div>
 			<div class="name">Actinium</div>
 		  </div>
-		  <div class="atomic-mass">(227)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1899</b></li>
+			<li><i class="discoveredby">André-Louis Debierne(France)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1050°C</b></li>
+			<li>Boiling Point: <b>3200°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">227</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7196,6 +7365,7 @@
 			<li>9</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c5 r10">
@@ -7314,8 +7484,17 @@
 			<div class="symbol">Th</div>
 			<div class="name">Thorium</div>
 		  </div>
-		  <div class="atomic-mass">232.04</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1828 </b></li>
+			<li><i class="discoveredby">Jöns Jakob Berzelius (Sweden)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1750°C</b></li>
+			<li>Boiling Point: <b>4790°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">232.038</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7324,6 +7503,7 @@
 			<li>10</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c6 r10">
@@ -7443,8 +7623,17 @@
 			<div class="symbol">Pa</div>
 			<div class="name">Protactinium</div>
 		  </div>
-		  <div class="atomic-mass">231.04</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1917</b></li>
+			<li><i class="discoveredby">Fajans and Göhring(France)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1600°C</b></li>
+			<li>Boiling Point: <b>4000°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">231.036</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7453,6 +7642,7 @@
 			<li>9</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c7 r10">
@@ -7573,8 +7763,17 @@
 			<div class="symbol">U</div>
 			<div class="name">Uranium</div>
 		  </div>
-		  <div class="atomic-mass">238.03</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1789</b></li>
+			<li><i class="discoveredby">Martin Klaproth(Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1132°C</b></li>
+			<li>Boiling Point: <b>3818°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">238.029</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7583,6 +7782,7 @@
 			<li>9</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c8 r10">
@@ -7704,8 +7904,17 @@
 			<div class="symbol">Np</div>
 			<div class="name">Neptunium</div>
 		  </div>
-		  <div class="atomic-mass">(237)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1940</b></li>
+			<li><i class="discoveredby">McMillan and Abelson(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>640°C</b></li>
+			<li>Boiling Point: <b>3902°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">237</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7714,6 +7923,7 @@
 			<li>9</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c9 r10">
@@ -7836,8 +8046,17 @@
 			<div class="symbol">Pu</div>
 			<div class="name">Plutonium</div>
 		  </div>
-		  <div class="atomic-mass">(244)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1940</b></li>
+			<li><i class="discoveredby">McMillan and Abelson(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>639.5°C</b></li>
+			<li>Boiling Point: <b>3235°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">244</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7846,6 +8065,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c10 r10">
@@ -7969,8 +8189,17 @@
 			<div class="symbol">Am</div>
 			<div class="name">Americium</div>
 		  </div>
-		  <div class="atomic-mass">(243)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1944</b></li>
+			<li><i class="discoveredby">Seaborg, James and Morgan(US)</i></li>
+			<li>---------------</li>
+			<li>Melting Point: <b>994°C</b></li>
+			<li>Boiling Point: <b>2607°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">243</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -7979,6 +8208,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c11 r10">
@@ -8103,8 +8333,17 @@
 			<div class="symbol">Cm</div>
 			<div class="name">Curium</div>
 		  </div>
-		  <div class="atomic-mass">(247)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1944</b></li>
+			<li><i class="discoveredby">Seaborg, James, and Ghiorso(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1340°C</b></li>
+			<li>Boiling Point: <b>3110°C</b></li>
+		  </ul>
+		  <div class="atomic-mass">247</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -8113,6 +8352,7 @@
 			<li>9</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c12 r10">
@@ -8238,8 +8478,17 @@
 			<div class="symbol">Bk</div>
 			<div class="name">Berkelium</div>
 		  </div>
-		  <div class="atomic-mass">(247)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1949</b></li>
+			<li><i class="discoveredby">Thompson, Seaborg, Street, and Ghirorso(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1050°C</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">247</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -8248,6 +8497,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c13 r10">
@@ -8374,8 +8624,17 @@
 			<div class="symbol">Cf</div>
 			<div class="name">Californium</div>
 		  </div>
-		  <div class="atomic-mass">(251)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1950</b></li>
+			<li><i class="discoveredby">Thompson, Seaborg, Street, and Ghirorso(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>900°C</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">251</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -8384,6 +8643,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c14 r10">
@@ -8511,8 +8771,17 @@
 			<div class="symbol">Es</div>
 			<div class="name">Einsteinium</div>
 		  </div>
-		  <div class="atomic-mass">(252)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1952</b></li>
+			<li><i class="discoveredby">Albert Ghiorso(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>860°C</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">252</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -8521,6 +8790,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c15 r10">
@@ -8649,8 +8919,17 @@
 			<div class="symbol">Fm</div>
 			<div class="name">Fermium</div>
 		  </div>
-		  <div class="atomic-mass">(257)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1953</b></li>
+			<li><i class="discoveredby">Albert Ghiorso(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1527°C</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">257</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -8659,6 +8938,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c16 r10">
@@ -8788,6 +9068,21 @@
 			<div class="symbol">Md</div>
 			<div class="name">Mendelevium</div>
 		  </div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1955</b></li>
+			<li><i class="discoveredby">Thompson, Seaborg, Choppin, and Harvey(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>827°C</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">258</div>
+		  <ul class="atomic-weight">
+			<lis>Solid</li>
+			<lis>0</li>
+		  </ul>
+<!-- Element year end -->
+
 		  <div class="atomic-mass">(258)</div>
 		  <ul class="atomic-weight">
 			<li>2</li>
@@ -8928,8 +9223,18 @@
 			<div class="symbol">No</div>
 			<div class="name">Nobelium</div>
 		  </div>
-		  <div class="atomic-mass">(259)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1957</b></li>
+			<li><i class="discoveredby">Salfred Nobel(Sweden)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>827
+°C</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">259</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -8938,6 +9243,7 @@
 			<li>8</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element actinoid c18 r10">
@@ -9069,8 +9375,16 @@
 			<div class="symbol">Lr</div>
 			<div class="name">Lawrencium</div>
 		  </div>
-		  <div class="atomic-mass">(266)</div>
+		  <ul class="year">
+			<li><b>1961</b></li>
+			<li><i class="discoveredby">Lawrence Berkelely Laboratory(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>1627°C</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">262</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -9079,6 +9393,7 @@
 			<li>8</li>
 			<li>3</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c4 r7">
@@ -9211,8 +9526,17 @@
 			<div class="symbol">Rf</div>
 			<div class="name">Rutherfordium</div>
 		  </div>
-		  <div class="atomic-mass">(267)</div>
-		  <ul class="atomic-weight">
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1969</b></li>
+			<li><i class="discoveredby">Geogry Flerov(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">267</div>
+		  <ul class="atomic-weight">	
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -9221,6 +9545,7 @@
 			<li>10</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c5 r7">
@@ -9354,8 +9679,17 @@
 			<div class="symbol">Db</div>
 			<div class="name">Dubnium</div>
 		  </div>
-		  <div class="atomic-mass">(268)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1970</b></li>
+			<li><i class="discoveredby">Geogry Flerov(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">270</div>
 		  <ul class="atomic-weight">
+			<lis>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -9364,6 +9698,7 @@
 			<li>11</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c6 r7">
@@ -9498,8 +9833,17 @@
 			<div class="symbol">Sg</div>
 			<div class="name">Seaborgium</div>
 		  </div>
-		  <div class="atomic-mass">(269)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1974</b></li>
+			<li><i class="discoveredby">Albert Ghiorso(US)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">269</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -9508,6 +9852,7 @@
 			<li>12</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c7 r7">
@@ -9643,8 +9988,17 @@
 			<div class="symbol">Bh</div>
 			<div class="name">Bohrium</div>
 		  </div>
-		  <div class="atomic-mass">(270)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b> 1976</b></li>
+			<li><i class="discoveredby">Yuri Oganessian(Dubna, Russia)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">270</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -9653,6 +10007,7 @@
 			<li>13</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c8 r7">
@@ -9789,8 +10144,17 @@
 			<div class="symbol">Hs</div>
 			<div class="name">Hassium</div>
 		  </div>
-		  <div class="atomic-mass">(277)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1978</b></li>
+			<li><i class="discoveredby">Heavy Ion Research (Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">270</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -9799,6 +10163,7 @@
 			<li>14</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c9 r7">
@@ -9936,8 +10301,17 @@
 			<div class="symbol">Mt</div>
 			<div class="name">Meitnerium</div>
 		  </div>
-		  <div class="atomic-mass">(278)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1982</b></li>
+			<li><i class="discoveredby">Heavy Ion Research (Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">278</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -9946,6 +10320,7 @@
 			<li>15</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c10 r7">
@@ -10084,8 +10459,17 @@
 			<div class="symbol">Ds</div>
 			<div class="name">Darmstadtium</div>
 		  </div>
-		  <div class="atomic-mass">(281)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1994</b></li>
+			<li><i class="discoveredby">Heavy Ion Research (Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">281</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -10094,6 +10478,7 @@
 			<li>17</li>
 			<li>1</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c11 r7">
@@ -10233,8 +10618,17 @@
 			<div class="symbol">Rg</div>
 			<div class="name">Roentgenium</div>
 		  </div>
-		  <div class="atomic-mass">(282)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1994</b></li>
+			<li><i class="discoveredby">Heavy Ion Research (Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">281</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -10243,6 +10637,7 @@
 			<li>17</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element transition-metal c12 r7">
@@ -10383,8 +10778,17 @@
 			<div class="symbol">Cn</div>
 			<div class="name">Copernicium</div>
 		  </div>
-		  <div class="atomic-mass">(282)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1996</b></li>
+			<li><i class="discoveredby">Heavy Ion Research (Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">285</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -10393,6 +10797,7 @@
 			<li>18</li>
 			<li>2</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c13 r7">
@@ -10534,8 +10939,17 @@
 			<div class="symbol">Nh</div>
 			<div class="name">Nihonium</div>
 		  </div>
-		  <div class="atomic-mass">(286)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>2003</b></li>
+			<li><i class="discoveredby">Kosuke Morita (Japan)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">286</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -10544,6 +10958,7 @@
 			<li>18</li>
 			<li>3</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element post-transition-metal c14 r7">
@@ -10686,8 +11101,17 @@
 			<div class="symbol">Fl</div>
 			<div class="name">Flerovium</div>
 		  </div>
-		  <div class="atomic-mass">(289)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1998</b></li>
+			<li><i class="discoveredby">JINR (Russia)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">289</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -10696,6 +11120,7 @@
 			<li>18</li>
 			<li>4</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c15 r7">
@@ -10839,8 +11264,17 @@
 			<div class="symbol">Mc</div>
 			<div class="name">Moscovium</div>
 		  </div>
-		  <div class="atomic-mass">(290)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>2003</b></li>
+			<li><i class="discoveredby">JINR (Russia)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">289</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -10849,6 +11283,7 @@
 			<li>18</li>
 			<li>5</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c16 r7">
@@ -10993,8 +11428,17 @@
 			<div class="symbol">Lv</div>
 			<div class="name">Livermorium</div>
 		  </div>
-		  <div class="atomic-mass">(293)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>2000</b></li>
+			<li><i class="discoveredby">JINR (Russia)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">293</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -11003,6 +11447,7 @@
 			<li>18</li>
 			<li>6</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c17 r7">
@@ -11148,8 +11593,17 @@
 			<div class="symbol">Ts</div>
 			<div class="name">Tennessine</div>
 		  </div>
-		  <div class="atomic-mass">(294)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>2009</b></li>
+			<li><i class="discoveredby">JINR (Russia)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">293</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -11158,6 +11612,7 @@
 			<li>18</li>
 			<li>7</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element unknown c18 r7">
@@ -11304,8 +11759,17 @@
 			<div class="symbol">Og</div>
 			<div class="name">Oganesson</div>
 		  </div>
-		  <div class="atomic-mass">(294)</div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>2002</b></li>
+			<li><i class="discoveredby">JINR (Russia)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>Unknown</b></li>
+			<li>Boiling Point: <b>Unknown</b></li>
+		  </ul>
+		  <div class="atomic-mass">294</div>
 		  <ul class="atomic-weight">
+			<lis>Unknown</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
@@ -11314,6 +11778,7 @@
 			<li>18</li>
 			<li>8</li>
 		  </ul>
+<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="placeholder lanthanoid c3 r6">

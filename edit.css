@@ -134,3 +134,7 @@ border-radius: 20px;
     align-items: center;
     padding-left: 4%;
 }
+
+.btn:hover{
+    opacity: 0.8;
+}

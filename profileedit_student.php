@@ -2,6 +2,10 @@
     session_start();
 
     include("php/config.php");
+    if(!isset($_SESSION['valid'])){
+        header("Location: index.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="edit.css">
-    <title>User type</title>
+    <title>Manage Profile</title>
 </head>
 <style>
     #submitButton:disabled {
@@ -33,7 +37,7 @@
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
 
             <?php
-
+            
             $id = $_SESSION['id'];
             $query = mysqli_query($con, "SELECT * FROM students WHERE Id=$id");
 
@@ -44,7 +48,6 @@
                 $res_Lname = $result['LastName'];
                 $res_id = $result['Id'];
             }
-
             ?>
 
             <li><a class="#" href="profileedit_student.php">Profile</a></li>
@@ -159,7 +162,9 @@
                 
 
                 <div class="button-row">
-                <a href="php/logout.php" onclick="confirmLogout()"><button class="" style="text-align:left;">Log Out</button></a>
+                <button onclick="logout()">Log Out</button>
+
+
                 <div>
                     <button type="button" class="btn" onclick="window.history.back()" name="cancel" value="Cancel" style="margin-right: 10px; background-color: #E24B4B; border-radius: 20px; border: solid #E24B4B; color:#fff;">Cancel</button>
                     <button type="submit" id="submitButton" class="btn" name="submit" value="Submit" style="margin-right: 10px; background-color: #E2AF4B; border-radius: 20px; border: solid #E2AF4B; color:#fff;" disabled>Update</button>
@@ -168,32 +173,37 @@
 
 
                 <script>
-                const form = document.getElementById('form');
-                const fields = form.querySelectorAll('input[type="text"], input[type="password"]');
-                const submitButton = document.getElementById('submitButton');
 
-                let formChanged = false;
+                    const form = document.getElementById('form');
+                    const fields = form.querySelectorAll('input[type="text"], input[type="password"]');
+                    const submitButton = document.getElementById('submitButton');
 
-                // Function to enable or disable the submit button based on form changes
-                function toggleSubmitButton() {
-                formChanged = Array.from(fields).some(field => field.value !== field.defaultValue);
-                submitButton.disabled = !formChanged;
-                }
+                    let formChanged = false;
 
-                // Add an event listener to each field to detect changes
-                fields.forEach(field => {
-                field.addEventListener('input', toggleSubmitButton);
-                });
-
-                // Call the toggleSubmitButton function initially to check for changes
-                toggleSubmitButton();
-
-                function confirmLogout() {
-                    if (confirm("Are you sure you want to log out?")) {
-                        window.location.href = "php/logout.php"; // Redirect to logout page if confirmed
+                    // Function to enable or disable the submit button based on form changes
+                    function toggleSubmitButton() {
+                    formChanged = Array.from(fields).some(field => field.value !== field.defaultValue);
+                    submitButton.disabled = !formChanged;
                     }
-                }
+
+                    // Add an event listener to each field to detect changes
+                    fields.forEach(field => {
+                    field.addEventListener('input', toggleSubmitButton);
+                    });
+
+                    // Call the toggleSubmitButton function initially to check for changes
+                    toggleSubmitButton();
+
+                    function logout() {
+                        if (confirm("Are you sure you want to log out?")) { // Added parentheses here
+                            // Redirect the user after successful logout
+                            window.location.href = "php/logout.php";
+                        }
+                    }
+
                 </script>
+
+
                 </div>
             </form>
         </div>
