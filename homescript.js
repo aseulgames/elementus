@@ -12,3 +12,4 @@ function unlockColumn(box, lessonId) {
         // Using AJAX or a form submission to send the update to your PHP script
     }
 }
+

@@ -27,7 +27,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
         $completed_query = mysqli_query($con, "SELECT completed FROM student_lesson_progress WHERE Id = $user_id AND lesson_id = $lesson_id");
         $completed_data = mysqli_fetch_assoc($completed_query);
 
-        if ($completed_data && $completed_data['completed'] == 1) {
+        if ($completed_data && $completed_data['completed'] == 1 || $lesson_id == 1) {
             // Lesson has been completed
             $box_class = 'unlocked';
         } else {
