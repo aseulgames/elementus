@@ -2,8 +2,6 @@
 *{
     font-family: 'Poppins', sans-serif;
     font-size: 1.5vw;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 .container a {
@@ -54,7 +52,6 @@
     padding: 0%;
 }
 
-    
 
 .container{
     text-align: left;
@@ -102,6 +99,11 @@
         }
 /**Home**/
 
+body {
+    background-size: cover; /* This will make sure the background image covers the whole window */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-attachment: fixed; /* Fixed background image as the user scrolls */
+}
 
 
 .menu {

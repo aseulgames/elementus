@@ -65,7 +65,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
         <ul class="menu">
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="#">Games</a></li>
+            <li><a class="#" href="games.php">Games</a></li>
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
             <li><a class="#" href="profileedit_student.php">Profile</a></li>
 

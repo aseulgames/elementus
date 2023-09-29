@@ -8,8 +8,9 @@ function unlockColumn(box, lessonId) {
         box.classList.remove('locked');
         box.classList.add('unlocked');
 
-        // You can also update the lesson's completion status in the database here
-        // Using AJAX or a form submission to send the update to your PHP script
     }
 }
+
+
+
 
