@@ -19,17 +19,17 @@ if (!isset($_SESSION['valid'])) {
 </head>
 <body style="background-image: url('images/gamepage.png');">
     <div class="nav">
-        <div class="logo"><a href="homestudent.php" >
-        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
+    <div class="logo"><a href="homestudent.php" >
+        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
             max-height: 100% ;">
             </a>
         </div>
         <ul class="menu">
-            <li><a class="#" href="homestudent.php" style="background-color: #a6ff808e;">Home</a></li>
-            <li><a class="#" href="#" style="background-color: #a178e48e;">About</a></li>
-            <li><a class="#" href="#" style="background-color: #ef82c58e;">Games</a></li>
-            <li><a class="#" href="periodictable.php" style="background-color: #148eff8e;">Periodic Table</a></li>
-            <li><a class="#" href="profileedit_student.php" style="background-color: #ffe39e8e;">Profile</a></li>
+            <li><a class="#" href="homestudent.php">Home</a></li>
+            <li><a class="#" href="#">About</a></li>
+            <li><a class="#" href="games.php">Games</a></li>
+            <li><a class="#" href="periodictable.php">Periodic Table</a></li>
+            <li><a class="#" href="profileedit_student.php">Profile</a></li>
 
             <?php
 

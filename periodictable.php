@@ -17,24 +17,27 @@
 	<title>Periodic Table</title>
 </head>
 
-
 <body>
+	
+<link rel="stylesheet" href="periodictablestyle.css">
 <div class="nav">
-        <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
+    <div class="logo"><a href="homestudent.php" >
+        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
             max-height: 100% ;">
             </a>
         </div>
+		
         <ul class="menu">
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="#">Games</a></li>
+            <li><a class="#" href="games.php">Games</a></li>
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
+            <li><a class="#" href="profileedit_student.php">Profile</a></li>
 
             <?php
 
             $id = $_SESSION['id'];
-            $query = mysqli_query($con, "SELECT * FROM students WHERE Id=$id");
+            $query = mysqli_query($con, "SELECT * FROM students WHERE Id = $id");
 
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
@@ -43,12 +46,14 @@
                 $res_Lname = $result['LastName'];
                 $res_id = $result['Id'];
             }
-
             ?>
 
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+            
         </ul>
+		
     </div>
+</div>
+
 <div class="wrapper">
 	<input class="category-toggle" type="radio" id="alkali-metals" name="categories"/>
 	<input class="category-cancel" type="radio" id="cancel" name="categories"/>
@@ -1974,7 +1979,7 @@
 			<li>18</li>
 			<li>7</li>
 		  </ul>
-<!-- Element year end -->
+	<!-- Element year end -->
 		</div>
 	  </div>
 	  <div class="element noble-gas c18 r4">
@@ -2111,14 +2116,25 @@
 			<div class="symbol">Rb</div>
 			<div class="name">Rubidium</div>
 		  </div>
+		  <!-- Element year start -->
+		  <ul class="year">
+			<li><b>1861</b></li>
+			<li><i class="discoveredby">Bunsen, Kirchoff (Germany)</i></li>
+			<li>--------------</li>
+			<li>Melting Point: <b>3.89°C</b></li>
+			<li>Boiling Point: <b>364.44°C</b></li>
+		  </ul>
 		  <div class="atomic-mass">85.468</div>
 		  <ul class="atomic-weight">
+			<li>Solid</li>
 			<li>2</li>
 			<li>8</li>
 			<li>18</li>
 			<li>8</li>
 			<li>1</li>
 		  </ul>
+			<!-- Element year end -->
+		  
 		</div>
 	  </div>
 	  <div class="element alkaline-earth-metal c2 r5">
@@ -11804,7 +11820,6 @@
 
 	  </div>
 	</div>
-  </div>
 </body>
 </html>
 

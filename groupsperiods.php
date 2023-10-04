@@ -45,18 +45,20 @@ if (isset($_POST['finishLesson'])) {
     </style>
 </head>
 
-<body>
+<body style="background-image: url('images/lessonsbg.png');">
     
-    <div class="nav" style="padding=2%">
-        <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
-            max-height: 100% ; margin: 0; ">
+<link rel="stylesheet" href="home.css">
+<div class="nav" style="background: linear-gradient(-45deg, #9aff9b8e, #00bf028e, #fdfffd8e); ">
+    <div class="logo" style="text-align: left;"><a href="homestudent.php" >
+        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
+            max-height: 100%;">
             </a>
         </div>
+		
         <ul class="menu">
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="#">Games</a></li>
+            <li><a class="#" href="games.php">Games</a></li>
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
             <li><a class="#" href="profileedit_student.php">Profile</a></li>
 
@@ -76,18 +78,26 @@ if (isset($_POST['finishLesson'])) {
 
             
         </ul>
+		
     </div>
-    
+</div>
     </header>
+    <div class="scroll-down-indicator">
+    <span>Scroll down</span>
+    <div class="arrow"></div>
+</div>
+</div>
     <main>
     <link rel="stylesheet" href="lessons.css">
-    <div id="timer">Time remaining: 0:00</div>
-        <h1><strong>Groups and Periods</strong></h1>
-        <h2><strong>Groups (Families)</strong></h2>
+    <div class="lesson-container">
+        <div class="box-lesson">
+    <!-- <div id="timer">Time remaining: 0:00</div> -->
+        <h1><b>Groups and Periods</b></h1>
+        <h2><b>Groups (Families)</b></h2>
         <p>Groups, also known as families, are the vertical columns of elements in the periodic table. Elements that are part of the same group have the same number of valence electrons and similar chemical characteristics. Here is a more thorough explanation:</p>
         <p><strong>Similar Chemical Properties:</strong> Because all elements in a group have an equal number of valence electrons in their outermost electron shells, they behave chemically similarly. Elements having the same number of valence electrons tend to produce comparable kinds of chemical bonds and compounds because valence electrons are the electrons engaged in chemical processes.</p>
         <img src="groups.jpg" alt="groups" class="groups">
-        <h2><strong>Periods</strong></h2>
+        <h2><b>Periods</b></h2>
         <p>The periodic table's horizontal rows of elements are referred to as periods. Even while elements from the same era don't always have the same chemical characteristics, they do have the same number of electron shells. Here is a more detailed explanation:</p>
         <p><strong>Energy Levels:</strong> A new energy level or electron shell is represented by each period. The number of protons and electrons in the nucleus rises as you walk over a period from left to right, increasing the positive charge throughout.</p>
         <p><strong>Atomic Size:</strong> Because they have fewer electron shells, the elements in periods 1 and 2 on the left side of the periodic table have smaller atoms. Because they have more electron shells, the elements on the right side (periods 3 and beyond) have greater atomic sizes.</p>
@@ -130,7 +140,7 @@ if (isset($_POST['finishLesson'])) {
                     $("#nextButton").removeClass("disabled-button");';
                     
                 } else {
-                    echo 'var timer = 5; 
+                    echo 'var timer = 0; 
                     function updateTimer() {
                         var minutes = Math.floor(timer / 60);
                         var seconds = timer % 60;
@@ -168,6 +178,22 @@ if (isset($_POST['finishLesson'])) {
                 });
             });
         });
+
+        window.addEventListener("scroll", function() {
+            var scrollIndicator = document.querySelector(".scroll-down-indicator");
+            var windowScroll = window.scrollY;
+
+            // Calculate the threshold (adjust this value based on your needs)
+            var threshold = 100;
+
+            // Check if the user has scrolled beyond the threshold
+            if (windowScroll > threshold) {
+                scrollIndicator.style.opacity = "0"; // Set opacity to 0 to hide the indicator
+            } else {
+                scrollIndicator.style.opacity = "1"; // Set opacity to 1 to show the indicator
+            }
+        });
+
 
     </script>
 </body>

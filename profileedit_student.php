@@ -26,20 +26,22 @@
 <body>
 <div class="nav">
     <div class="logo"><a href="homestudent.php" >
-    <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
+        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
             max-height: 100% ;">
             </a>
         </div>
+		
         <ul class="menu">
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="#">Games</a></li>
+            <li><a class="#" href="games.php">Games</a></li>
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
+            <li><a class="#" href="profileedit_student.php">Profile</a></li>
 
             <?php
-            
+
             $id = $_SESSION['id'];
-            $query = mysqli_query($con, "SELECT * FROM students WHERE Id=$id");
+            $query = mysqli_query($con, "SELECT * FROM students WHERE Id = $id");
 
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
@@ -50,9 +52,11 @@
             }
             ?>
 
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+            
         </ul>
+		
     </div>
+</div>
 <br>
 
 

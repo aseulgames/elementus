@@ -45,18 +45,20 @@ if (isset($_POST['finishLesson'])) {
     </style>
 </head>
 
-<body>
+<body style="background-image: url('images/lessonsbg.png');">
     
-    <div class="nav" style="padding=2%">
-        <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
-            max-height: 100% ; margin: 0; ">
+<link rel="stylesheet" href="home.css">
+<div class="nav" style="background: linear-gradient(-45deg, #9aff9b8e, #00bf028e, #fdfffd8e); ">
+    <div class="logo" style="text-align: left;"><a href="homestudent.php" >
+        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
+            max-height: 100%;">
             </a>
         </div>
+		
         <ul class="menu">
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="#">Games</a></li>
+            <li><a class="#" href="games.php">Games</a></li>
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
             <li><a class="#" href="profileedit_student.php">Profile</a></li>
 
@@ -76,15 +78,24 @@ if (isset($_POST['finishLesson'])) {
 
             
         </ul>
+		
     </div>
-    
+</div>
     </header>
+    
+    <div class="scroll-down-indicator">
+    <span>Scroll down</span>
+    <div class="arrow"></div>
+</div>
+</div>
     <main>
     <link rel="stylesheet" href="lessons.css">
-    <div id="timer">Time remaining: 0:00</div>
-    <h1><strong>Periodic Table Origins</strong></h1>
+    <div class="lesson-container">
+        <div class="box-lesson">
+    <!-- <div id="timer">Time remaining: 0:00</div> -->
+    <h1><b>Periodic Table Origins</b></h1>
         <p>The periodic table is a fundamental tool in chemistry, organizing the chemical elements based on their properties and atomic structures. Its creation and evolution&nbsp;were aided by the groundbreaking research of numerous scientists, who left their stamp on its history. We'll look at the major players and their outstanding contributions to the creation of the periodic table in this section.</p>
-        <h2><strong>Early Attempts at Element Organization </strong></h2>
+        <br><h2><b>Early Attempts at Element Organization </b></h2>
         <p><strong>Antoine Lavoisier (1789): </strong></p>
         <p>The publication of Lavoisier's seminal book, "Trait&eacute; &Eacute;l&eacute;mentaire de Chimie" (Elementary Treatise of Chemistry), which established the law of conservation of mass and created the groundwork for systematic chemical nomenclature, occurs this year.</p>
         <p>As the "Father of Modern Chemistry," Antoine Lavoisier made ground-breaking discoveries. He also developed systematic chemical nomenclature, which laid the groundwork for consistent element naming, making it simpler to name and accurately describe chemical compounds. His work included the formulation of the law of conservation of mass, which stated that matter cannot be created or destroyed in a chemical reaction.</p>
@@ -121,7 +132,9 @@ if (isset($_POST['finishLesson'])) {
         <p><em><img src="https://s3.amazonaws.com/s3.timetoast.com/public/uploads/photo/7493360/image/302fcd751e2b33a070f5fda03fa3f75c" alt="" width="640" height="195" /></em></p>
         <p><em>Henry Moseley's periodic table of elements</em></p>
         <p>Each scientist contributed to the construction of the periodic table by expanding on the work of their predecessors. The periodic table has developed into a vital resource for comprehending the characteristics and behavior of the elements, beginning with Lavoisier's foundational chemical principles and evolving with Mendeleev's ground-breaking arrangement and Moseley's atomic number-based arrangement. It stands as a testament to the scientific curiosity and innovation of these remarkable individuals.</p>
+        </div>
     </main>
+        </div>
 
     <div class="button-row">
         <button type="button" class="btn" onclick="window.history.back()" name="back" value="back" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;"><  Back </button>
@@ -158,7 +171,7 @@ if (isset($_POST['finishLesson'])) {
                     $("#nextButton").removeClass("disabled-button");';
                     
                 } else {
-                    echo 'var timer = 5; 
+                    echo 'var timer = 0; 
                     function updateTimer() {
                         var minutes = Math.floor(timer / 60);
                         var seconds = timer % 60;
@@ -189,6 +202,7 @@ if (isset($_POST['finishLesson'])) {
                 $("#nextButton").prop("disabled", false);
                 $("#nextButton").removeClass("disabled-button");
 
+                //CHANGEEEEEEEE
                 $.post("origins.php", { finishLesson: 1 }, function(response) {
                     console.log(response);
                 }).fail(function() {
@@ -196,6 +210,21 @@ if (isset($_POST['finishLesson'])) {
                 });
             });
         });
+
+        window.addEventListener("scroll", function() {
+            var scrollIndicator = document.querySelector(".scroll-down-indicator");
+            var windowScroll = window.scrollY;
+
+            var threshold = 100;
+
+            // Check if the user has scrolled beyond the threshold
+            if (windowScroll > threshold) {
+                scrollIndicator.style.opacity = "0"; 
+            } else {
+                scrollIndicator.style.opacity = "1"; 
+            }
+        });
+
 
     </script>
 </body>

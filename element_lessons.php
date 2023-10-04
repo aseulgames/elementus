@@ -17,25 +17,27 @@
     <link rel="stylesheet" href="home.css">
     <script src="homescript.js"></script>
     <title>Home</title>
+
 </head>
 <body>
     
-    <div class="nav" style="padding=2%">
-        <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 30%; padding-top:0px;
-            height: auto;">
+<div class="nav">
+    <div class="logo"><a href="homestudent.php" >
+        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
+            max-height: 100% ;">
             </a>
         </div>
         <ul class="menu">
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="#">Games</a></li>
+            <li><a class="#" href="games.php">Games</a></li>
             <li><a class="#" href="periodictable.php">Periodic Table</a></li>
+            <li><a class="#" href="profileedit_student.php">Profile</a></li>
 
             <?php
 
             $id = $_SESSION['id'];
-            $query = mysqli_query($con, "SELECT * FROM students WHERE Id=$id");
+            $query = mysqli_query($con, "SELECT * FROM students WHERE Id = $id");
 
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
@@ -43,20 +45,21 @@
                 $res_Fname = $result['FirstName'];
                 $res_Lname = $result['LastName'];
                 $res_id = $result['Id'];
-            }   
+            }
             ?>
 
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+            
         </ul>
     </div>
     
     </header>
     <main>
+    <link rel="stylesheet" href="lessons.css">
 
     <div class="container">
         <header><b>Elements of the Periodic Table</b></header>
         <div class="intro-container">
-            <a href="" class="box locked" onclick="unlockColumn(this, 5)">
+            <a href="" class="box <?php echo $lesson_completion[5] ?>" onclick="unlockColumn(this, 5)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">

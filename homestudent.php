@@ -56,12 +56,13 @@ while ($lesson = mysqli_fetch_assoc($query)) {
 </head>
 <body>
     
-    <div class="nav" style="padding=2%">
-        <div class="logo"><a href="homestudent.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 33%; padding-top:0px;
+<div class="nav">
+    <div class="logo"><a href="homestudent.php" >
+        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
             max-height: 100% ;">
             </a>
         </div>
+		
         <ul class="menu">
             <li><a class="#" href="homestudent.php">Home</a></li>
             <li><a class="#" href="#">About</a></li>
@@ -85,77 +86,79 @@ while ($lesson = mysqli_fetch_assoc($query)) {
 
             
         </ul>
+		
     </div>
-    
+</div>
     </header>
+    <link rel="stylesheet" href="home.css">
     <main>
-    <header>Hello,<b><?php echo $res_Uname ?>!</b></header><br>
+    <header style="padding-left: 2%; color: #004aad">Hello, <b><?php echo $res_Uname ?>!</b></header><br>
 
     <div class="container">
-        <header><b>Introduction</b></header>
+        <header>Introduction</header>
         <div class="intro-container">
             <a href="origins.php" class="box <?php echo $lesson_completion[1] ?>" onclick="unlockColumn(this, 1)">
-                <div class="box-img"></div>
+                <div class="box-img" style="background-image: url('images/origins.jpg');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Origins of the Periodic Table</div>
+                    <div class="box-text">Origins of the Periodic Table</div>
                 </div>
             </a>
             <a href="namessymbols.php" class="box <?php echo $lesson_completion[2] ?>" onclick="unlockColumn(this, 2)">
-                <div class="box-img"></div>
+                <div class="box-img" style="background-image: url('images/namessymbols.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Names, Symbols, & Atomic number of the Elements</div>
+                    <div class="box-text">Names, Symbols, & Atomic number of the Elements</div>
                 </div>
             </a>
             <a href="groupsperiods.php" class="box <?php echo $lesson_completion[3] ?>" onclick="unlockColumn(this, 3)">
-                <div class="box-img"></div>
+                <div class="box-img" style="background-image: url('images/groups.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Groups and Periods in the Periodic Table</div>
+                    <div class="box-text">Groups and Periods in the Periodic Table</div>
                 </div>
             </a>
             <a href="elementscompounds.php" class="box <?php echo $lesson_completion[4] ?>" onclick="unlockColumn(this, 4)">
-                <div class="box-img"></div>
+                <div class="box-img" style="background-image: url('images/mixtures.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Elements, Compounds, and Mixtures</div>
+                    <div class="box-text">Elements, Compounds, and Mixtures</div>
                 </div>
             </a>
         </div>
     <br>
         
     <header style="display: flex; justify-content: space-between; ">
-    <b>Lessons</b>
-    <a href="element_lessons.php"><u style="font-size:1vw">See All</u></a>
+    Lessons
+    <a href="element_lessons.php"><u class="link-style">See All</u></a>
 </header>
         <div class="intro-container">
-            <a href="" class="box locked" onclick="unlockColumn(this, 5)">
-                <div class="box-img"></div>
+            <a href="element1.php" class="box <?php echo $lesson_completion[5] ?>" onclick="unlockColumn(this, 5)">
+                <div class="box-img" style="background-image: url('images/element1_lesson/Slide1.jpg');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Hydrogen</div>
+                    <div class="box-text">Hydrogen</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 6)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Helium</div>
+                    <div class="box-text">Helium</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 7)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Lithium</div>
+                    <div class="box-text">Lithium</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 8)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Beryllium</div>
+                    <div class="box-text">Beryllium</div>
                 </div>
             </a>
         </div>

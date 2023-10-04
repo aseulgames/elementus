@@ -8,8 +8,7 @@ if (!isset($_SESSION['valid'])) {
 
 if (isset($_POST['finishLesson'])) {
     $user_id = $_SESSION['id'];
-    // CHANGE LESSON ID
-    $lesson_id = 4; 
+    $lesson_id = 5; // Change this to the appropriate lesson ID
     
     // Perform the database insert
     $insert = mysqli_query($con, "INSERT INTO student_lesson_progress (Id, lesson_id, completed) VALUES ($user_id, $lesson_id, 1) ON DUPLICATE KEY UPDATE completed = 1");
@@ -41,8 +40,37 @@ if (isset($_POST['finishLesson'])) {
 
         .disabled-opacity {
         opacity: 0.5; /* Set the desired opacity value */
+        }
 
-    }
+        .btn{
+            margin-right: 10px; 
+            background-color: #5c67d9; 
+            border-radius: 20px; 
+            border: solid #5c67d9; 
+            color: #fff;
+        }
+
+        .prev, .next {
+            font-size: 9px;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff; 
+            border-radius: 5px; 
+            border: solid #5c67d9; 
+            color: #5c67d9;
+        }
+
+        .prev {
+            left: -90px;
+        }
+
+        .next {
+            right: -90px;
+        }
     </style>
 </head>
 
@@ -84,54 +112,42 @@ if (isset($_POST['finishLesson'])) {
 </div>
     </header>
     
-    <div class="scroll-down-indicator">
-    <span>Scroll down</span>
-    <div class="arrow"></div>
-</div>
-</div>
     <main>
-    <link rel="stylesheet" href="lessons.css">
-    <div class="lesson-container">
-        <div class="box-lesson">
-    <!-- <div id="timer">Time remaining: 0:00</div> -->
-        <h1><b>Elements, Compounds, and Mixtures</b></h1>
-        <p>&nbsp;</p>
-        <h2><b>Elements</b></h2>
-        <p>An element is pure substance made up of atoms with the same atomic number, which denotes that their nuclei have the same amount of protons. The chemical symbol for each element is different, for as "H" for hydrogen, "O" for oxygen, or "Fe" for iron.</p>
-        <p><strong>Characteristics:</strong></p>
-        <p>- Chemical reactions cannot degrade elements into less complex ones.</p>
-        <p>They are the simplest form of matter and the building blocks of all other forms.</p>
-        <p>- The periodic table classifies elements according to their chemical makeup and atomic number.</p>
-        <p>&nbsp;</p>
-        <h2><b>Compounds</b></h2>
-        <p>When two or more distinct elements combine chemically in predetermined ratios, a compound is created. Compounds have unique properties different from the elements that compose them.&nbsp; Compounds are represented by chemical formulas, which show the types and ratios of atoms present. For instance, "H2O" stands for water, a substance made up of two hydrogen atoms and one oxygen atom.</p>
-        <p><strong>Characteristics:</strong></p>
-        <p>- Compounds have unique physical and chemical characteristics that set them apart from the characteristics of the elements that make them up.</p>
-        <p>- Chemical bonds, either covalent or ionic, hold the components of a compound together.</p>
-        <p>- Chemical processes can break down compounds into their component parts.</p>
-        <p>&nbsp;</p>
-        <h2><b>Mixtures</b></h2>
-        <p>A mixture is a combination of two or more elements or compounds that have been physically combined but are not chemically bound. Both homogeneous and heterogeneous mixtures exist. Mixtures do not have a specific chemical formula but are described based on the components present and their proportions.</p>
-        <p>Characteristics:</p>
-        <p>- Mixtures maintain the unique characteristics of their constituent parts.</p>
-        <p>- They can be physically separated into their constituent parts by the use of techniques like chromatography, distillation, or filtration.&nbsp;&nbsp;</p>
-        <p>&nbsp;- Examples of mixtures include:</p>
-        <p>Air (a mixture of gases)</p>
-        <p>Salad (a mixture of vegetables)</p>
-        <p>Saltwater (a mixture of salt and water)</p>
-        <p>Muddy Water (a mixture of dirt and water)</p>
-        <p>&nbsp;</p>
-        <p><b>Key Points:</b></p>
-        <p>- Elements are the simplest forms of matter, composed of one type of atom.</p>
-        <p>- Compounds result from the chemical combination of different elements in fixed ratios.</p>
-        <p>- Mixtures are physical combinations of substances with no fixed chemical composition.</p>
+    <div class="slideshow-container">
+        <!-- Slides -->
+        <div class="slide fade">
+            <img src="images/element1_lesson/Slide1.JPG" alt="Slide 1">
+        </div>
+        <div class="slide">
+            <img src="images/element1_lesson/Slide2.JPG" alt="Slide 2">
+        </div>
+        <div class="slide">
+            <img src="images/element1_lesson/Slide3.JPG" alt="Slide 3">
+        </div>
+        <div class="slide">
+            <img src="images/element1_lesson/Slide4.JPG" alt="Slide 4">
+        </div>
+        <div class="slide">
+            <img src="images/element1_lesson/Slide5.JPG" alt="Slide 5">
+        </div>
+        <div class="slide">
+            <img src="images/element1_lesson/Slide6.JPG" alt="Slide 6">
+        </div>
+        <!-- Add more slides as needed -->
+
+        <div class="navigation"><br>
+            <button class="prev btn">&#10094;<</button>
+            <button class="next btn">>&#10095;</button>
+        </div>
+    </div>
     </main>
+        </div>
 
     <div class="button-row">
         <button type="button" class="btn" onclick="window.history.back()" name="back" value="back" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;"><  Back </button>
         
         <button id="nextButton" class="btn disabled-button" name="next" value="next" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;" disabled>
-            <a href="element1.php">Next ></a>
+            <a href="namessymbols.php">Next ></a>
         </button>
         
         <button id="lessonCompleteButton" class="btn disabled-button" name="finishLesson" value="finishLesson" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;">Finish Lesson</button>
@@ -144,7 +160,7 @@ if (isset($_POST['finishLesson'])) {
             <?php
                 $user_id = $_SESSION['id'];
                 //CHANGE LESSON NUMBER!!
-                $lesson_id = 4;
+                $lesson_id = 5;
 
                 $query = mysqli_query($con, "SELECT completed FROM student_lesson_progress WHERE Id = $user_id AND lesson_id = $lesson_id");
                 
@@ -193,7 +209,8 @@ if (isset($_POST['finishLesson'])) {
                 $("#nextButton").prop("disabled", false);
                 $("#nextButton").removeClass("disabled-button");
 
-                $.post("elementscompounds.php", { finishLesson: 1 }, function(response) {
+                //CHANGE
+                $.post("element1.php", { finishLesson: 1 }, function(response) {
                     console.log(response);
                 }).fail(function() {
                     alert("An error occurred.");
@@ -215,6 +232,44 @@ if (isset($_POST['finishLesson'])) {
                 scrollIndicator.style.opacity = "1"; // Set opacity to 1 to show the indicator
             }
         });
+
+        
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("slide");
+            
+            if (n > slides.length) {
+                slideIndex = 1;
+            } else if (n < 1) {
+                slideIndex = slides.length;
+            } else {
+                slideIndex = n;
+            }
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            plusSlides(-1);
+        });
+
+        document.querySelector('.next').addEventListener('click', () => {
+            plusSlides(1);
+        });
+
+
+
 
     </script>
 </body>
