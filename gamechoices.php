@@ -59,7 +59,7 @@ $id = $_SESSION['id'];
                     <div class="memorylogo-img"></div>
                 </div>
             </a>
-            <a href="" class="box boxthree <?php echo $lesson_completion[3] ?>" onclick="unlockColumn(this, 3)">
+            <a href="playpuzzle.php" class="box boxthree <?php echo $lesson_completion[3] ?>" onclick="unlockColumn(this, 3)">
                 <div class="box-img" style="background-image: url('images/iconthree.gif');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">

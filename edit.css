@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&family=Sigmar+One&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
     font-size: 1.4vw;
 }
+
 
 body {
     background-size: cover; /* This will make sure the background image covers the whole window */
@@ -170,12 +174,42 @@ border-radius: 20px;
 .button-row{
     display: flex; 
     margin-top: 20px; 
-    justify-content: 
-    space-between; 
+    justify-content: center;
     align-items: center;
     padding-left: 4%;
 }
 
 .btn:hover{
     opacity: 0.8;
+}
+
+.btn{
+    height: 38px;
+    width: 110px;
+    background: #6A08C4;
+    border: 0;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    transition: all .3s;
+    margin-top: 10px;
+    padding: 0px 10px;
+}
+
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Add margin as needed between rows */
+}
+
+.info-item {
+    flex: 1;
+    text-align: left;
+    margin-right: 10px; /* Add margin between title and content */
+}
+
+.info-content {
+    flex: 2; /* Adjust the value based on your design */
+    text-align: right;
 }

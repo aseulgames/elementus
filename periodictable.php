@@ -17,10 +17,10 @@
 	<title>Periodic Table</title>
 </head>
 
-<body>
+<body style="background-image: url('images/periodicbg.png');">
 	
 <link rel="stylesheet" href="periodictablestyle.css">
-<div class="nav">
+<div class="nav" style="background: rgb((255), 255, 255, 0); ">
     <div class="logo"><a href="homestudent.php" >
         <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
             max-height: 100% ;">

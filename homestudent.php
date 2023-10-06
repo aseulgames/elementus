@@ -54,7 +54,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     <script src="homescript.js"></script>
     <title>Home</title>
 </head>
-<body>
+<body style="background-image: url('images/homebg.png');">
     
 <div class="nav">
     <div class="logo"><a href="homestudent.php" >
@@ -95,7 +95,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     <header style="padding-left: 2%; color: #004aad">Hello, <b><?php echo $res_Uname ?>!</b></header><br>
 
     <div class="container">
-        <header>Introduction</header>
+        <header>Introduction to Periodic Table</header>
         <div class="intro-container">
             <a href="origins.php" class="box <?php echo $lesson_completion[1] ?>" onclick="unlockColumn(this, 1)">
                 <div class="box-img" style="background-image: url('images/origins.jpg');"></div>
@@ -129,7 +129,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     <br>
         
     <header style="display: flex; justify-content: space-between; ">
-    Lessons
+    Elements
     <a href="element_lessons.php"><u class="link-style">See All</u></a>
 </header>
         <div class="intro-container">

@@ -34,6 +34,15 @@ $id = $_SESSION['id'];
         .nav{
             background: linear-gradient(-45deg, #f5ceff8e, #7b4dff8e, #ff4df87e);
         }
+
+        .timer-box {
+            background-color: #cb9b00;
+        }
+
+        .timer-box {
+            background-color: #9b5bff;
+            border: 4px solid #5e17eb;
+        }
     </style>
 </head>
 <body>

@@ -49,7 +49,7 @@ u {
     background-image: url('logo_light.png'); 
     background-size: cover;
     background-position: center;
-    height: 140px; 
+    height: 110px; 
 }
 
 .box-divider {
@@ -64,8 +64,9 @@ u {
     border: 5px solid #d4f7f9; /* Light border color */
     box-shadow: 
         0 0 5px 1px #59cbe4, /* Inner glowing shadow */
-        0 0 10px 1px #59cbe4, /* Outer glowing shadow */
+        0 0 5px 1px #59cbe4, /* Outer glowing shadow */
         inset 0 0 9px 4px #59cbe4; /* Inner glowing shadow with 'inset' keyword */
+        height: 220px;
 }
 
 .box-content {
@@ -74,14 +75,12 @@ u {
     text-decoration: none; /* Remove underlines from links */
 }
 
-/* Change box background color on hover */
 .box:hover {
     opacity: .8;
 }
 
-/* Lower opacity for locked columns */
 .box.locked {
-    opacity: 0.5;
+    opacity: 0.7;
     pointer-events: none; /* Disable click events on locked columns */
 }
 
@@ -125,7 +124,7 @@ u {
     padding: 5px;
     border: 1.5px solid #ddd;
     text-align: center;
-    margin-right: 10px; /* Add some spacing between columns */
+    margin-right: 12px; /* Add some spacing between columns */
     margin-bottom: 10px;
     padding: 2%;
     display: flex;
@@ -133,12 +132,13 @@ u {
     border-radius: 20px;
     box-shadow: 0 0 3px 0 rgba(0,0,0,0),
     0 0px 64px -30px rgba(0,0,0,0.1);
-    background: #0a2c5f;
+    background: #f6f6f6;
 }
 
 .box-text{
     font-family: 'Original Surfer', cursive, sans-serif;
-    color: #fbfbfb;
+    color: #030039;
+    font-size: 1.5vw;
 }
 
 /* Media query for smaller screens */
@@ -171,7 +171,7 @@ body::before {
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.1); 
+    /* background-color: rgba(0, 0, 0, 0.1);  */
     z-index: -1;
 }
 

@@ -88,8 +88,8 @@ if (isset($_POST['finishLesson'])) {
     <div class="arrow"></div>
 </div>
 </div>
-    <main>
     <link rel="stylesheet" href="lessons.css">
+    <main>
     <div class="lesson-container">
         <div class="box-lesson">
     <!-- <div id="timer">Time remaining: 0:00</div> -->

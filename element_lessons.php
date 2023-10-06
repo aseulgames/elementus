@@ -5,7 +5,42 @@
     if(!isset($_SESSION['valid'])){
         header("Location: index.php");
     }
+    $user_id = $_SESSION['id'];
 
+    // Query the database to get a list of lessons
+    $query = mysqli_query($con, "SELECT lesson_id, lesson_title FROM lessons");
+    
+    // Create an array to store completion status for each lesson
+    $lesson_completion = [];
+    
+    // Retrieve the ID of the last completed lesson for the current user
+    $last_completed_query = mysqli_query($con, "SELECT MAX(lesson_id) AS last_completed FROM student_lesson_progress WHERE Id = $user_id AND completed = 1");
+    $last_completed_data = mysqli_fetch_assoc($last_completed_query);
+    $last_completed_lesson_id = $last_completed_data['last_completed'];
+    
+    while ($lesson = mysqli_fetch_assoc($query)) {
+        $lesson_id = $lesson['lesson_id'];
+    
+        if ($lesson_id <= $last_completed_lesson_id + 1) {
+            // Check if the lesson has been completed by the user
+            $completed_query = mysqli_query($con, "SELECT completed FROM student_lesson_progress WHERE Id = $user_id AND lesson_id = $lesson_id");
+            $completed_data = mysqli_fetch_assoc($completed_query);
+    
+            if ($completed_data && $completed_data['completed'] == 1 || $lesson_id == 1) {
+                // Lesson has been completed
+                $box_class = 'unlocked';
+            } else {
+                // Lesson has not been completed
+                $box_class = 'locked';
+            }
+        } else {
+            // Lesson is not the next one to unlock
+            $box_class = 'locked';
+        }
+    
+        // Store the completion status in the array
+        $lesson_completion[$lesson_id] = $box_class;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +54,7 @@
     <title>Home</title>
 
 </head>
-<body>
+<body style="background-image: url('images/homebg.png');">
     
 <div class="nav">
     <div class="logo"><a href="homestudent.php" >
@@ -55,36 +90,35 @@
     </header>
     <main>
     <link rel="stylesheet" href="lessons.css">
-
     <div class="container">
         <header><b>Elements of the Periodic Table</b></header>
         <div class="intro-container">
-            <a href="" class="box <?php echo $lesson_completion[5] ?>" onclick="unlockColumn(this, 5)">
-                <div class="box-img"></div>
+            <a href="element1.php" class="box <?php echo $lesson_completion[5] ?>" onclick="unlockColumn(this, 5)">
+                <div class="box-img" style="background-image: url('images/element1_lesson/Slide1.jpg');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Hydrogen</div>
+                    <div class="box-text">Hydrogen</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 6)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Helium</div>
+                    <div class="box-text">Helium</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 7)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Lithium</div>
+                    <div class="box-text">Lithium</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 8)">
                 <div class="box-img"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div>Beryllium</div>
+                    <div class="box-text">Beryllium</div>
                 </div>
             </a>
 

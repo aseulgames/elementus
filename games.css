@@ -312,17 +312,15 @@ body {
 }
 
 .timer-box {
-    background-color: #9b5bff;
-
-        position: absolute;
-        top: 150px; /* Adjust the top distance from the top of the parent element */
-        right: 70px; /* Adjust the right distance from the right of the parent element */
-        width: 150px; /* Set the width of the timer box */
-        height: 30px; /* Set the height of the timer box */
-        border: 3px solid #5e17eb; /* Set the border properties */
-        padding: 10px; /* Optional: Add padding inside the timer box */
-
-    transform: skewX(-5deg); /* Skew the timer box horizontally */
+    background-color: #cb9b00;
+    position: absolute;
+    top: 150px;
+    right: 70px;
+    width: 150px;
+    height: 30px;
+    border: 4px solid #fdc54c;
+    padding: 10px;
+    transform: skewX(-5deg);
 }
 
 #time-display {
@@ -367,12 +365,13 @@ body {
 
 
 .button-container {
-    text-align: center; /* Center the button horizontally */
-    display: flex; /* Use flexbox for vertical centering */
-    align-items: center; /* Center the button vertically */
-    justify-content: center; /* Center the button horizontally */
-    height: 15vh; /* Optional: Set a height if you want to center vertically in the viewport */
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.next-container {
+    text-align: center;
 }
 
 .row{
@@ -389,6 +388,7 @@ body {
     padding-left: 40px; 
     padding-top: 10px;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 .back-icon:hover{
     transform: scale(1.20);
@@ -402,8 +402,30 @@ body {
     margin-left: 20px;
 }
 
+.btn-next{
+    background-color: #fff; 
+    border-radius: 10px; 
+    font-family: 'Sigmar One', cursive, sans-serif;
+    margin-top: -50px;
+    margin-left: 20px;
+}
+
 .btn-start:hover{
     opacity: .7;
+}
+
+.btn-next:hover{
+    opacity: .7;
+}
+
+.next-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.next {
+    text-align: right;
 }
 
 @media (max-width: 768px) {
@@ -419,3 +441,26 @@ body {
 .btn:hover{
     opacity: 0.8;
 }
+
+.retry-button {
+    position: absolute;
+    bottom: 20px;
+    border: none;
+    border-radius: 30px; /* Remove circular border */
+    padding: 10px; /* Adjust padding as needed */
+    cursor: pointer;
+    background: rgb(255,255,255,0);
+    top: 83%;
+    margin-right: 10px;
+}
+
+/* Style the retry icon */
+.retry-button img {
+    width: 35px; /* Adjust icon size as needed */
+    height: 35px; /* Adjust icon size as needed */
+}
+
+.retry-button:hover{
+    opacity: 0.9;
+}
+

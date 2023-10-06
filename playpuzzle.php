@@ -31,8 +31,8 @@ $id = $_SESSION['id'];
 
 <div class="row" style="padding-top: 20px;">
     <a id="backButton">
-        <img src="student_back.png" class="back-icon" alt="Back Icon">
-    </a><span><img src="images/memorylogo.png" class="iconlogo" style="max-width: 50%;
+        <img src="puzzle_back.png" class="back-icon" alt="Back Icon" style="width: 20vh;">
+    </a><span><img src="images/puzzlelogo.png" class="iconlogo" style="max-width: 50%;
     min-width: 40%;"></span>
 
     <div class="row" style="justify-content: right; padding-right: 20px;">
@@ -41,12 +41,12 @@ $id = $_SESSION['id'];
     </div>
 
 </div>
-<body style="background-image: url('images/memorybg.png');">
+<body style="background-image: url('images/puzzlebg.png');">
     <div class="start-container">
         <div class="play">
-            <img src="images/letsplaymemory.png" style="width: 100%;height: auto; margin-bottom:-30px">
-            <a href="memory.php">
-            <button type="button" class="btn btn-start" style="color:#8b6300; ">START</button>
+            <img src="images/letsplaypuzzle.png" style="width: 100%;height: auto; margin-bottom:-30px">
+            <a href="puzzle.php">
+            <button type="button" class="btn btn-start" style="color:#ff0055; ">START</button>
             </a>
         </div>
     </div>

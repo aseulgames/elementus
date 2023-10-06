@@ -5,20 +5,6 @@ include("php/config.php");
 if (!isset($_SESSION['valid'])) {
     header("Location: index.php");
 }
-
-if (isset($_POST['finishLesson'])) {
-    $user_id = $_SESSION['id'];
-    $lesson_id = 5; // Change this to the appropriate lesson ID
-    
-    // Perform the database insert
-    $insert = mysqli_query($con, "INSERT INTO student_lesson_progress (Id, lesson_id, completed) VALUES ($user_id, $lesson_id, 1) ON DUPLICATE KEY UPDATE completed = 1");
-    
-    if ($insert) {
-        echo "Lesson progress inserted successfully.";
-    } else {
-        echo "Error inserting lesson progress: " . mysqli_error($con);
-    }
-}
 ?>
 
 
@@ -33,15 +19,6 @@ if (isset($_POST['finishLesson'])) {
     <title>Home</title>
 
     <style>
-        .disabled-button {
-            opacity: 0.5 !important; 
-            pointer-events: none; 
-        }
-
-        .disabled-opacity {
-        opacity: 0.5; /* Set the desired opacity value */
-        }
-
         .btn{
             margin-right: 10px; 
             background-color: #5c67d9; 
@@ -146,77 +123,14 @@ if (isset($_POST['finishLesson'])) {
     <div class="button-row">
         <button type="button" class="btn" onclick="window.history.back()" name="back" value="back" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;"><  Back </button>
         
-        <button id="nextButton" class="btn disabled-button" name="next" value="next" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;" disabled>
-            <a href="namessymbols.php">Next ></a>
+        <button id="startQuiz" class="btn disabled-button" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;">
+            <a href="quiz1.php">Start Quiz</a>
         </button>
-        
-        <button id="lessonCompleteButton" class="btn disabled-button" name="finishLesson" value="finishLesson" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;">Finish Lesson</button>
-        
     </div>
 
         <script src="homescript.js"></script>
         <script>
-        $(document).ready(function() {
-            <?php
-                $user_id = $_SESSION['id'];
-                //CHANGE LESSON NUMBER!!
-                $lesson_id = 5;
-
-                $query = mysqli_query($con, "SELECT completed FROM student_lesson_progress WHERE Id = $user_id AND lesson_id = $lesson_id");
-                
-
-                $lessonCompleted = false; // Initialize as false by default
-
-                if ($query && mysqli_num_rows($query) > 0) {
-                    $row = mysqli_fetch_assoc($query);
-                    $lessonCompleted = $row['completed'] == 1;
-                }
-                // Check if the lesson is completed
-                if ($lessonCompleted) {
-                    echo 'var timer = 0;
-                    $("#nextButton").prop("disabled", false);
-                    $("#nextButton").removeClass("disabled-button");';
-                    
-                } else {
-                    echo 'var timer = 0; 
-                    function updateTimer() {
-                        var minutes = Math.floor(timer / 60);
-                        var seconds = timer % 60;
-                        var timeString = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-                        $("#timer").text("Time remaining: " + timeString);
-                    }
-
-                    var countdown = setInterval(function() {
-                        timer--;
-                        updateTimer();
-                        if (timer <= 0) {
-                            clearInterval(countdown);
-                            $("#lessonCompleteButton").prop("disabled", false);
-                            $("#lessonCompleteButton").removeClass("disabled-button");
-                            
-                        }
-                    }, 1000);';
-                    
-                }
-
-                if (isset($_POST['finishLesson'])) {
-                    $insert = mysqli_query($con, "INSERT INTO student_lesson_progress (Id, lesson_id, completed) VALUES ($user_id, $lesson_id, 1) ON DUPLICATE KEY UPDATE completed = 1");
-                }
-            ?>
-
-            $("#lessonCompleteButton").click(function() {
-                clearInterval(countdown);
-                $("#nextButton").prop("disabled", false);
-                $("#nextButton").removeClass("disabled-button");
-
-                //CHANGE
-                $.post("element1.php", { finishLesson: 1 }, function(response) {
-                    console.log(response);
-                }).fail(function() {
-                    alert("An error occurred.");
-                });
-            });
-        });
+        
 
         window.addEventListener("scroll", function() {
             var scrollIndicator = document.querySelector(".scroll-down-indicator");
