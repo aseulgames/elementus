@@ -53,9 +53,65 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     <link rel="stylesheet" href="home.css">
     <script src="homescript.js"></script>
     <title>Home</title>
+    <style>
+        html, body {
+			max-width: 100%;
+			overflow-x: hidden;
+		}
+        
+        .bubble {
+            z-index: 999;
+            position: absolute;
+            border-radius: 50%;
+            user-select: none; /* Prevent selection of bubble elements */
+        }
+        
+        #board {
+            position: relative;
+            overflow: hidden; /* Hide overflow content */
+        }
+
+        .mute-icon {
+            position: absolute;
+            top: 24vh;
+            right: 7vh;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mute-icon img {
+            width: 6vh;
+            height: 6vh;
+        }
+
+        @media screen and (max-width: 768px) {
+        .mute-icon {
+            top: 17vh;
+            right: 2vh;
+        }
+}
+
+    </style>
 </head>
 <body style="background-image: url('images/homebg.png');">
-    
+
+<!-- Background Music -->
+<audio id="backgroundMusic" autoplay loop>
+    <source src="music-default.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Mute and Unmute Icons -->
+<div class="mute-icon" onclick="toggleMute()">
+    <img id="muteImg" src="images/play.png" alt="Mute">
+</div>
+
+<div id = "board"></div>
+<audio id="bubbleSound">
+    <source src="bubbles.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
 <div class="nav">
     <div class="logo"><a href="homestudent.php" >
         <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
@@ -167,5 +223,13 @@ while ($lesson = mysqli_fetch_assoc($query)) {
         
     </main>
     <script src="homescript.js"></script>
+    <script src="bubbles.js"></script>
+    <script src="music.js"></script>
+    <script>
+    window.onload = function() {
+        backgroundMusic.volume = 0.6;
+            backgroundMusic.play();
+        }
+    </script>
 </body>
 </html>

@@ -464,3 +464,22 @@ body {
     opacity: 0.9;
 }
 
+.mute-icon {
+    position: absolute;
+    top: 24vh;
+    right: 7vh;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mute-icon img {
+    width: 7vh;
+    height: 7vh;
+}
+
+@media screen and (max-width: 768px) {
+.mute-icon {
+    top: 17vh;
+    right: 2vh;
+}
+}

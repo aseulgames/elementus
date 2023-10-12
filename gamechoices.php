@@ -35,9 +35,69 @@ $id = $_SESSION['id'];
         .nav{
             background: linear-gradient(-45deg, #ffa9f9, #fff7ad, #ffa6a6);
         }
+
+        html, body {
+			max-width: 100%;
+			overflow-x: hidden;
+            overflow-y: hidden;
+		}
+        
+        .bubble {
+            z-index: 999;
+            position: absolute;
+            border-radius: 50%;
+            user-select: none; /* Prevent selection of bubble elements */
+        }
+        
+        #board {
+            position: relative;
+            overflow: hidden; /* Hide overflow content */
+        }
+        .mute-icon {
+            position: absolute;
+            top: 24vh;
+            right: 7vh;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mute-icon img {
+            width: 6vh;
+            height: 6vh;
+        }
+
+        @media screen and (max-width: 768px) {
+        .mute-icon {
+            top: 17vh;
+            right: 2vh;
+        }
+    }
     </style>
 </head>
 <body>
+<div id = "board"></div>
+<!-- Background Music -->
+<audio id="backgroundMusic" autoplay loop>
+    <source src="game-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Mute and Unmute Icons -->
+<div class="mute-icon" onclick="toggleMute()">
+    <img id="muteImg" src="images/play.png" alt="Mute">
+</div>
+
+
+<div id = "board"></div>
+<audio id="bubbleSound">
+    <source src="bubbles.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<audio id="hoverSound">
+    <source src="hover.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
     <header id="headertitle">
         SELECT A GAME YOU'D LIKE TO PLAY
     </header>
@@ -83,7 +143,31 @@ $id = $_SESSION['id'];
     
       
     </main>
-    <script src="homescript.js">
+    <script src="homescript.js"></script>
+    <script src="bubbles.js"></script>
+    <script src="music.js"></script>
+    <script>
+        window.onload = function() {
+        var backgroundMusic = document.getElementById("backgroundMusic");
+        var hoverSound = document.getElementById("hoverSound");
+        var boxes = document.querySelectorAll(".box");
+
+        // Set background music volume to 0.3 (30% volume)
+        backgroundMusic.volume = 0.4;
+
+
+        // Play background music on page load
+        backgroundMusic.play();
+
+        // Add hover sound to all boxes
+        boxes.forEach(function(box) {
+            box.addEventListener("mouseenter", function() {
+                hoverSound.currentTime = 0.4; // Reset sound to the beginning
+                hoverSound.play();
+            });
+        });
+    };
+
     </script>
 </body>
 </html>
