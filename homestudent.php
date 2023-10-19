@@ -8,13 +8,10 @@ if (!isset($_SESSION['valid'])) {
 
 $user_id = $_SESSION['id'];
 
-// Query the database to get a list of lessons
 $query = mysqli_query($con, "SELECT lesson_id, lesson_title FROM lessons");
 
-// Create an array to store completion status for each lesson
 $lesson_completion = [];
 
-// Retrieve the ID of the last completed lesson for the current user
 $last_completed_query = mysqli_query($con, "SELECT MAX(lesson_id) AS last_completed FROM student_lesson_progress WHERE Id = $user_id AND completed = 1");
 $last_completed_data = mysqli_fetch_assoc($last_completed_query);
 $last_completed_lesson_id = $last_completed_data['last_completed'];
@@ -23,23 +20,18 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     $lesson_id = $lesson['lesson_id'];
 
     if ($lesson_id <= $last_completed_lesson_id + 1) {
-        // Check if the lesson has been completed by the user
         $completed_query = mysqli_query($con, "SELECT completed FROM student_lesson_progress WHERE Id = $user_id AND lesson_id = $lesson_id");
         $completed_data = mysqli_fetch_assoc($completed_query);
 
         if ($completed_data && $completed_data['completed'] == 1 || $lesson_id == 1) {
-            // Lesson has been completed
             $box_class = 'unlocked';
         } else {
-            // Lesson has not been completed
             $box_class = 'locked';
         }
     } else {
-        // Lesson is not the next one to unlock
         $box_class = 'locked';
     }
 
-    // Store the completion status in the array
     $lesson_completion[$lesson_id] = $box_class;
 }
 ?>
@@ -50,6 +42,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="home.css">
     <script src="homescript.js"></script>
     <title>Home</title>
@@ -71,29 +64,15 @@ while ($lesson = mysqli_fetch_assoc($query)) {
             overflow: hidden; /* Hide overflow content */
         }
 
-        .mute-icon {
-            position: absolute;
-            top: 24vh;
-            right: 7vh;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .mute-icon img {
-            width: 6vh;
-            height: 6vh;
-        }
-
-        @media screen and (max-width: 768px) {
-        .mute-icon {
-            top: 17vh;
-            right: 2vh;
-        }
-}
 
     </style>
 </head>
 <body style="background-image: url('images/homebg.png');">
+<div id="overlay" class="overlay">
+    <div class="overlay-content">
+        <p>Drag your mouse for bubbles!</p>
+    </div>
+</div>
 
 <!-- Background Music -->
 <audio id="backgroundMusic" autoplay loop>
@@ -101,30 +80,54 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     Your browser does not support the audio element.
 </audio>
 
-<!-- Mute and Unmute Icons -->
-<div class="mute-icon" onclick="toggleMute()">
-    <img id="muteImg" src="images/play.png" alt="Mute">
-</div>
-
 <div id = "board"></div>
 <audio id="bubbleSound">
     <source src="bubbles.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
-<div class="nav">
-    <div class="logo"><a href="homestudent.php" >
-        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
-            max-height: 100% ;">
+
+<!-- Bootstrap Navbar -->
+<nav class="nav navbar navbar-expand-lg navbar-light">
+    <div class="container">
+
+        <div class="logo-container">
+            <a href="homestudent.php" class="logo navbar-brand">
+                <img src="logo_dark.png" alt="logopng" class="logopng">
             </a>
         </div>
-		
-        <ul class="menu">
-            <li><a class="#" href="homestudent.php">Home</a></li>
-            <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="games.php">Games</a></li>
-            <li><a class="#" href="periodictable.php">Periodic Table</a></li>
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="menu navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="homestudent.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="games.php">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="periodictable.php">Periodic Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profileedit_student.php">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Mute and Unmute Icons -->
+                    <div class="mute-icon" onclick="toggleMute()">
+                        <img id="muteImg" src="images/play.png" alt="Mute">
+                    </div>
+                </li>
+            </ul>
+
+            </div>
+        </div>
+    </nav>
 
             <?php
 
@@ -197,7 +200,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 6)">
-                <div class="box-img"></div>
+                <div class="box-img"></div>q
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div class="box-text">Helium</div>
@@ -222,6 +225,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
     </div>
         
     </main>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
     <script src="homescript.js"></script>
     <script src="bubbles.js"></script>
     <script src="music.js"></script>

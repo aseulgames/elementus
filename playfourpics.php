@@ -42,6 +42,17 @@ $id = $_SESSION['id'];
 
 </div>
 <body style="background-image: url('images/fourpicsbg.png');">
+<div id = "board"></div>
+<!-- Background Music -->
+<audio id="backgroundMusic" autoplay loop>
+    <source src="game-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Mute and Unmute Icons -->
+<div class="mute-icon" onclick="toggleMute()">
+    <img id="muteImg" src="images/play.png" alt="Mute">
+</div>
     <div class="start-container">
         <div class="play">
             <img src="images/letsplay4pics.png" style="width: 100%;height: auto; margin-bottom:-30px">
@@ -55,6 +66,31 @@ $id = $_SESSION['id'];
         document.getElementById("backButton").onclick = function() {
             history.back();
         };
+    </script>
+    <script src="homescript.js"></script>
+    <script src="music.js"></script>
+    <script>
+        window.onload = function() {
+        var backgroundMusic = document.getElementById("backgroundMusic");
+        var hoverSound = document.getElementById("hoverSound");
+        var boxes = document.querySelectorAll(".box");
+
+        // Set background music volume to 0.3 (30% volume)
+        backgroundMusic.volume = 0.4;
+
+
+        // Play background music on page load
+        backgroundMusic.play();
+
+        // Add hover sound to all boxes
+        boxes.forEach(function(box) {
+            box.addEventListener("mouseenter", function() {
+                hoverSound.currentTime = 0.4; // Reset sound to the beginning
+                hoverSound.play();
+            });
+        });
+    };
+
     </script>
 </body>
 </html>

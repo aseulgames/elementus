@@ -13,6 +13,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="periodicstyle.css">
 	
 	<title>Periodic Table</title>
@@ -40,6 +41,7 @@
             right: 7vh;
             cursor: pointer;
             transition: all 0.3s ease;
+			z-index: 1;
         }
 
         .mute-icon img {
@@ -65,11 +67,6 @@
     Your browser does not support the audio element.
 </audio>
 
-<!-- Mute and Unmute Icons -->
-<div class="mute-icon" onclick="toggleMute()">
-    <img id="muteImg" src="images/play.png" alt="Mute">
-</div>
-
 <div id = "board"></div>
 <audio id="bubbleSound">
     <source src="bubbles.mp3" type="audio/mpeg">
@@ -77,20 +74,46 @@
 </audio>
 
 <link rel="stylesheet" href="periodictablestyle.css">
-<div class="nav" style="background: rgb((255), 255, 255, 0); ">
-    <div class="logo"><a href="homestudent.php" >
-        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
-            max-height: 100% ;">
+<nav class="nav navbar navbar-expand-lg navbar-light">
+    <div class="container">
+
+        <div class="logo-container">
+            <a href="homestudent.php" class="logo navbar-brand">
+                <img src="logo_dark.png" alt="logopng" class="logopng">
             </a>
         </div>
-		
-        <ul class="menu">
-            <li><a class="#" href="homestudent.php">Home</a></li>
-            <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="games.php">Games</a></li>
-            <li><a class="#" href="periodictable.php">Periodic Table</a></li>
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="menu navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="homestudent.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="games.php">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="periodictable.php">Periodic Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profileedit_student.php">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Mute and Unmute Icons -->
+                    <div class="mute-icon" onclick="toggleMute()">
+                        <img id="muteImg" src="images/play.png" alt="Mute">
+                    </div>
+                </li>
+            </ul>
 
+            </div>
+        </div>
+    </nav>
             <?php
 
             $id = $_SESSION['id'];
@@ -110,6 +133,7 @@
 		
     </div>
 </div>
+
 
 <div class="wrapper">
 	<input class="category-toggle" type="radio" id="alkali-metals" name="categories"/>
@@ -12202,7 +12226,7 @@
 	  </div>
 	  <div class="gap c3 r8"></div>
 	  <div class="key" id="group-buttons">
-		<div class="row">
+		<div class="col">
 		<button class="button" for="alkali-metals" style="background-color: #d6a336; border-color: #b5841a;"><label class="alkali-metal" for="alkali-metals"  style="font-size: .9vw; color: aliceblue;">Alkali Metals</label></button>
 		<button class="button" for="alkaline-earth-metals" style="background-color: #d6df50; border-color: #bbc807;"><label class="alkaline-earth-metal" for="alkaline-earth-metals" style="font-size: .9vw; color: aliceblue;">Alkaline Earth Metals</label></button>
 		<button class="button" for="lanthanoids" style="background-color: #d26d94; border-color: #9e5b75;"><label class="lanthanoid" for="lanthanoids" style="font-size: .9vw; color: aliceblue;">Lanthanoids</label></button>
@@ -12216,7 +12240,13 @@
 		</div>
 
 	  </div>
+	  <div id="overlay" class="overlay">
+    <div class="overlay-content" style="visibility: hidden;">
+        <p>Drag your mouse for bubbles!</p>
+    </div>
+</div>
 
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
 	<script src="homescript.js"></script>
     <script src="bubbles.js"></script>
     <script src="music.js"></script>

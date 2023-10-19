@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="edit.css">
     <title>Manage Profile</title>
 </head>
@@ -49,7 +50,7 @@
         top: 0;
         left: 0;
         height: 100%; /* Set the height to cover the entire viewport height */
-        width: 30vh; /* Set the width to 100% to cover the entire viewport width */
+        width: 10vw; /* Set the width to 100% to cover the entire viewport width */
         background: linear-gradient(45deg, #fff466, #fff171, #fff0a0, #fffad7);
         border-right: 8px solid #ffe13a;
     }
@@ -107,21 +108,58 @@
             box-shadow: 0px 2px 5px rgba(76, 76, 76, 0.2);
         }
 
+        .logopng{
+            max-width: 20vw;
+            padding-top:0px;
+            max-height: 100% 
+        }
+
+        .navbar {
+            height: 10vw; /* Set the desired height of the navigation bar */
+        }
+
         
     </style>
-<div class="nav">
-    <div class="logo"><a href="homestudent.php" >
-        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
-            max-height: 100% ;">
+<nav class="nav navbar navbar-expand-lg navbar-light">
+    <div class="container">
+
+        <div class="logo-container">
+            <a href="homestudent.php" class="logo navbar-brand">
+                <img src="logo_dark.png" alt="logopng" class="logopng">
             </a>
         </div>
-		
-        <ul class="menu">
-            <li><a class="#" href="homestudent.php">Home</a></li>
-            <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="games.php">Games</a></li>
-            <li><a class="#" href="periodictable.php">Periodic Table</a></li>
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="menu navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="homestudent.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="games.php">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="periodictable.php">Periodic Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profileedit_student.php">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Mute and Unmute Icons -->
+                    <!-- <div class="mute-icon" onclick="toggleMute()">
+                        <img id="muteImg" src="images/play.png" alt="Mute">
+                    </div> -->
+                </li>
+            </ul>
+
+            </div>
+        </div>
+    </nav>
 
             <?php
 
@@ -277,6 +315,7 @@
             </div>
 
 
+            <script src="bootstrap/bootstrap.bundle.min.js"></script>
                 <script>
 
                     const form = document.getElementById('form');

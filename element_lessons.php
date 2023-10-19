@@ -49,25 +49,91 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="home.css">
     <script src="homescript.js"></script>
     <title>Home</title>
+    <style>
+        html, body {
+			max-width: 100%;
+			overflow-x: hidden;
+		}
+        
+        .bubble {
+            z-index: 999;
+            position: absolute;
+            border-radius: 50%;
+            user-select: none; /* Prevent selection of bubble elements */
+        }
+        
+        #board {
+            position: relative;
+            overflow: hidden; /* Hide overflow content */
+        }
+    </style>
 
 </head>
 <body style="background-image: url('images/homebg.png');">
+
+<div id="overlay" class="overlay">
+    <div class="overlay-content">
+        <p>Drag your mouse for bubbles!</p>
+    </div>
+</div>
+
+<!-- Background Music -->
+<audio id="backgroundMusic" autoplay loop>
+    <source src="music-default.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<div id = "board"></div>
+<audio id="bubbleSound">
+    <source src="bubbles.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
     
-<div class="nav">
-    <div class="logo"><a href="homestudent.php" >
-        <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; padding-top:0px;
-            max-height: 100% ;">
+<!-- Bootstrap Navbar -->
+<nav class="nav navbar navbar-expand-lg navbar-light">
+    <div class="container">
+
+        <div class="logo-container">
+            <a href="homestudent.php" class="logo navbar-brand">
+                <img src="logo_dark.png" alt="logopng" class="logopng">
             </a>
         </div>
-        <ul class="menu">
-            <li><a class="#" href="homestudent.php">Home</a></li>
-            <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="games.php">Games</a></li>
-            <li><a class="#" href="periodictable.php">Periodic Table</a></li>
-            <li><a class="#" href="profileedit_student.php">Profile</a></li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="menu navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="homestudent.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="games.php">Games</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="periodictable.php">Periodic Table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="profileedit_student.php">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <!-- Mute and Unmute Icons -->
+                    <div class="mute-icon" onclick="toggleMute()">
+                        <img id="muteImg" src="images/play.png" alt="Mute">
+                    </div>
+                </li>
+            </ul>
+
+            </div>
+        </div>
+    </nav>
 
             <?php
 
@@ -946,6 +1012,15 @@
     </div>
         
     </main>
+    <script src="bootstrap/bootstrap.bundle.min.js"></script>
     <script src="homescript.js"></script>
+    <script src="bubbles.js"></script>
+    <script src="music.js"></script>
+    <script>
+    window.onload = function() {
+        backgroundMusic.volume = 0.6;
+            backgroundMusic.play();
+        }
+    </script>
 </body>
 </html>

@@ -23,6 +23,7 @@ $id = $_SESSION['id'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> -->
     <link rel="stylesheet" href="games.css">
     <script src="homescript.js"></script>
     <title>Games</title>
@@ -43,16 +44,41 @@ $id = $_SESSION['id'];
             background-color: #9b5bff;
             border: 4px solid #5e17eb;
         }
+
     </style>
 </head>
 <body>
-        
+    <link rel="stylesheet" href="tutorial.css">
+    <div class="overlay"></div>
+    
+    <!-- Your existing HTML content goes here -->
+
+    <div class="popup">
+        <button id="close">&times;</button>
+        <img src="images/tut2.png" alt="" style="max-width: 50%">
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita distinctio fugiat alias iure qui,
+            commodi minima magni ullam aliquam dignissimos?
+        </p>
+        <input type="button" value="Okay" id="okay" class="btn">
+    </div>
+
+<!-- Background Music -->
+<audio id="backgroundMusic" autoplay loop>
+    <source src="game-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<!-- Mute and Unmute Icons -->
+<div class="mute-icon" onclick="toggleMute()">
+    <img id="muteImg" src="images/play.png" alt="Mute">
+</div>
+
         <div class="timer-box">
         <div id="timer"><span id="time-display">0:00</span></div>
         </div>
         </div>
 
-    
     <main>
     <div class="row" style="padding-top: 20px;">
     <a id="backButton">
@@ -87,91 +113,37 @@ $id = $_SESSION['id'];
             </div>
         </div>
 
+</div>
+
+</div>
         
     </main>
     <script>
-        // Add your JavaScript code here
-        const levels = [
-            {
-                images: ["images/fourpics/hydroA.png", "images/fourpics/hydroB.png", "images/fourpics/hydroC.jpg", "images/fourpics/hydroD.jpg"],
-                correctAnswer: "hydrogen"
-            },
-            {
-                images: ["level2/a.png", "level2/b.png", "level2/c.jpg", "level2/d.jpg"],
-                correctAnswer: "oxygen"
-            },
-            {
-                images: ["level3/a.png", "level3/b.png", "level3/c.jpg", "level3/d.jpg"],
-                correctAnswer: "nitrogen"
-            }
-        ];
+        window.onload = function() {
+        var backgroundMusic = document.getElementById("backgroundMusic");
+        var hoverSound = document.getElementById("hoverSound");
+        var boxes = document.querySelectorAll(".box");
 
-        let currentLevel = 0; // Index of the current level
-        let timerInterval;
-        let elapsedTime = 0;
+        // Set background music volume to 0.3 (30% volume)
+        backgroundMusic.volume = 0.4;
 
-        const imageContainer = document.getElementById("image-container");
-        const answerInput = document.getElementById("answer-input");
-        const submitButton = document.getElementById("submit-button");
-        const message = document.getElementById("message");
-        const timerDisplay = document.getElementById("time-display");
 
-        // Function to start the timer
-        function startTimer() {
-            clearInterval(timerInterval);
-            timerInterval = setInterval(() => {
-                elapsedTime++;
-                updateTimerDisplay();
-            }, 1000);
-        }
+        // Play background music on page load
+        backgroundMusic.play();
 
-        // Function to update the timer display
-        function updateTimerDisplay() {
-            const minutes = Math.floor(elapsedTime / 60);
-            const seconds = elapsedTime % 60;
-            const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-            timerDisplay.textContent = formattedTime;
-        }
-
-        function loadLevel() {
-            const level = levels[currentLevel];
-            imageContainer.innerHTML = ''; // Clear previous images
-            // Display the images for the current level
-            for (let i = 0; i < level.images.length; i++) {
-                const img = document.createElement("img");
-                img.src = level.images[i];
-                img.alt = `Image ${i + 1}`;
-                imageContainer.appendChild(img);
-            }
-        }
-
-        submitButton.addEventListener("click", () => {
-            const userAnswer = answerInput.value.toLowerCase();
-            const level = levels[currentLevel];
-            if (userAnswer === level.correctAnswer) {
-                message.textContent = "Correct!";
-                clearInterval(timerInterval);
-                answerInput.value = '';
-                currentLevel++;
-                if (currentLevel < levels.length) {
-                    loadLevel();
-                    startTimer();
-                } else {
-                    message.textContent = "Congratulations! You have completed all levels.";
-                    answerInput.disabled = true;
-                    submitButton.disabled = true;
-                }
-            } else {
-                message.textContent = "Incorrect. Try again.";
-            }
+        // Add hover sound to all boxes
+        boxes.forEach(function(box) {
+            box.addEventListener("mouseenter", function() {
+                hoverSound.currentTime = 0.4; // Reset sound to the beginning
+                hoverSound.play();
+            });
         });
+    };
 
-        startTimer();
-        loadLevel();
-
-        document.getElementById("backButton").onclick = function() {
-            history.back();
-        };
     </script>
+    
+    <script src="fourpics-script.js"></script>
+    <script src="homescript.js"></script>
+    <script src="music.js"></script>
 </body>
 </html>

@@ -1,17 +1,20 @@
+var overlay = document.getElementById("overlay");
+overlay.style.display = "block";
+
 var brd = document.createElement("DIV");
-		document.body.insertBefore(brd, document.getElementById("board"));
+document.body.insertBefore(brd, document.getElementById("board"));
 
-		bubbles = [];
+bubbles = [];
 
-		const d = 5000;
-		const o = 0.7;
-		const r = 0.001;
-		const f = 0.0025;
-		const p = 0.00000001;
-		const minbub = 10;
-		const maxbub = 50;
-		const cursorXOffset = 5;
-		const cursorYOffset = 0;
+	const d = 5000;
+	const o = 0.5;
+	const r = 0.001;
+	const f = 0.01;
+	const p = 0.00000001;
+	const minbub = 10;
+	const maxbub = 50;
+	const cursorXOffset = 5;
+	const cursorYOffset = 0;
 
 		function newBubble(x, y, size, color)
 		{
@@ -37,50 +40,55 @@ var brd = document.createElement("DIV");
 			return bubble;
 		}
 
+		
 		var msedwn = false;
 
 		document.onmousedown = function(e) {
 			msedwn = true;
-                // Prevent default drag-and-drop behavior
-            e.preventDefault();
-		}
+			document.getElementById('overlay').style.display = 'none';
+			e.preventDefault();
+		};
+
+		document.ontouchmove = function(e) {
+			document.getElementById('overlay').style.display = 'none';
+			e.preventDefault();
+		};
 
 		document.onmouseup = function(e) {
-            msedwn = false;
-            // Pause the bubble sound
-            var bubbleSound = document.getElementById("bubbleSound");
-            bubbleSound.pause();
-        };
+			msedwn = false;
+			var bubbleSound = document.getElementById("bubbleSound");
+			bubbleSound.pause();
+		};
 
 		document.onmousemove = function(e) {
-			if(msedwn)
+			if (msedwn)
 				generateBubbles(e.pageX - brd.offsetLeft + cursorXOffset, e.pageY - brd.offsetTop + cursorYOffset);
-		}
+		};
 
-        document.ondragstart = function(e) {
-        // Prevent default drag-and-drop behavior
-        e.preventDefault();
-    };
+		document.ondragstart = function(e) {
+			// Prevent default drag-and-drop behavior
+			e.preventDefault();
+		};
 
 		document.ontouchmove = function(e) {
 			generateBubbles(e.touches[0].pageX, e.touches[0].pageY);
-		}
+		};
 
 		function generateBubbles(x, y) {
-            if (msedwn) {
-                var size = minbub + (maxbub - minbub) * Math.random();
-                var digits = '0123456789ABCDEF';
-                var color = '#';
-                for (var i = 0; i < 6; i++) {
-                    color += digits[Math.floor(Math.random() * 16)];
-                }
-                newBubble(x, y, size, color);
+			if (msedwn) {
+				var size = minbub + (maxbub - minbub) * Math.random();
+				var digits = '0123456789ABCDEF';
+				var color = '#';
+				for (var i = 0; i < 6; i++) {
+					color += digits[Math.floor(Math.random() * 16)];
+				}
+				newBubble(x, y, size, color);
 
-                // Play the bubble sound
-                var bubbleSound = document.getElementById("bubbleSound");
-                bubbleSound.play();
-            }
-        }
+				// Play the bubble sound
+				var bubbleSound = document.getElementById("bubbleSound");
+				bubbleSound.play();
+			}
+		}
 
 
 
@@ -113,19 +121,16 @@ var brd = document.createElement("DIV");
 
 		var before = Date.now();
 		var id = setInterval(frame, 5);
-		
-		function frame()
-		{
+
+		function frame() {
 			var current = Date.now();
 			var deltaTime = current - before;
 			before = current;
 			bubblePushAround(deltaTime);
-			for(i in bubbles)
-			{
+			for (i in bubbles) {
 				var bubble = bubbles[i];
 				bubble.time -= deltaTime;
-				if(bubble.time > 0)
-				{
+				if (bubble.time > 0) {
 					bubble.velocity.y += f * deltaTime;
 					bubble.velocity.x -= bubble.velocity.x * r * bubble.bubbleSize * deltaTime;
 					bubble.velocity.y -= bubble.velocity.y * r * bubble.bubbleSize * deltaTime;
@@ -134,9 +139,7 @@ var brd = document.createElement("DIV");
 					bubble.style.left = bubble.position.x - bubble.bubbleSize + 'px';
 					bubble.style.top = bubble.position.y - bubble.bubbleSize + 'px';
 					bubble.style.opacity = o * (bubble.time / d);
-				}
-				else
-				{
+				} else {
 					bubble.parentNode.removeChild(bubble);
 					bubbles.splice(i, 1);
 				}

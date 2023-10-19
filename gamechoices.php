@@ -32,6 +32,10 @@ $id = $_SESSION['id'];
             background-image: url('images/gameschoices.png'); 
         }
 
+        .intro-container{
+            overflow-y: auto;
+        }
+
         .nav{
             background: linear-gradient(-45deg, #ffa9f9, #fff7ad, #ffa6a6);
         }
@@ -87,13 +91,6 @@ $id = $_SESSION['id'];
     <img id="muteImg" src="images/play.png" alt="Mute">
 </div>
 
-
-<div id = "board"></div>
-<audio id="bubbleSound">
-    <source src="bubbles.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
 <audio id="hoverSound">
     <source src="hover.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -144,7 +141,6 @@ $id = $_SESSION['id'];
       
     </main>
     <script src="homescript.js"></script>
-    <script src="bubbles.js"></script>
     <script src="music.js"></script>
     <script>
         window.onload = function() {

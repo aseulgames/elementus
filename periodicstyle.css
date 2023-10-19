@@ -1626,17 +1626,17 @@ body {
     align-items: center;
     pointer-events: none;
     user-select: none; }
-    .key .row {
+    .key .col {
       position: relative;
       display: flex;
       width: 100%;
       justify-content: space-between; }
-      .key .row label {
+      .key .col label {
         cursor: pointer;
         transition: 120ms;
         pointer-events: all;
       }
-        .key .row label:hover {
+        .key .col label:hover {
           opacity: 2 !important; }
   
   #alkali-metals:checked ~ .periodic-table .element:not(.alkali-metal),
