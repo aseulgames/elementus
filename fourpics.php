@@ -45,6 +45,13 @@ $id = $_SESSION['id'];
             border: 4px solid #5e17eb;
         }
 
+        h1{
+            font-size: 30px;
+            text-shadow: 2px 2px 2px #ababab;
+            color: #6003b4;
+            font-style: bold;
+        }
+
     </style>
 </head>
 <body>
@@ -55,11 +62,8 @@ $id = $_SESSION['id'];
 
     <div class="popup">
         <button id="close">&times;</button>
-        <img src="images/tut2.png" alt="" style="max-width: 50%">
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita distinctio fugiat alias iure qui,
-            commodi minima magni ullam aliquam dignissimos?
-        </p>
+        <h1 class="purples">How to Play?</h1>
+        <p>Insert tutorial</p>
         <input type="button" value="Okay" id="okay" class="btn">
     </div>
 

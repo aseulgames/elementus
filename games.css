@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Oi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Original+Surfer&family=Sigmar+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Original+Surfer&display=swap');
 *{
     font-family: 'Poppins', sans-serif;
     font-size: 1.5vw;
@@ -188,6 +189,12 @@ body {
     margin: 0;
     padding: 0;
     align-items: center;
+}
+
+h1{
+    font-size: 10vw;
+    text-shadow: 3px 3px 3px #c1c1c1;
+    font-family: 'Anton', sans-serif;
 }
 
 
@@ -522,4 +529,5 @@ body {
 }
 
 
+  
 

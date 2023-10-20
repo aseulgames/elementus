@@ -94,6 +94,7 @@ if (isset($_POST['finishLesson'])) {
         <div class="box-lesson">
     <!-- <div id="timer">Time remaining: 0:00</div> -->
     <h1><b>Element Names, Symbols, and Atomic Numbers</b></h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/1C8EB7aQZQ4?si=CWnym22nX13gZp3y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <h2><strong>Names of Elements</strong></h2>
         <p>Each chemical element has a unique name that distinguishes it from all other elements. These names are often based on various factors, including historical discoveries, properties, or notable scientists.</p>
         <h3><b>Common Names</b></h3>

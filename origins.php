@@ -95,6 +95,7 @@ if (isset($_POST['finishLesson'])) {
     <!-- <div id="timer">Time remaining: 0:00</div> -->
     <h1><b>Periodic Table Origins</b></h1>
         <p>The periodic table is a fundamental tool in chemistry, organizing the chemical elements based on their properties and atomic structures. Its creation and evolution&nbsp;were aided by the groundbreaking research of numerous scientists, who left their stamp on its history. We'll look at the major players and their outstanding contributions to the creation of the periodic table in this section.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ogpWoB4m-Ns?si=DzM4Wy4hifb3gymz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <br><h2><b>Early Attempts at Element Organization </b></h2>
         <p><strong>Antoine Lavoisier (1789): </strong></p>
         <p>The publication of Lavoisier's seminal book, "Trait&eacute; &Eacute;l&eacute;mentaire de Chimie" (Elementary Treatise of Chemistry), which established the law of conservation of mass and created the groundwork for systematic chemical nomenclature, occurs this year.</p>
@@ -118,6 +119,7 @@ if (isset($_POST['finishLesson'])) {
         <h2><strong>The Periodic Table Takes Shape</strong></h2>
         <p><strong>Dmitri Mendeleev (1869):</strong></p>
         <p>Russian chemist Dmitri Mendeleev has been credited with creating the first widely recognized periodic table. He put the elements in ascending atomic weight order and observed that atoms with similar characteristics appeared periodically. Mendeleev left gaps in his table for elements that were yet to be discovered and correctly predicted the properties of these missing elements, earning him great acclaim. This prediction of undiscovered elements and their properties is one of the most remarkable aspects of Mendeleev's work that also laid the foundation for the modern one we use today.</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fPnwBITSmgU?si=XBUKnqD5BTVceD64" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/%EB%93%9C%EB%AF%B8%ED%8A%B8%EB%A6%AC_%EB%A9%98%EB%8D%B8%EB%A0%88%EC%98%88%ED%94%84.jpg/1200px-%EB%93%9C%EB%AF%B8%ED%8A%B8%EB%A6%AC_%EB%A9%98%EB%8D%B8%EB%A0%88%EC%98%88%ED%94%84.jpg" alt="" width="400" height="551" /></p>
         <p><em>Dmitri Mendeleev before 1907 (Wikipedia)</em></p>
         <p><em><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/1869-periodic-table.jpg" alt="" width="400" height="492" /></em></p>

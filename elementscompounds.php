@@ -95,6 +95,7 @@ if (isset($_POST['finishLesson'])) {
         <div class="box-lesson">
     <!-- <div id="timer">Time remaining: 0:00</div> -->
         <h1><b>Elements, Compounds, and Mixtures</b></h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/DZ6Ap8Zyb9w?si=Bi1YB0219XQ0t_NN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <p>&nbsp;</p>
         <h2><b>Elements</b></h2>
         <p>An element is pure substance made up of atoms with the same atomic number, which denotes that their nuclei have the same amount of protons. The chemical symbol for each element is different, for as "H" for hydrogen, "O" for oxygen, or "Fe" for iron.</p>

@@ -93,6 +93,7 @@ if (isset($_POST['finishLesson'])) {
         <div class="box-lesson">
     <!-- <div id="timer">Time remaining: 0:00</div> -->
         <h1><b>Groups and Periods</b></h1>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Regufd-yibQ?si=CysVX7iJxxYdxCJb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         <h2><b>Groups (Families)</b></h2>
         <p>Groups, also known as families, are the vertical columns of elements in the periodic table. Elements that are part of the same group have the same number of valence electrons and similar chemical characteristics. Here is a more thorough explanation:</p>
         <p><strong>Similar Chemical Properties:</strong> Because all elements in a group have an equal number of valence electrons in their outermost electron shells, they behave chemically similarly. Elements having the same number of valence electrons tend to produce comparable kinds of chemical bonds and compounds because valence electrons are the electrons engaged in chemical processes.</p>

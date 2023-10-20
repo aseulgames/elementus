@@ -106,8 +106,8 @@ $id = $_SESSION['id'];
         }
 
         .element {
-            width: 40px;
-            height: 40px;
+            width: 3vw;
+            height: 3vw;
             background-color: #ccc;
             border: 1px solid #edb0ce;
             border-radius: 5px;
@@ -177,7 +177,7 @@ $id = $_SESSION['id'];
             display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: bold;
+            color: #fff;
         }
 
         .element.H, .element.Li, .element.Na, .element.K,
@@ -411,10 +411,11 @@ $id = $_SESSION['id'];
 
         @media (max-width: 768px) {
             .outer-rounded-square {
-                width: 90vw;
+                /* width: 90vw;
                 height: 90vw;
                 max-width: 400px;
-                max-height: 400px;
+                max-height: 400px; */
+                z-index: 2;
             }
 
             .inner-rounded-square {
@@ -424,6 +425,38 @@ $id = $_SESSION['id'];
             }
         }
 
+        .tooltip-text {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            color: white;
+            font-size: 12px;
+            background-color: #192733;
+            border-radius: 10px;
+            padding: 10px 15px;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+
+        #fade {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .hover-text:hover #fade { 
+            opacity: 1; 
+        }
+
+
+        .hover-text {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
 
     </style>
 </head>
@@ -445,52 +478,123 @@ $id = $_SESSION['id'];
 </div>
 <div class="outer-rounded-square">
 <div class="container">
-        <div class="periodic-table">
-            <!-- Create placeholders for elements -->
-            <!-- Row 1 -->
-            <div class="element H" data-element="H" data-position="1,1"></div>
-            <div class="element He" data-element="He" data-position="1,18"></div>
-            <!-- Row 2 -->
-            <div class="element Li" data-element="Li" data-position="2,1"></div>
-            <div class="element Be" data-element="Be" data-position="2,2"></div>
-            <div class="element B" data-element="B" data-position="2,13"></div>
-            <div class="element C" data-element="C" data-position="2,14"></div>
-            <div class="element N" data-element="N" data-position="2,15"></div>
-            <div class="element O" data-element="O" data-position="2,16"></div>
-            <div class="element F" data-element="F" data-position="2,17"></div>
-            <div class="element Ne" data-element="Ne" data-position="2,18"></div>
-            <!-- Row 3 -->
-            <div class="element Na" data-element="Na" data-position="3,1"></div>
-            <div class="element Mg" data-element="Mg" data-position="3,2"></div>
-            <div class="element Al" data-element="Al" data-position="3,13"></div>
-            <div class="element Si" data-element="Si" data-position="3,14"></div>
-            <div class="element P" data-element="P" data-position="3,15"></div>
-            <div class="element S" data-element="S" data-position="3,16"></div>
-            <div class="element Cl" data-element="Cl" data-position="3,17"></div>
-            <div class="element Ar" data-element="Ar" data-position="3,18"></div>
+<div class="periodic-table">
+    <!-- Row 1 -->
+    <div class="element H hover-text" data-element="H" data-position="1,1">
+        <span class="tooltip-text" id="fade-H">The lightest and most abundant element in the universe.</span>
+    </div>
+    <div class="element He hover-text" data-element="He" data-position="1,18">
+        <span class="tooltip-text" id="fade-He">Named after the Greek god of the Sun, Helios.</span>
+    </div>
+    <!-- Row 2 -->
+    <div class="element Li hover-text" data-element="Li" data-position="2,1">
+        <span class="tooltip-text" id="fade-Li">Used in rechargeable batteries and mood-stabilizing medication.</span>
+    </div>
+    <div class="element Be hover-text" data-element="Be" data-position="2,2">
+        <span class="tooltip-text" id="fade-Be">Lightweight metal used in aerospace components.</span>
+    </div>
+    <div class="element B hover-text" data-element="B" data-position="2,13">
+        <span class="tooltip-text" id="fade-B">Found in borax; used in detergents and fiberglass.</span>
+    </div>
+    <div class="element C hover-text" data-element="C" data-position="2,14">
+        <span class="tooltip-text" id="fade-C">Basis of organic chemistry; essential for life on Earth.</span>
+    </div>
+    <div class="element N hover-text" data-element="N" data-position="2,15">
+        <span class="tooltip-text" id="fade-N">Makes up 78% of Earth's atmosphere; vital for plant growth.</span>
+    </div>
+    <div class="element O hover-text" data-element="O" data-position="2,16">
+        <span class="tooltip-text" id="fade-O">A vital element for life.</span>
+    </div>
+    <div class="element F hover-text" data-element="F" data-position="2,17">
+        <span class="tooltip-text" id="fade-F">Highly reactive; used in toothpaste and non-stick coatings.</span>
+    </div>
+    <div class="element Ne hover-text" data-element="Ne" data-position="2,18">
+        <span class="tooltip-text" id="fade-Ne">A noble gas with a distinct reddish-orange glow.</span>
+    </div>
+    <!-- Row 3 -->
+    <div class="element Na hover-text" data-element="Na" data-position="3,1">
+        <span class="tooltip-text" id="fade-Na">Reacts violently with water; used in streetlights.</span>
+    </div>
+    <div class="element Mg hover-text" data-element="Mg" data-position="3,2">
+        <span class="tooltip-text" id="fade-Mg">Essential for biological processes; found in chlorophyll.</span>
+    </div>
+    <div class="element Al hover-text" data-element="Al" data-position="3,13">
+        <span class="tooltip-text" id="fade-Al">Lightweight metal; widely used in aerospace and packaging.</span>
+    </div>
+    <div class="element Si hover-text" data-element="Si" data-position="3,14">
+        <span class="tooltip-text" id="fade-Si">Main component of semiconductors; found in sand and quartz.</span>
+    </div>
+    <div class="element P hover-text" data-element="P" data-position="3,15">
+        <span class="tooltip-text" id="fade-P">Essential for DNA, RNA, and ATP; used in fertilizers.</span>
+    </div>
+    <div class="element S hover-text" data-element="S" data-position="3,16">
+        <span class="tooltip-text" id="fade-S">Important in proteins and vitamins; gives characteristic smell to rotten eggs.</span>
+    </div>
+    <div class="element Cl hover-text" data-element="Cl" data-position="3,17">
+        <span class="tooltip-text" id="fade-Cl">Disinfectant; used in PVC, cleaning products, and bleach.</span>
+    </div>
+    <div class="element Ar hover-text" data-element="Ar" data-position="3,18">
+        <span class="tooltip-text" id="fade-Ar">Inert gas; used in welding, electric bulbs, and lasers.</span>
+    </div>
+    <!--Row 4 -->
+    <div class="element K hover-text" data-element="K" data-position="4,19">
+        <span class="tooltip-text" id="fade-K">Essential for nerve function; found in bananas and potatoes.</span>
+    </div>
+    <div class="element Ca hover-text" data-element="Ca" data-position="4,20">
+        <span class="tooltip-text" id="fade-Ca">Important for bone and teeth health; used in construction materials.</span>
+    </div>
+    <div class="element Sc hover-text" data-element="Sc" data-position="4,21">
+        <span class="tooltip-text" id="fade-Sc">Lightweight metal; used in aerospace components.</span>
+    </div>
+    <div class="element Ti hover-text" data-element="Ti" data-position="4,22">
+        <span class="tooltip-text" id="fade-Ti">Strong, corrosion-resistant metal; used in aircraft and spacecraft.</span>
+    </div>
+    <div class="element V hover-text" data-element="V" data-position="4,23">
+        <span class="tooltip-text" id="fade-V">Used in steel alloys for high-strength applications.</span>
+    </div>
+    <div class="element Cr hover-text" data-element="Cr" data-position="4,24">
+        <span class="tooltip-text" id="fade-Cr">Adds hardness to steel; used in stainless steel and chrome plating.</span>
+    </div>
+    <div class="element Mn hover-text" data-element="Mn" data-position="4,25">
+        <span class="tooltip-text" id="fade-Mn">Essential trace element; used in steel production.</span>
+    </div>
+    <div class="element Fe hover-text" data-element="Fe" data-position="4,26">
+        <span class="tooltip-text" id="fade-Fe">Most common metal on Earth; used in construction and manufacturing.</span>
+    </div>
+    <div class="element Co hover-text" data-element="Co" data-position="4,27">
+        <span class="tooltip-text" id="fade-Co">Used in magnets, rechargeable batteries, and aircraft engines.</span>
+    </div>
+    <div class="element Ni hover-text" data-element="Ni" data-position="4,28">
+        <span class="tooltip-text" id="fade-Ni">Used in coins, magnets, and corrosion-resistant alloys.</span>
+    </div>
+    <div class="element Cu hover-text" data-element="Cu" data-position="4,29">
+        <span class="tooltip-text" id="fade-Cu">Excellent conductor of electricity; used in wires and plumbing.</span>
+    </div>
+    <div class="element Zn hover-text" data-element="Zn" data-position="4,30">
+        <span class="tooltip-text" id="fade-Zn">Essential mineral; used in galvanizing steel and batteries.</span>
+    </div>
+    <div class="element Ga hover-text" data-element="Ga" data-position="4,31">
+        <span class="tooltip-text" id="fade-Ga">Low melting point; used in LEDs and solar panels.</span>
+    </div>
+    <div class="element Ge hover-text" data-element="Ge" data-position="4,32">
+        <span class="tooltip-text" id="fade-Ge">Semiconducting material; used in transistors and optics.</span>
+    </div>
+    <div class="element As hover-text" data-element="As" data-position="4,33">
+        <span class="tooltip-text" id="fade-As">Poisonous element; used in semiconductors and wood preservatives.</span>
+    </div>
+    <div class="element Se hover-text" data-element="Se" data-position="4,34">
+        <span class="tooltip-text" id="fade-Se">Essential trace element; used in electronics and photovoltaic cells.</span>
+    </div>
+    <div class="element Br hover-text" data-element="Br" data-position="4,35">
+        <span class="tooltip-text" id="fade-Br">Dark red-brown liquid; used in flame retardants and photography.</span>
+    </div>
+    <div class="element Kr hover-text" data-element="Kr" data-position="4,36">
+        <span class="tooltip-text" id="fade-Kr">Inert gas; used in high-powered photographic flashes.</span>
+    </div>
 
-            <!--Row 4 -->
-            <div class="element K" data-element="K" data-position="4,19"></div>
-            <div class="element Ca" data-element="Ca" data-position="4,20"></div>
-            <div class="element Sc" data-element="Sc" data-position="4,21"></div>
-            <div class="element Ti" data-element="Ti" data-position="4,22"></div>
-            <div class="element V" data-element="V" data-position="4,23"></div>
-            <div class="element Cr" data-element="Cr" data-position="4,24"></div>
-            <div class="element Mn" data-element="Mn" data-position="4,25"></div>
-            <div class="element Fe" data-element="Fe" data-position="4,26"></div>
-            <div class="element Co" data-element="Co" data-position="4,27"></div>
-            <div class="element Ni" data-element="Ni" data-position="4,28"></div>
-            <div class="element Cu" data-element="Cu" data-position="4,29"></div>
-            <div class="element Zn" data-element="Zn" data-position="4,30"></div>
-            <div class="element Ga" data-element="Ga" data-position="4,31"></div>
-            <div class="element Ge" data-element="Ge" data-position="4,32"></div>
-            <div class="element As" data-element="As" data-position="4,33"></div>
-            <div class="element Se" data-element="Se" data-position="4,34"></div>
-            <div class="element Br" data-element="Br" data-position="4,35"></div>
-            <div class="element Kr" data-element="Kr" data-position="4,36"></div>
+    <!-- ... Repeat for other rows -->
+</div>
 
-            <!-- ... Repeat for other rows -->
-        </div>
         <div class="inner-rounded-square">
         <div class="element-list">
             <!-- Create draggable elements -->
@@ -565,61 +669,95 @@ $id = $_SESSION['id'];
     </script>
 
 <script>
-        const draggableElements = document.querySelectorAll('.draggable-element');
-        const elementPlaceholders = document.querySelectorAll('.element');
+        document.addEventListener('DOMContentLoaded', function () {
+            const draggableElements = document.querySelectorAll('.draggable-element');
+            const elementPlaceholders = document.querySelectorAll('.element');
 
-        let draggedElement = null;
+            let draggedElement = null;
 
-        draggableElements.forEach((element) => {
-            element.addEventListener('dragstart', (e) => {
-                draggedElement = e.target;
-                e.dataTransfer.setData('text/plain', element.dataset.element);
+            draggableElements.forEach((element) => {
+                element.addEventListener('dragstart', (e) => {
+                    draggedElement = e.target;
+                    e.dataTransfer.setData('text/plain', element.dataset.element);
+                });
+
+                element.addEventListener('dragend', () => {
+                    draggedElement = null;
+                });
             });
 
-            element.addEventListener('dragend', () => {
-                draggedElement = null;
+            elementPlaceholders.forEach((placeholder) => {
+                placeholder.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                });
+
+                placeholder.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    const elementSymbol = e.dataTransfer.getData('text/plain');
+
+                    if (placeholder.dataset.element === elementSymbol) {
+                        placeholder.innerHTML = draggedElement.dataset.element;
+                        draggableElements.forEach((element) => {
+                            if (element.dataset.element === elementSymbol) {
+                                element.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+
+            const restartButton = document.querySelector('.retry-button');
+            restartButton.addEventListener('click', function () {
+                draggableElements.forEach((element) => {
+                    element.style.display = 'block';
+                });
+
+                elementPlaceholders.forEach((placeholder) => {
+                    placeholder.innerHTML = '';
+                });
             });
         });
-
-        elementPlaceholders.forEach((placeholder) => {
-            placeholder.addEventListener('dragover', (e) => {
-                e.preventDefault();
-            });
-
-            placeholder.addEventListener('drop', (e) => {
-                e.preventDefault();
-                const elementSymbol = e.dataTransfer.getData('text/plain');
-
-                if (placeholder.dataset.element === elementSymbol) {
-                    placeholder.innerHTML = draggedElement.dataset.element;
-                    draggableElements.forEach((element) => {
-                        if (element.dataset.element === elementSymbol) {
-                            element.style.display = 'none';
-                        }
-                    });
-                }
-            });
-        });
-
     </script>
 
     <script>
-        function restartGame() {
-            // Reset the draggable elements
-            draggableElements.forEach((element) => {
-                element.style.display = 'block';
+       document.addEventListener('DOMContentLoaded', function () {
+        const elementsWithTooltip = document.querySelectorAll('.hover-text');
+
+        elementsWithTooltip.forEach(element => {
+            element.addEventListener('mouseover', function () {
+                const elementSymbol = this.dataset.element;
+                const tooltip = document.getElementById(`fade-${elementSymbol}`);
+                if (tooltip) {
+                    const rect = this.getBoundingClientRect();
+                    const windowWidth = window.innerWidth;
+                    const windowHeight = window.innerHeight;
+                    const tooltipWidth = tooltip.offsetWidth;
+                    const tooltipHeight = tooltip.offsetHeight;
+
+                    // Calculate the position to center the tooltip slightly to the left and top
+                    const left = (windowWidth - tooltipWidth) / 2 - (windowWidth * 0.3); // Centered and 5% from the left
+                    const top = (windowHeight - tooltipHeight) / 2 - (windowHeight * 0.3); // Centered and 5% from the top
+
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+
+                    tooltip.style.display = 'block';
+                }
             });
 
-            // Reset the placeholders
-            elementPlaceholders.forEach((placeholder) => {
-                placeholder.innerHTML = '';
+            element.addEventListener('mouseout', function () {
+                const elementSymbol = this.dataset.element;
+                const tooltip = document.getElementById(`fade-${elementSymbol}`);
+                if (tooltip) {
+                    tooltip.style.display = 'none';
+                }
             });
-        }
+        });
+    });
 
-        // Add event listener to the restart button
-        const restartButton = document.querySelector('.retry-button');
-        restartButton.addEventListener('click', restartGame);
 
     </script>
+
+
 </body>
 </html>
