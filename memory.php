@@ -40,16 +40,7 @@ $id = $_SESSION['id'];
 
         .timer-box {
             background-color: #cb9b00;
-
-                position: absolute;
-                top: 150px; /* Adjust the top distance from the top of the parent element */
-                right: 70px; /* Adjust the right distance from the right of the parent element */
-                width: 150px; /* Set the width of the timer box */
-                height: 30px; /* Set the height of the timer box */
                 border: 4px solid #fdc54c; /* Set the border properties */
-                padding: 10px; /* Optional: Add padding inside the timer box */
-
-            transform: skewX(-5deg); /* Skew the timer box horizontally */
         }
 
         /*Memory Game*/
@@ -219,7 +210,7 @@ $id = $_SESSION['id'];
     </style>
 </head>
 <body>
-<link rel="stylesheet" href="tutorial.css">
+    <link rel="stylesheet" href="tutorial.css">
     <div class="overlay"></div>
     
     <!-- Your existing HTML content goes here -->
@@ -230,10 +221,22 @@ $id = $_SESSION['id'];
         <p>Insert tutorial</p>
         <input type="button" value="Okay" id="okay" class="btn">
     </div>
+
+    
+        <audio id="backgroundMusic" autoplay loop>
+            <source src="game-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="mute-icon" onclick="toggleMute()">
+            <img id="muteImg" src="images/play.png" alt="Mute">
+        </div>
+
         <div class="timer-box">
         <div id="timer"><span id="time-display">0:00</span></div>
         </div>
         </div>
+
     <main>
     <div class="row" style="padding-top: 20px;">
     <a id="backButton">
@@ -366,6 +369,32 @@ $id = $_SESSION['id'];
             history.back();
         };
     </script>
-    <script src="memory.js"></script>
+
+    <script>
+      var backgroundMusic = document.getElementById("backgroundMusic");
+      var muteImg = document.getElementById("muteImg");
+      var isMuted = false;
+
+      backgroundMusic.volume = 0.5;
+
+      function toggleMute() {
+          if (isMuted) {
+              backgroundMusic.play();
+              muteImg.src = "images/play.png";
+          } else {
+              backgroundMusic.pause();
+              muteImg.src = "images/mute.png";
+          }
+          isMuted = !isMuted;
+      }
+
+
+      window.onload = function() {
+          backgroundMusic.play();
+      }
+
+    </script>
+    
+    <script src="memory.js"></script>  
 </body>
 </html>

@@ -458,11 +458,40 @@ $id = $_SESSION['id'];
             text-align: center;
         }
 
+        h1{
+            font-size: 30px;
+            text-shadow: 2px 2px 2px #ababab;
+            color: #6003b4;
+            font-style: bold;
+        }
+        
+
     </style>
 </head>
 <body>
 
+<body>
+    <link rel="stylesheet" href="tutorial.css">
+    <div class="overlay"></div>
+    
+    <!-- Your existing HTML content goes here -->
 
+    <div class="popup">
+        <button id="close">&times;</button>
+        <h1 class="purples">How to Play?</h1>
+        <p>Insert tutorial</p>
+        <input type="button" value="Okay" id="okay" class="btn">
+    </div>
+
+    
+        <audio id="backgroundMusic" autoplay loop>
+            <source src="game-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="mute-icon" onclick="toggleMute()">
+            <img id="muteImg" src="images/play.png" alt="Mute">
+        </div>
     <main>
     <div class="row" style="padding-top: 20px;">
     <a id="backButton">
@@ -662,101 +691,14 @@ $id = $_SESSION['id'];
 </div>
     </main>
     <script>
-
         document.getElementById("backButton").onclick = function() {
             history.back();
         };
     </script>
 
-<script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const draggableElements = document.querySelectorAll('.draggable-element');
-            const elementPlaceholders = document.querySelectorAll('.element');
+    <script src="puzzle.js"></script>
 
-            let draggedElement = null;
-
-            draggableElements.forEach((element) => {
-                element.addEventListener('dragstart', (e) => {
-                    draggedElement = e.target;
-                    e.dataTransfer.setData('text/plain', element.dataset.element);
-                });
-
-                element.addEventListener('dragend', () => {
-                    draggedElement = null;
-                });
-            });
-
-            elementPlaceholders.forEach((placeholder) => {
-                placeholder.addEventListener('dragover', (e) => {
-                    e.preventDefault();
-                });
-
-                placeholder.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    const elementSymbol = e.dataTransfer.getData('text/plain');
-
-                    if (placeholder.dataset.element === elementSymbol) {
-                        placeholder.innerHTML = draggedElement.dataset.element;
-                        draggableElements.forEach((element) => {
-                            if (element.dataset.element === elementSymbol) {
-                                element.style.display = 'none';
-                            }
-                        });
-                    }
-                });
-            });
-
-            const restartButton = document.querySelector('.retry-button');
-            restartButton.addEventListener('click', function () {
-                draggableElements.forEach((element) => {
-                    element.style.display = 'block';
-                });
-
-                elementPlaceholders.forEach((placeholder) => {
-                    placeholder.innerHTML = '';
-                });
-            });
-        });
-    </script>
-
-    <script>
-       document.addEventListener('DOMContentLoaded', function () {
-        const elementsWithTooltip = document.querySelectorAll('.hover-text');
-
-        elementsWithTooltip.forEach(element => {
-            element.addEventListener('mouseover', function () {
-                const elementSymbol = this.dataset.element;
-                const tooltip = document.getElementById(`fade-${elementSymbol}`);
-                if (tooltip) {
-                    const rect = this.getBoundingClientRect();
-                    const windowWidth = window.innerWidth;
-                    const windowHeight = window.innerHeight;
-                    const tooltipWidth = tooltip.offsetWidth;
-                    const tooltipHeight = tooltip.offsetHeight;
-
-                    // Calculate the position to center the tooltip slightly to the left and top
-                    const left = (windowWidth - tooltipWidth) / 2 - (windowWidth * 0.3); // Centered and 5% from the left
-                    const top = (windowHeight - tooltipHeight) / 2 - (windowHeight * 0.3); // Centered and 5% from the top
-
-                    tooltip.style.left = left + 'px';
-                    tooltip.style.top = top + 'px';
-
-                    tooltip.style.display = 'block';
-                }
-            });
-
-            element.addEventListener('mouseout', function () {
-                const elementSymbol = this.dataset.element;
-                const tooltip = document.getElementById(`fade-${elementSymbol}`);
-                if (tooltip) {
-                    tooltip.style.display = 'none';
-                }
-            });
-        });
-    });
-
-
-    </script>
+    <script src="music.js"></script>
 
 
 </body>

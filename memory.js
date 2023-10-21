@@ -148,4 +148,3 @@ function flipCard(clickedCard) {
 function showOverlay() {
     document.querySelector(".overlay").style.display = "block";
 }
-
