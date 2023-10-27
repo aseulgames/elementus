@@ -233,9 +233,26 @@ $id = $_SESSION['id'];
         </div>
 
         <div class="timer-box">
-        <div id="timer"><span id="time-display">0:00</span></div>
+          <div id="timer"><span id="time-display">0:00</span></div>
         </div>
-        </div>
+
+        <!-- Include these lines in your HTML file where you want to add the audio elements -->
+        <audio id="flipSound">
+            <source src="flip.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="correctMatchSound">
+            <source src="correct.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="wrongMatchSound">
+            <source src="wrong.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+      </div>
 
     <main>
     <div class="row" style="padding-top: 20px;">
@@ -370,30 +387,7 @@ $id = $_SESSION['id'];
         };
     </script>
 
-    <script>
-      var backgroundMusic = document.getElementById("backgroundMusic");
-      var muteImg = document.getElementById("muteImg");
-      var isMuted = false;
-
-      backgroundMusic.volume = 0.5;
-
-      function toggleMute() {
-          if (isMuted) {
-              backgroundMusic.play();
-              muteImg.src = "images/play.png";
-          } else {
-              backgroundMusic.pause();
-              muteImg.src = "images/mute.png";
-          }
-          isMuted = !isMuted;
-      }
-
-
-      window.onload = function() {
-          backgroundMusic.play();
-      }
-
-    </script>
+    <script src="music.js"></script>
     
     <script src="memory.js"></script>  
 </body>

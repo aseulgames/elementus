@@ -16,6 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    const correctMatchSound = document.getElementById('correctMatchSound');
+    const wrongMatchSound = document.getElementById('wrongMatchSound');
+
     elementPlaceholders.forEach((placeholder) => {
         placeholder.addEventListener('dragover', (e) => {
             e.preventDefault();
@@ -30,8 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 draggableElements.forEach((element) => {
                     if (element.dataset.element === elementSymbol) {
                         element.style.display = 'none';
+                        correctMatchSound.play();
                     }
                 });
+            } else {
+                wrongMatchSound.play();
             }
         });
     });

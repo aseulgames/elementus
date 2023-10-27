@@ -123,7 +123,7 @@ $id = $_SESSION['id'];
                     <div class="puzzlelogo-img"></div>
                 </div>
             </a>
-            <a href="" class="box boxfour <?php echo $lesson_completion[4] ?>" onclick="unlockColumn(this, 4)">
+            <a href="playfusion.php" class="box boxfour <?php echo $lesson_completion[4] ?>" onclick="unlockColumn(this, 4)">
                 <div class="box-img" style="background-image: url('images/iconfour.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">

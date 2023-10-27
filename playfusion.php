@@ -31,8 +31,8 @@ $id = $_SESSION['id'];
 
 <div class="row" style="padding-top: 20px;">
     <a id="backButton">
-        <img src="teacher_back.png" class="back-icon" alt="Back Icon">
-    </a><span><img src="images/4picslogo2.png" class="iconlogo" style="max-width: 50%;
+        <img src="images/fusion_back.png" class="back-icon" alt="Back Icon">
+    </a><span><img src="images/fuselogo.png" class="iconlogo" style="max-width: 50%;
     min-width: 40%;"></span>
 
     <div class="row" style="justify-content: right; padding-right: 20px;">
@@ -40,13 +40,8 @@ $id = $_SESSION['id'];
         height: auto; justify-content: right; padding-right: 30px;">
     </div>
 
-    <audio id="hoverSound">
-        <source src="hover.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-
 </div>
-<body style="background-image: url('images/fourpicsbg.png');">
+<body style="background-image: url('images/fusionbg.png');">
 <div id = "board"></div>
 <!-- Background Music -->
 <audio id="backgroundMusic" autoplay loop>
@@ -60,9 +55,9 @@ $id = $_SESSION['id'];
 </div>
     <div class="start-container">
         <div class="play">
-            <img src="images/letsplay4pics.png" style="width: 100%;height: auto; margin-bottom:-30px">
-            <a href="fourpics.php">
-            <button type="button" class="btn btn-start" style="color:#2e0257;">START</button>
+            <img src="images/letsplayfusion.png" style="width: 100%;height: auto; margin-bottom:-30px">
+            <a href="fusion.php">
+            <button type="button" class="btn btn-start" style="color:#07690b;">START</button>
             </a>
         </div>
     </div>
@@ -97,7 +92,5 @@ $id = $_SESSION['id'];
     };
 
     </script>
-    
-    <script src="hover.js"></script>
 </body>
 </html>

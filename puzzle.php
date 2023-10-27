@@ -489,6 +489,16 @@ $id = $_SESSION['id'];
             Your browser does not support the audio element.
         </audio>
 
+        <audio id="correctMatchSound">
+            <source src="correct.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <audio id="wrongMatchSound">
+            <source src="wrong.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
         <div class="mute-icon" onclick="toggleMute()">
             <img id="muteImg" src="images/play.png" alt="Mute">
         </div>
@@ -671,10 +681,11 @@ $id = $_SESSION['id'];
 
 
             <!-- Repeat for other draggable elements -->
-
-            <button class="retry-button" onclick="restartGame()">
-        <img src="images/memory/retry-icon.png" alt="Retry Icon">
-    </button>
+            <a href="puzzle.php">
+            <button class="retry-button" >
+            <!-- onclick="restartGame()" -->
+                <img src="images/memory/retry-icon.png" alt="Retry Icon">
+            </button></a>
 
     <div class="next-container">
         <div class="next">
@@ -683,6 +694,7 @@ $id = $_SESSION['id'];
             </a>
         </div>
     </div>
+
         </div>
 
         
@@ -690,6 +702,29 @@ $id = $_SESSION['id'];
     </div>
 </div>
     </main>
+    <script>
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Select all draggable elements
+        const draggableElements = Array.from(document.querySelectorAll('.draggable-element'));
+
+        // Shuffle the array of draggable elements
+        const shuffledElements = shuffleArray(draggableElements);
+
+        // Get the container where elements will be appended
+        const container = document.querySelector('.element-list');
+
+        // Append the shuffled elements to the container
+        shuffledElements.forEach(element => {
+            container.appendChild(element);
+        });
+    </script>
     <script>
         document.getElementById("backButton").onclick = function() {
             history.back();

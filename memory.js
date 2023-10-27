@@ -12,6 +12,11 @@ const cards = document.querySelectorAll(".card");
 const popup = document.querySelector(".popup");
 const overlay = document.querySelector(".overlay");
 
+const flipSound = document.getElementById("flipSound");
+const correctMatchSound = document.getElementById("correctMatchSound");
+const wrongMatchSound = document.getElementById("wrongMatchSound");
+
+
 // Function to show the overlay and popup tutorial
 function showTutorial() {
     overlay.style.display = "flex"; // Show the overlay
@@ -57,6 +62,7 @@ document.querySelector("#okay").addEventListener("click", closeTutorial);
 function flipCard(clickedCard) {
     if (gameStarted) {
         clickedCard.classList.add("flip");
+        // flipSound.play();
                 if(!cardOne) {
                     return cardOne = clickedCard;
                 }
@@ -78,6 +84,7 @@ function flipCard(clickedCard) {
 
             // Check if the names match after removing the "(2)" tag
             if (cardOneName === cardTwoName) {
+                correctMatchSound.play();
                 matched++;
                 if (matched == 6) {
                     setTimeout(() => {
@@ -89,6 +96,7 @@ function flipCard(clickedCard) {
                 cardOne = cardTwo = "";
                 disableDeck = false;
             } else {
+                wrongMatchSound.play();
                 setTimeout(() => {
                     cardOne.classList.add("shake");
                     cardTwo.classList.add("shake");

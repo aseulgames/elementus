@@ -84,6 +84,7 @@ $id = $_SESSION['id'];
         </div>
 
     <main>
+    
     <div class="row" style="padding-top: 20px;">
     <a id="backButton">
         <img src="teacher_back.png" class="back-icon" alt="Back Icon">
@@ -95,8 +96,14 @@ $id = $_SESSION['id'];
         height: auto; justify-content: right; padding-right: 30px;">
     </div>
 
-</div>
+    <audio id="hoverSound">
+        <source src="hover.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
+</div>
+<audio id="correctSound" src="correct.mp3"></audio>
+<audio id="wrongSound" src="wrong.mp3"></audio>
         
         <div class="rounded-square">
         
@@ -149,5 +156,7 @@ $id = $_SESSION['id'];
     <script src="fourpics-script.js"></script>
     <script src="homescript.js"></script>
     <script src="music.js"></script>
+    <script src="hover.js"></script>
+
 </body>
 </html>

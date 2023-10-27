@@ -15,7 +15,7 @@ const levels = [
     },
 ];
 
-let currentLevel = 0; // Index of the current level
+let currentLevel = 0;
 let timerInterval;
 let elapsedTime = 0;
 
@@ -25,7 +25,9 @@ const submitButton = document.getElementById("submit-button");
 const message = document.getElementById("message");
 const timerDisplay = document.getElementById("time-display");
 
-// Function to start the timer
+const correctSound = document.getElementById("correctSound");
+const wrongSound = document.getElementById("wrongSound");
+
 function startTimer() {
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
@@ -34,7 +36,6 @@ function startTimer() {
     }, 1000);
 }
 
-// Function to update the timer display
 function updateTimerDisplay() {
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
@@ -78,7 +79,7 @@ submitButton.addEventListener("click", () => {
             ? `Correct! You earned ${stars} stars.`
             : `Congratulations! You have completed all levels and earned ${stars} stars.`;
         answerInput.value = '';
-        elapsedTime = 0; // Reset timer
+        elapsedTime = 0;
         currentLevel++;
         if (currentLevel < levels.length) {
             loadLevel();
@@ -87,8 +88,10 @@ submitButton.addEventListener("click", () => {
             answerInput.disabled = true;
             submitButton.disabled = true;
         }
+        correctSound.play();
     } else {
         message.textContent = "Incorrect. Try again.";
+        wrongSound.play();
     }
 });
 
