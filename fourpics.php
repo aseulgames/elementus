@@ -52,20 +52,159 @@ $id = $_SESSION['id'];
             font-style: bold;
         }
 
+        .stars-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .stars-popup p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .stars-popup .stars-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: #FFD700; /* Gold color for stars */
+            font-size: 24px;
+            margin: 0 5px;
+        }
+
+        .stars-popup button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .stars-popup button:hover {
+            background-color: #45a049;
+        }
+
+        .stars-popup .stars-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Add these styles to your existing CSS code */
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #73147a, #73114d);
+            color: #fff;
+            padding: 30px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        .popup h1.title {
+            font-size: 2vw;
+            margin-bottom: 20px;
+        }
+
+        .popup p {
+            font-size: 1vw;
+            margin-bottom: 20px;
+        }
+
+        .popup ul {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .popup ul li {
+            margin-bottom: 10px;
+            font-size: 1vw;
+        }
+
+        .popup strong{
+            font-size: 1vw;
+        }
+
+        .popup button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 3vw;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .popup button:hover {
+            background-color: #45a049;
+        }
+
+
+        #close, #okay {
+            background-color: #73147f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1vw;
+            transition: 0.3s;
+        }
+
+        #close:hover, #okay:hover {
+            background-color: #f48c4f;
+            color: #73147f;
+        }
+
+        .tutorial-img{
+            height: 15vw;
+            text-align: center;
+        }
+        
+
+
     </style>
 </head>
 <body>
+<div id="stars-popup-container"></div>
+
+
+
     <link rel="stylesheet" href="tutorial.css">
     <div class="overlay"></div>
     
     <!-- Your existing HTML content goes here -->
 
     <div class="popup">
-        <button id="close">&times;</button>
-        <h1 class="purples">How to Play?</h1>
-        <p>Insert tutorial</p>
-        <input type="button" value="Okay" id="okay" class="btn">
+    <button id="close">&times;</button>
+    <h1 class="title">How to Play?</h1>
+    <div class="tutorial-content">
+        <ul>
+            <li><strong>Study the Pictures:</strong> Each level presents you with <strong>four</strong> intriguing images.</li>
+            <li><strong>Find the Connection:</strong> Look for common patterns, colors, objects, or actions that link the images together.</li>
+            <li><strong>Make Your Guess:</strong> Type your chosen word in the <strong>textbox</strong> based on your observations.</li>
+            <li><strong>Submit and Progress:</strong> Click <strong>Submit</strong> to check your answer. If correct, you'll advance to the next level.</li>
+        </ul>
+        <img src="images/4pics_tut_img.png" alt="Tutorial Image" class="tutorial-img">
     </div>
+    <input type="button" value="Got It!" id="okay" class="btn">
+</div>
+
+
 
 <!-- Background Music -->
 <audio id="backgroundMusic" autoplay loop>

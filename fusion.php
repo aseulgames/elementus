@@ -200,7 +200,6 @@ $id = $_SESSION['id'];
 </div>
     <div class="boxes-container">
                 <div class="reaction-area">
-                    Drop Elements Here
                 </div>
                 <div class="goal-box">
                     GOAL: Your Goal Text Here
@@ -209,7 +208,7 @@ $id = $_SESSION['id'];
     </main>
     <script>
         document.getElementById("backButton").onclick = function() {
-            history.back();
+            history.back(); 
         };
     </script>
 
@@ -218,7 +217,13 @@ $id = $_SESSION['id'];
     <script src="music.js"></script>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
         const elements = document.querySelectorAll('.draggable-element');
+        const stateIcons = {
+            gas: 'images/gas.png',
+            liquid: 'images/liquid.png',
+            solid: 'images/solid.png'
+        };
 
         elements.forEach(element => {
             element.addEventListener('dragstart', function(event) {
@@ -227,27 +232,81 @@ $id = $_SESSION['id'];
                 const dragIcon = new Image();
 
                 // Set the source of the drag icon based on the element state
-                if (state === 'gas') {
-                    dragIcon.src = 'images/gas.png'; // Replace 'gas.png' with your gas icon image URL
-                } else if (state === 'liquid') {
-                    dragIcon.src = 'images/liquid.png'; // Replace 'liquid.png' with your liquid icon image URL
-                } else {
-                    dragIcon.src = 'images/solid.png'; // Replace 'solid.png' with your solid icon image URL
-                }
+                dragIcon.src = stateIcons[state];
 
-                // Set the width and height of the drag icon
-                dragIcon.width = 30; // Set the width in pixels
-                dragIcon.height = 30; // Set the height in pixels
+                dragIcon.width = 30;
+                dragIcon.height = 30;
 
-                // Set the drag image and align it to the cursor
+                // Set the data to be the text content and state of the element being dragged
+                event.dataTransfer.setData('text/plain', `${symbol}|${state}`);
+
                 event.dataTransfer.setDragImage(dragIcon, dragIcon.width / 2, dragIcon.height / 2);
             });
         });
+
+
+            let dragging = false;
+
+            // When the drag operation starts
+            document.addEventListener('dragstart', function(event) {
+                dragging = true;
+                event.target.style.transform = 'scale(1.5)';
+            });
+
+            // When the drag operation ends
+            document.addEventListener('dragend', function(event) {
+                dragging = false;
+                event.target.style.transform = '';
+            });
+
+
+            const reactionArea = document.querySelector('.reaction-area');
+
+                    function getIcon(elementSymbol) {
+                switch (elementSymbol) {
+                    case 'H':
+                        return 'Hydrogen Icon';
+                    case 'He':
+                        return 'Helium Icon';
+                    // Add more cases for other elements
+                    default:
+                        return 'images/solid.png';
+                }
+            }
+
+            reactionArea.addEventListener('dragover', function(event) {
+                event.preventDefault(); // Prevent the default action of the dragover event
+            });
+
+            reactionArea.addEventListener('drop', function(event) {
+            event.preventDefault(); // Prevent the default action of the drop event
+
+            const data = event.dataTransfer.getData('text/plain');
+            const [symbol, state] = data.split('|');
+
+            // Create a new element and add the element symbol and icon as its content
+            const elementElement = document.createElement('div');
+            elementElement.textContent = `${symbol} `;
+            const iconElement = document.createElement('img');
+            iconElement.src = stateIcons[state];
+            iconElement.width = 20;
+            iconElement.height = 20;
+            elementElement.appendChild(iconElement);
+
+            // Append the new element to the reaction area
+            reactionArea.appendChild(elementElement);
+
+            // If the reaction area is empty, show the text inside it
+            if (reactionArea.childNodes.length === 1) {
+                // reactionArea.style.color = 'white';
+                // reactionArea.textContent = 'Drop Elements Here';
+            } else {
+                // Otherwise, hide the text inside it
+                reactionArea.style.color = 'white';
+            }
+        });
+    });
     </script>
-
-
-
-
 
 </body>
 </html>

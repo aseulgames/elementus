@@ -46,6 +46,8 @@ function updateTimerDisplay() {
 function loadLevel() {
     const level = levels[currentLevel];
     imageContainer.innerHTML = ''; // Clear previous images
+    answerInput.value = '';
+    message.textContent = '';
     // Display the images for the current level
     for (let i = 0; i < level.images.length; i++) {
         const img = document.createElement("img");
@@ -53,7 +55,76 @@ function loadLevel() {
         img.alt = `Image ${i + 1}`;
         imageContainer.appendChild(img);
     }
+
+    // Check if the current level is completed and show stars popup
+    if (currentLevel > 0) {
+        // const stars = calculateStars(elapsedTime);
+        // const popupMessage = `Congratulations! You earned ${stars} stars.`;
+        // showStarsPopup(popupMessage);
+    }
+
+    // Start the timer for the new level
+    startTimer();
 }
+
+submitButton.addEventListener("click", () => {
+    const userAnswer = answerInput.value.toLowerCase();
+    const level = levels[currentLevel];
+    if (userAnswer === level.correctAnswer) {
+        clearInterval(timerInterval);
+        const seconds = elapsedTime;
+        const stars = calculateStars(seconds);
+        const popupMessage = `Correct! You earned ${stars} stars.`;
+        showStarsPopup(popupMessage, stars); // Show stars popup for correct answer
+
+        answerInput.value = '';
+        elapsedTime = 0;
+        if (currentLevel < levels.length) {
+            
+        } else {
+            answerInput.disabled = true;
+            submitButton.disabled = true;
+            // Handle game completion logic here
+        }
+        correctSound.play();
+    } else {
+        message.textContent = "Incorrect. Try again.";
+        wrongSound.play();
+    }
+});
+
+function showStarsPopup(message, stars) {
+    const popupContainer = document.getElementById("stars-popup-container");
+    const popup = document.createElement("div");
+    popup.className = "stars-popup";
+
+    // Generate star image based on the number of stars earned
+    const starImage = `star${stars}.png`;
+
+    popup.innerHTML = `
+        <p>${message}</p>
+        <div class="stars-container">
+            <img src="images/${starImage}" alt="Star ${stars}" style="width: 20vw;">
+        </div>
+        <button id="nextLevelButton">Next Level</button>
+    `;
+
+    popupContainer.innerHTML = ''; // Clear previous popup content
+    popupContainer.appendChild(popup);
+
+    const nextLevelButton = popup.querySelector("#nextLevelButton"); // Select button inside popup
+    nextLevelButton.addEventListener("click", function() {
+        if (currentLevel < levels.length - 1) {
+            popupContainer.removeChild(popup);
+            currentLevel++; // Move to the next level
+            loadLevel(); // Load the next level
+        } else {
+            // Player has completed all levels, redirect to game choices PHP page
+            window.location.href = "gamechoices.php";
+        }
+    });
+}
+
 
 function calculateStars(timeInSeconds) {
     if (timeInSeconds < 21) {
@@ -68,32 +139,6 @@ function calculateStars(timeInSeconds) {
     return 1;
 }
 
-submitButton.addEventListener("click", () => {
-    const userAnswer = answerInput.value.toLowerCase();
-    const level = levels[currentLevel];
-    if (userAnswer === level.correctAnswer) {
-        clearInterval(timerInterval);
-        const seconds = elapsedTime;
-        const stars = calculateStars(seconds);
-        message.textContent = (currentLevel < levels.length)
-            ? `Correct! You earned ${stars} stars.`
-            : `Congratulations! You have completed all levels and earned ${stars} stars.`;
-        answerInput.value = '';
-        elapsedTime = 0;
-        currentLevel++;
-        if (currentLevel < levels.length) {
-            loadLevel();
-            startTimer();
-        } else {
-            answerInput.disabled = true;
-            submitButton.disabled = true;
-        }
-        correctSound.play();
-    } else {
-        message.textContent = "Incorrect. Try again.";
-        wrongSound.play();
-    }
-});
 
 document.getElementById("backButton").onclick = function() {
     history.back();
@@ -131,12 +176,16 @@ document.querySelector("#close").addEventListener("click", function() {
     document.querySelector(".popup").style.display = "none";
     hideOverlay(); // Hide the overlay when the pop-up is closed
     startTimer();
-    loadLevel();
 });
 
 document.querySelector("#okay").addEventListener("click", function() {
     document.querySelector(".popup").style.display = "none";
     hideOverlay(); // Hide the overlay when the pop-up is closed
     startTimer();
-    loadLevel();
+});
+
+answerInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        submitButton.click(); // Trigger the click event of the submit button
+    }
 });
