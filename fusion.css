@@ -376,7 +376,7 @@ h1{
 .boxes-container {
     display: flex;
     justify-content: space-between;
-    width: 60%; /* Use 100% width to match the width of the periodic table container */
+    width: 70%; /* Use 100% width to match the width of the periodic table container */
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
@@ -384,8 +384,26 @@ h1{
     margin: 31vw auto 0; 
 }
 
+.clear-area {
+    flex: 0 0 6%; /* Set the initial width of the goal box to 30% */
+    height: 4vw;
+    color: #fff;
+    background-color: #ff4757;
+    border-radius: 2vw;
+    text-align: center;
+    display: flex;
+    margin-right: 1%;   
+    justify-content: center;
+    align-items: center; /* Center text vertically and horizontally */
+    
+}
+
+.clear-area:hover {
+    background-color: #ff3047;
+}
+
 .reaction-area {
-    flex: 0 0 65%; /* Set the initial width of the reaction area to 60% */
+    flex: 0 0 60%; /* Set the initial width of the reaction area to 60% */
     height: 7vw;
     color: #fff;
     background: #1a1a1a;
@@ -399,7 +417,7 @@ h1{
 }
 
 .goal-box {
-    flex: 0 0 33%; /* Set the initial width of the goal box to 30% */
+    flex: 0 0 25%; /* Set the initial width of the goal box to 30% */
     height: 4vw;
     color: #000;
     background: #fff;

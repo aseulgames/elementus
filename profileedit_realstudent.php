@@ -94,13 +94,13 @@
         }
 
         .btn{
-            height: 38px;
-            width: 110px;
+            height: 3.4vw;
+            width: 10vw;
             background: #fff;
             border: 0;
             border-radius: 20px;
             color: #e4b723;
-            font-size: 17px;
+            font-size: 1.5vw;
             cursor: pointer;
             transition: all .3s;
             margin-top: 10px;
@@ -111,18 +111,13 @@
         .logopng{
             max-width: 20vw;
             padding-top:0px;
-            max-height: 100% 
-        }
-
-        .navbar {
-            height: 10vw; /* Set the desired height of the navigation bar */
+            max-height: 100%; 
+            margin-left: 5vw;
         }
 
         
     </style>
 <nav class="nav navbar navbar-expand-lg navbar-light">
-    <div class="container">
-
         <div class="logo-container">
             <a href="homestudent.php" class="logo navbar-brand">
                 <img src="logo_dark.png" alt="logopng" class="logopng">

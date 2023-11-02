@@ -24,7 +24,6 @@
     }
     .nav{
         background: linear-gradient(-45deg, #fff466, #fff174, #fff0a0); 
-        position: relative;
         z-index: 2;
     }
     
@@ -94,16 +93,17 @@
         }
 
         .btn{
-            height: 38px;
-            width: 110px;
+            height: 3.4vw;
+            width: 10vw;
             background: #fff;
             border: 0;
             border-radius: 20px;
             color: #e4b723;
-            font-size: 17px;
+            font-size: 1.2vw;
             cursor: pointer;
             transition: all .3s;
             margin-top: 10px;
+            margin-right: 5px;
             padding: 0px 10px;
             box-shadow: 0px 2px 5px rgba(76, 76, 76, 0.2);
         }
@@ -111,19 +111,13 @@
         .logopng{
             max-width: 20vw;
             padding-top:0px;
-            max-height: 100% 
-        }
-
-        .navbar {
-            height: 10vw; /* Set the desired height of the navigation bar */
+            max-height: 100% ;
+            margin-left: 5vw;
         }
 
         
     </style>
-    
 <nav class="nav navbar navbar-expand-lg navbar-light">
-    <div class="container">
-
         <div class="logo-container">
             <a href="homestudent.php" class="logo navbar-brand">
                 <img src="logo_dark.png" alt="logopng" class="logopng">
@@ -236,7 +230,8 @@
                     
                 </div>
             <div class="button-row">
-                <button onclick="logout()" class="btn" style="color: red;">Log Out</button><span><a href="profileedit_realstudent.php"><button class="btn">Edit Profile</button></a></span>
+                <button onclick="logout()" class="btn" style="color: red;">Log Out</button>
+                <span><a href="profileedit_realstudent.php"><button class="btn">Edit Profile</button></a></span>
             </div>
         </div>
     </div>
