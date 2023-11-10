@@ -471,19 +471,59 @@ $id = $_SESSION['id'];
 <body>
 
 <body>
-    <link rel="stylesheet" href="tutorial.css">
-    <div class="overlay"></div>
-    
-    <!-- Your existing HTML content goes here -->
+<div id="stars-popup-container"></div>
 
-    <div class="popup">
-        <button id="close">&times;</button>
-        <h1 class="purples">How to Play?</h1>
-        <p>Insert tutorial</p>
-        <input type="button" value="Okay" id="okay" class="btn">
-    </div>
+<link rel="stylesheet" href="tutorial.css">
+<div class="overlay"></div>
 
+<div class="popup">
+<button id="close">&times;</button>
+<h1 class="title">How to Play?</h1>
+<div class="tutorial-content">
+    <ul>
     
+        <li><strong>Empty Periodic Table:</strong> There is will be a table resembling the periodic table but with empty spaces for element symbols. The goal is to drag and drop the element symbols into their respective positions on the table.</strong></li>
+        <li><strong>Hints: </strong> Hover over the empty spaces on the table to reveal hints about the element.</li>
+        <li><strong>Drag and Drop:</strong> Drag the element symbol to the correct empty space on the table. Release the mouse button to drop the element symbol into the empty space.</li>
+        <li><strong>Win the Game:</strong> Successfully place all element symbols into their correct positions to complete the puzzle.</li>
+    
+      </ul>
+    <img src="images/puzzle_tut_img.png" alt="Tutorial Image" class="tutorial-img">
+</div>
+<input type="button" value="Got It!" id="okay" class="btn">
+
+<style>
+    .popup{
+      background: linear-gradient(135deg, #ff7e72, #a62c2b);
+    }
+
+    #close, #okay {
+        background-color: #880816;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1vw;
+        transition: 0.3s;
+    }
+
+    #close:hover, #okay:hover {
+        background-color: #880816;
+        color: #fff;
+    }
+
+    h1{
+        font-size: 30px;
+        text-shadow: 2px 2px 2px #ababab;
+        color: #880816;
+        font-style: bold;
+    }
+
+    .tutorial-img{
+        height: 12vw;
+        text-align: center;
+    }
+</style>
+</div>
         <audio id="backgroundMusic" autoplay loop>
             <source src="game-music.mp3" type="audio/mpeg">
             Your browser does not support the audio element.

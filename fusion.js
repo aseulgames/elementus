@@ -1,22 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     const stateIcons = {
-
-        //for dragging
         gas: 'images/gas.png',
         liquid: 'images/liquid.png',
         solid: 'images/solid.png',
-
-        //for result
-        water: 'images/liquid.png',             
-        aceticAcid: 'images/acid.png', 
-        co2: 'images/gas-gas.png',            
+        water: 'images/liquid.png',
+        aceticAcid: 'images/acid.png',
+        co2: 'images/gas-gas.png',
         salt: 'images/salt.png',
-        ammonia: 'images/chemical.png',    
+        ammonia: 'images/chemical.png',
         hcl: 'images/acid.png',
-        oxygenGas: 'images/gas-gas.png', 
-        ammoniumIon: 'images/chemical.png', 
-        methane: 'images/gas-gas.png',      
-        phosphoricAcid: 'images/chemical.png', 
+        oxygenGas: 'images/gas-gas.png',
+        ammoniumIon: 'images/chemical.png',
+        methane: 'images/gas-gas.png',
+        phosphoricAcid: 'images/chemical.png',
+        hydrogenSulfate: 'images/powder.png',
+        nitrogenMonoxide: 'images/chemical.png',
+        potassiumNitrate: 'images/gas.png',
+        magnesiumSulfide: 'images/powder.png',
+        ironOxide: 'images/powder.png',
+        aluminumChloride: 'images/powder.png',
+        dinitrogenTetroxide: 'images/chemical.png',
+        calciumHydroxide: 'images/powder.png',
+        sulfurHexafluoride: 'images/gas-gas.png',
+        phosphorusPentachloride: 'images/powder.png',
     };
 
     let elementsInReaction = [];
@@ -29,20 +35,33 @@ document.addEventListener('DOMContentLoaded', function() {
             dragIcon.src = stateIcons[state];
             dragIcon.width = 30;
             dragIcon.height = 30;
+
+            dragging = true;
+            event.target.style.transform = 'scale(1.5)';
+
             event.dataTransfer.setData('text/plain', `${symbol}|${state}`);
             event.dataTransfer.setDragImage(dragIcon, dragIcon.width / 2, dragIcon.height / 2);
         });
     });
 
+    // When the drag operation ends
+    document.addEventListener('dragend', function(event) {
+        dragging = false;
+        event.target.style.transform = '';
+    });
+
     const reactionArea = document.querySelector('.reaction-area');
     const clearAreaButton = document.querySelector('.clear-area');
 
-    reactionArea.addEventListener('dragover', function(event) {
+    reactionArea.addEventListener('dragover', function (event) {
         event.preventDefault();
     });
 
-    reactionArea.addEventListener('drop', function(event) {
+    const dropletSound = document.getElementById("waterDropSound");
+
+    reactionArea.addEventListener('drop', function (event) {
         event.preventDefault();
+        dropletSound.play();
 
         const data = event.dataTransfer.getData('text/plain');
         const [symbol, state] = data.split('|');
@@ -54,51 +73,39 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         elementsInReaction.push(element);
+        // checkCompounds();
         updateReactionArea();
 
-        const waterElements = ['H', 'H', 'O'];
-        const co2Elements = ['C', 'O', 'O'];
-        const ammoniaElements = ['H', 'H', 'N', 'H'];
-        const saltElements = ['Na', 'Cl'];
-        const hclElements = ['H', 'Cl'];
-        const aceticAcidElements = ['C', 'H', 'O', 'O'];
-        const oxygenGasElements = ['O', 'O'];
-        const ammoniumIonElements = ['N', 'H', 'H', 'H'];
-        const methaneElements = ['H', 'H', 'H', 'H', 'H'];
-        const phosphoricAcidElements = ['H', 'H', 'H', 'H', 'H', 'P', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'];
+        const compoundFormulas = {
+            water: ['H', 'H', 'O'],
+            co2: ['C', 'O', 'O'],
+            ammonia: ['H', 'H', 'N', 'H'],
+            salt: ['Na', 'Cl'],
+            hcl: ['H', 'Cl'],
+            aceticAcid: ['C', 'H', 'O', 'O'],
+            oxygenGas: ['O', 'O'],
+            ammoniumIon: ['N', 'H', 'H', 'H'],
+            methane: ['H', 'H', 'H', 'H', 'H'],
+            phosphoricAcid: ['H', 'H', 'H', 'H', 'H', 'P', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'],
+            hydrogenSulfate: ['H', 'S', 'O', 'O'],
+            nitrogenMonoxide: ['N', 'O'],
+            potassiumNitrate: ['K', 'N', 'O', 'O', 'O'],
+            magnesiumSulfide: ['Mg', 'S'],
+            ironOxide: ['Fe', 'O', 'O', 'O'],
+            aluminumChloride: ['Al', 'Cl', 'Cl', 'Cl'],
+            dinitrogenTetroxide: ['N', 'N', 'O', 'O', 'O', 'O'],
+            calciumHydroxide: ['Ca', 'O', 'O', 'H', 'H'],
+            sulfurHexafluoride: ['S', 'F', 'F', 'F', 'F', 'F', 'F'],
+            phosphorusPentachloride: ['P', 'Cl', 'Cl', 'Cl', 'Cl', 'Cl']
+        };
 
-        if (canCombine(elementsInReaction, waterElements)) {
-            elementsInReaction = combineElements(elementsInReaction, waterElements, 'water', 'Water');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, co2Elements)) {
-            elementsInReaction = combineElements(elementsInReaction, co2Elements, 'co2', 'Carbon Dioxide');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, ammoniaElements)) {
-            elementsInReaction = combineElements(elementsInReaction, ammoniaElements, 'ammonia', 'Ammonia');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, saltElements)) {
-            elementsInReaction = combineElements(elementsInReaction, saltElements, 'salt', 'Salt');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, hclElements)) {
-            elementsInReaction = combineElements(elementsInReaction, hclElements, 'hcl', 'Hydrochloric Acid');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, aceticAcidElements)) {
-            elementsInReaction = combineElements(elementsInReaction, aceticAcidElements, 'aceticAcid', 'Acetic Acid');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, oxygenGasElements)) {
-            elementsInReaction = combineElements(elementsInReaction, oxygenGasElements, 'oxygenGas', 'Oxygen Gas');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, ammoniumIonElements)) {
-            elementsInReaction = combineElements(elementsInReaction, ammoniumIonElements, 'ammoniumIon+', 'Ammonium Ion');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, methaneElements)) {
-            elementsInReaction = combineElements(elementsInReaction, methaneElements, 'methane', 'Methane');
-            updateReactionArea();
-        } else if (canCombine(elementsInReaction, phosphoricAcidElements)) {
-            elementsInReaction = combineElements(elementsInReaction, phosphoricAcidElements, 'phosphoricAcid', 'Phosphoric Acid');
-            updateReactionArea();
+        for (const compound in compoundFormulas) {
+            if (canCombine(elementsInReaction, compoundFormulas[compound])) {
+                elementsInReaction = combineElements(elementsInReaction, compoundFormulas[compound], compound, compound.charAt(0).toUpperCase() + compound.slice(1));
+                updateReactionArea();
+                break;
+            }
         }
-
     });
 
     clearAreaButton.addEventListener('click', function() {
@@ -108,13 +115,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function canCombine(elements, requiredElements) {
         const elementCounts = countElements(elements);
+    
+        // Check if existing elements allow for the combination of requiredElements
         for (const requiredElement of requiredElements) {
             if (!(requiredElement in elementCounts) || elementCounts[requiredElement] < requiredElements.filter(el => el === requiredElement).length) {
                 return false;
             }
         }
+    
+        // Check if there are enough available elements to form the required compound
+        const remainingElements = { ...elementCounts };
+    
+        for (const requiredElement of requiredElements) {
+            if (remainingElements[requiredElement] && remainingElements[requiredElement] > 0) {
+                remainingElements[requiredElement]--;
+            } else {
+                return false;
+            }
+        }
+    
         return true;
     }
+    
 
     function countElements(elements) {
         const elementCounts = {};
@@ -126,80 +148,51 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function combineElements(elements, requiredElements, compound, compoundName) {
         const combinedElements = [...elements];
+
         for (const requiredElement of requiredElements) {
             const index = combinedElements.findIndex(el => el.symbol === requiredElement);
             combinedElements.splice(index, 1);
         }
-        
-        let compoundSymbol = '';
-        let compoundIcon = '';
-        let compoundState = '';
 
-        switch (compound) {
-            case 'water':
-                compoundSymbol = 'H2O';
-                compoundIcon = stateIcons.water;
-                compoundState = 'liquid';
-                break;
-            case 'co2':
-                compoundSymbol = 'CO2';
-                compoundIcon = stateIcons.co2;
-                compoundState = 'gas';
-                break;
-            case 'ammonia':
-                compoundSymbol = 'NH3';
-                compoundIcon = stateIcons.ammonia;
-                compoundState = 'gas';
-                break;
-            case 'salt':
-                compoundSymbol = 'NaCl';
-                compoundIcon = stateIcons.salt;
-                compoundState = 'solid';
-                break;
-            case 'hcl':
-                compoundSymbol = 'HCl';
-                compoundIcon = stateIcons.hcl;
-                compoundState = 'gas';
-                break;
-            case 'aceticAcid':
-                compoundSymbol = 'C2H4O2';
-                compoundIcon = stateIcons.aceticAcid;
-                compoundState = 'liquid';
-                break;
-            case 'oxygenGas':
-                compoundSymbol = 'O2';
-                compoundIcon = stateIcons.oxygenGas;
-                compoundState = 'gas';
-                break;
-            case 'ammoniumIon':
-                compoundSymbol = 'NH4+';
-                compoundIcon = stateIcons.ammoniumIon;
-                compoundState = 'solid';
-                break;
-            case 'methane':
-                compoundSymbol = 'CH4';
-                compoundIcon = stateIcons.methane;
-                compoundState = 'gas';
-                break;
-            case 'phosphoricAcid':
-                compoundSymbol = 'H5P3O10';
-                compoundIcon = stateIcons.phosphoricAcid;
-                compoundState = 'liquid';
-                break;
-            // Add more cases for other compounds here
-        }
+        const compoundInfo = getCompoundInfo(compound);
 
-    
         const compoundElement = {
-            symbol: `${compoundSymbol} (${compoundName.charAt(0).toUpperCase() + compoundName.slice(1)})`,
-            state: compoundState,
-            icon: compoundIcon
+            symbol: `${compoundInfo.symbol} (${compoundName})`,
+            state: compoundInfo.state,
+            icon: compoundInfo.icon
         };
+
         combinedElements.push(compoundElement);
         return combinedElements;
     }
-    
-    
+
+    function getCompoundInfo(compound) {
+        const compoundData = {
+            water: { symbol: 'H2O', icon: stateIcons.water, state: 'liquid' },
+            co2: { symbol: 'CO2', icon: stateIcons.co2, state: 'gas' },
+            ammonia: { symbol: 'NH3', icon: stateIcons.ammonia, state: 'gas' },
+            salt: { symbol: 'NaCl', icon: stateIcons.salt, state: 'solid' },
+            hcl: { symbol: 'HCl', icon: stateIcons.hcl, state: 'gas' },
+            aceticAcid: { symbol: 'C2H4O2', icon: stateIcons.aceticAcid, state: 'liquid' },
+            oxygenGas: { symbol: 'O2', icon: stateIcons.oxygenGas, state: 'gas' },
+            ammoniumIon: { symbol: 'NH4+', icon: stateIcons.ammoniumIon, state: 'solid' },
+            methane: { symbol: 'CH4', icon: stateIcons.methane, state: 'gas' },
+            phosphoricAcid: { symbol: 'H5P3O10', icon: stateIcons.phosphoricAcid, state: 'liquid' },
+            hydrogenSulfate: { symbol: 'HSO4', icon: stateIcons.hydrogenSulfate, state: 'solid' },
+            nitrogenMonoxide: { symbol: 'NO', icon: stateIcons.nitrogenMonoxide, state: 'gas' },
+            potassiumNitrate: { symbol: 'KNO3', icon: stateIcons.potassiumNitrate, state: 'solid' },
+            magnesiumSulfide: { symbol: 'MgS', icon: stateIcons.magnesiumSulfide, state: 'solid' },
+            ironOxide: { symbol: 'Fe2O3', icon: stateIcons.ironOxide, state: 'solid' },
+            aluminumChloride: { symbol: 'AlCl3', icon: stateIcons.aluminumChloride, state: 'solid' },
+            dinitrogenTetroxide: { symbol: 'N2O4', icon: stateIcons.dinitrogenTetroxide, state: 'gas' },
+            calciumHydroxide: { symbol: 'Ca(OH)2', icon: stateIcons.calciumHydroxide, state: 'solid' },
+            sulfurHexafluoride: { symbol: 'SF6', icon: stateIcons.sulfurHexafluoride, state: 'gas' },
+            phosphorusPentachloride: { symbol: 'PCl5', icon: stateIcons.phosphorusPentachloride, state: 'solid' }
+            // Add more compounds here
+        };
+
+        return compoundData[compound] || { symbol: '', icon: '', state: '' };
+    }
 
     function updateReactionArea() {
         reactionArea.innerHTML = '';
@@ -213,5 +206,40 @@ document.addEventListener('DOMContentLoaded', function() {
             elementElement.appendChild(iconElement);
             reactionArea.appendChild(elementElement);
         });
+    }
+
+    function checkCompounds() {
+        const compoundFormulas = {
+            water: [{ symbol: 'H', count: 2 }, { symbol: 'O', count: 1 }],
+            co2: [{ symbol: 'C', count: 1 }, { symbol: 'O', count: 2 }],
+            ammonia: [{ symbol: 'H', count: 3 }, { symbol: 'N', count: 1 }],
+            salt: [{ symbol: 'Na', count: 1 }, { symbol: 'Cl', count: 1 }],
+            hcl: [{ symbol: 'H', count: 1 }, { symbol: 'Cl', count: 1 }],
+            aceticAcid: [{ symbol: 'C', count: 2 }, { symbol: 'H', count: 4 }, { symbol: 'O', count: 2 }],
+            oxygenGas: [{ symbol: 'O', count: 2 }],
+            ammoniumIon: [{ symbol: 'N', count: 1 }, { symbol: 'H', count: 4 }],
+            methane: [{ symbol: 'C', count: 1 }, { symbol: 'H', count: 4 }],
+            phosphoricAcid: [{ symbol: 'H', count: 3 }, { symbol: 'P', count: 1 }, { symbol: 'O', count: 4 }],
+            hydrogenSulfate: [{ symbol: 'H', count: 1 }, { symbol: 'S', count: 1 }, { symbol: 'O', count: 4 }],
+            nitrogenMonoxide: [{ symbol: 'N', count: 1 }, { symbol: 'O', count: 1 }],
+            potassiumNitrate: [{ symbol: 'K', count: 1 }, { symbol: 'N', count: 1 }, { symbol: 'O', count: 3 }],
+            magnesiumSulfide: [{ symbol: 'Mg', count: 1 }, { symbol: 'S', count: 1 }],
+            ironOxide: [{ symbol: 'Fe', count: 2 }, { symbol: 'O', count: 3 }],
+            aluminumChloride: [{ symbol: 'Al', count: 2 }, { symbol: 'Cl', count: 3 }],
+            dinitrogenTetroxide: [{ symbol: 'N', count: 2 }, { symbol: 'O', count: 4 }],
+            calciumHydroxide: [{ symbol: 'Ca', count: 1 }, { symbol: 'O', count: 2 }, { symbol: 'H', count: 2 }],
+            sulfurHexafluoride: [{ symbol: 'S', count: 1 }, { symbol: 'F', count: 6 }],
+            phosphorusPentachloride: [{ symbol: 'P', count: 1 }, { symbol: 'Cl', count: 5 }]
+        };
+    
+        for (const compound in compoundFormulas) {
+            const { elements, icon } = compoundFormulas[compound];
+    
+            if (canCombine(elementsInReaction, elements)) {
+                elementsInReaction = combineElements(elementsInReaction, elements, compound, icon);
+                updateReactionArea();
+                break;
+            }
+        }
     }
 });

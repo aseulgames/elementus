@@ -388,7 +388,7 @@ h1{
     flex: 0 0 6%; /* Set the initial width of the goal box to 30% */
     height: 4vw;
     color: #fff;
-    background-color: #ff4757;
+    background: #ff4757;
     border-radius: 2vw;
     text-align: center;
     display: flex;
@@ -427,6 +427,11 @@ h1{
     justify-content: center;
     align-items: center; /* Center text vertically and horizontally */
     font-size: 1vw;
+}
+
+.draggable-element.dragging {
+    transform: scale(1.5);
+    /* Additional styling properties if needed */
 }
 
 

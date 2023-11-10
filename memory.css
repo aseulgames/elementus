@@ -1,0 +1,177 @@
+body{
+    background-image: url('images/memorybg.png'); 
+}
+
+.rounded-square{
+    background: #7dff73;
+    width: 42%;
+    height: 450px;
+}
+
+.timer-box {
+    background-color: #cb9b00;
+        border: 4px solid #fdc54c; /* Set the border properties */
+}
+
+/*Memory Game*/
+.wrapper {
+    padding: 10px; /* Adjust padding for smaller screens */
+    border-radius: 20px;
+    background: #7dff73;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 38vw; /* Limit the maximum width to 80% of the viewport width */
+    max-height: 80vh; /* Limit the maximum height to 80% of the viewport height */
+    margin: 0 auto; /* Center the wrapper horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Add relative positioning */
+    border: 4px solid #fdc54c;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    max-width: 100%; /* Allow cards to take full width if the screen is smaller than 80vw */
+    margin-left: -30px;
+}
+
+.card {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: calc(8vw - 20px); /* 25% of the viewport width, minus margins */
+    width: calc(8vw - 20px); /* 25% of the viewport width, minus margins */
+    margin: 10px; /* Margins between cards */
+    will-change: transform;
+}
+
+.cards, .card, .view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.shake{
+    animation: shake 0.35s ease-in-out;
+}
+@keyframes shake {
+    0%, 100%{
+    transform: translateX(0);
+    }
+    20%{
+    transform: translateX(-10px);
+    }
+    40%{
+    transform: translateX(10px);
+    }
+    60%{
+    transform: translateX(-8px);
+    }
+    80%{
+    transform: translateX(8px);
+    }
+}
+.card .view{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 7px;
+    background: #efefef;
+    pointer-events: none;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+}
+.card .front-view img{
+    width: 95%;
+}
+.card .back-view img{
+    max-width: 45px;
+}
+.card .back-view{
+    transform: rotateY(-180deg);
+}
+.card.flip .back-view{
+    transform: rotateY(0);
+}
+.card.flip .front-view{
+    transform: rotateY(180deg);
+}
+
+.card .front-view {
+    background-image: url('images/back-memory.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card .back-view img{
+    max-width: 100%; /* Set the width to 100% to match the parent container */
+    height: 100%;
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+    .wrapper {
+        max-width: 80vw;
+    }
+
+    .cards {
+        max-width: 80%;
+    }
+
+    .card {
+        height: calc(15vw - 20px);
+        width: calc(15vw - 20px);
+        margin: 6px;
+    }
+
+    .timer-box {
+        top: auto;
+        bottom: 20px; /* Adjust the distance from the bottom of the parent element */
+        right: 20px; /* Adjust the distance from the right of the parent element */
+        width: 100px;
+        height: 20px;
+        font-size: 12px;
+        padding: 4px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .wrapper {
+        max-width: 90vw;
+    }
+
+    .cards {
+        max-width: 90%;
+    }
+
+    .card {
+        height: calc(18vw - 20px);
+        width: calc(18vw - 20px);
+        margin: 4px;
+    }
+
+    .timer-box {
+        top: auto;
+        bottom: 20px; /* Adjust the distance from the bottom of the parent element */
+        right: 20px; /* Adjust the distance from the right of the parent element */
+        width: 100px;
+        height: 20px;
+        font-size: 12px;
+        padding: 4px;
+    }
+}
+h1{
+    font-size: 30px;
+    text-shadow: 2px 2px 2px #ababab;
+    color: #6003b4;
+    font-style: bold;
+}

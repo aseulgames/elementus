@@ -132,9 +132,10 @@ $id = $_SESSION['id'];
             </a>
 
             
-        <div class="button-container">
-            <button type="button" class="btn" onclick="window.history.back()" name="cancel" value="Cancel" style="background-color: #E24B4B; border-radius: 20px; border: solid #E24B4B; color:#fff;">Cancel</button>
-        </div> 
+            <div class="button-container">
+                <button type="button" class="btn" onclick="window.location.href = 'games.php'" name="cancel" value="Cancel" style="background-color: #E24B4B; border-radius: 20px; border: solid #E24B4B; color: #fff;">Cancel</button>
+            </div>
+
         </div>
     </div>
     

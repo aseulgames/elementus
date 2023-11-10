@@ -30,6 +30,7 @@ $id = $_SESSION['id'];
 </head>
 
 <body>
+<div id="stars-popup-container"></div>
     
 <div class="dark-overlay"></div>
     <link rel="stylesheet" href="tutorial.css">
@@ -38,10 +39,50 @@ $id = $_SESSION['id'];
 
     <div class="popup">
         <button id="close">&times;</button>
-        <h1 class="purples">How to Play?</h1>
-        <p>Insert tutorial</p>
-        <input type="button" value="Okay" id="okay" class="btn">
+        <h1 class="purples">Welcome to the Elemental Fusion Game!</h1>
+        Combine elements to discover compounds!
+        <ul>
+        <li><strong>Drag & Drop:</strong> Drag elements to the reaction area, then elements may <strong>combine</strong> to form compounds.</li>
+        <li><strong>Discover Reactions:</strong> Experiment to find compound reactions. The game checks and displays known compounds.</li>
+        
+        <li><strong>Clear Button:</strong> Use the button to start a new experiment.</li>
+        <strong>TIP: Explore combinations. Learn chemical formulas. Have fun experimenting!</strong>
+    
+      </ul>
+        <img src="images/fusion_tut_img.png" alt="Tutorial Image" class="tutorial-img"><br>
+        <input type="button" value="Got it!" id="okay" class="btn">
     </div>
+    <style>
+        .popup{
+        background: linear-gradient(135deg, #1a5d40, #57c84d);
+        }
+
+        #close, #okay {
+            background-color: #1e7b1e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1vw;
+            transition: 0.3s;
+        }
+
+        #close:hover, #okay:hover {
+            background-color: #1a5d40;
+            color: #fff;
+        }
+
+        h1{
+            font-size: 25px;
+            text-shadow: 2px 2px 2px #ababab;
+            color: #145214;
+            font-style: bold;
+        }
+
+        .tutorial-img{
+            height: 15vw;
+            text-align: center;
+        }
+    </style>
 
     
         <audio id="backgroundMusic" autoplay loop>
@@ -52,6 +93,9 @@ $id = $_SESSION['id'];
         <div class="mute-icon" onclick="toggleMute()">
             <img id="muteImg" src="images/play.png" alt="Mute">
         </div>
+
+        <audio id="waterDropSound" preload="auto" src="drop.mp3"></audio>
+
     <main>
     <div class="row" style="padding-top: 20px;">
     <a id="backButton">

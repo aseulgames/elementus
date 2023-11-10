@@ -5,36 +5,140 @@
     pointer-events: none; /* Allow interaction with pop-up even when blurred */
 }
 
-.popup{
-    background-color: #ffffff;
-    width: 450px;
-    padding: 30px 40px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
+.stars-popup {
+    position: fixed;
     top: 50%;
-    border-radius: 8px;
-    font-family: "Poppins",sans-serif;
-    display: none;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;
     z-index: 1;
 }
-.popup button{
-    display: block;
-    margin:  0 0 20px auto;
-    background-color: transparent;
-    font-size: 30px;
-    color: #c5c5c5;
+
+.stars-popup p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.stars-popup .stars-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.star {
+    color: #FFD700; /* Gold color for stars */
+    font-size: 24px;
+    margin: 0 5px;
+}
+
+.stars-popup button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
     border: none;
-    outline: none;
     cursor: pointer;
 }
-.popup p{
-    font-size: 14px;
-    text-align: justify;
-    margin: 20px 0;
-    line-height: 25px;
+
+.stars-popup button:hover {
+    background-color: #45a049;
 }
+
+.stars-popup .stars-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Add these styles to your existing CSS code */
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #9969c7, #552586);
+    color: #fff;
+    padding: 30px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 30px;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+.popup h1.title {
+    font-size: 1.8vw;
+    margin-bottom: 20px;
+}
+
+.popup p {
+    font-size: .8vw;
+    margin-bottom: 20px;
+}
+
+.popup ul {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.popup ul li {
+    margin-bottom: 10px;
+    font-size: .8vw;
+}
+
+.popup strong{
+    font-size: 0.8vw;
+}
+
+.popup button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 3vw;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.popup button:hover {
+    background-color: #45a049;
+}
+
+#close {
+    position: absolute;
+    top: 30px; /* Adjust the top distance as needed */
+    right: 30px; /* Adjust the right distance as needed */
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2; /* Ensure the close button is above the popup content */
+}
+
+#close, #okay {
+    background-color: #73147f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1vw;
+    transition: 0.3s;
+}
+
+#close:hover, #okay:hover {
+    background-color: #73147f;
+    color: white;
+}
+
+.tutorial-img{
+    height: 12vw;
+    text-align: center;
+}
+
+
 
 .overlay {
     position: fixed;
