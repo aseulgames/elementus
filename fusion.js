@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
         solid: 'images/solid.png',
         water: 'images/liquid.png',
         aceticAcid: 'images/acid.png',
-        co2: 'images/gas-gas.png',
+        carbonDioxide: 'images/gas-gas.png',
         salt: 'images/salt.png',
         ammonia: 'images/chemical.png',
-        hcl: 'images/acid.png',
+        muriaticAcid: 'images/acid.png',
         oxygenGas: 'images/gas-gas.png',
         ammoniumIon: 'images/chemical.png',
         methane: 'images/gas-gas.png',
@@ -27,22 +27,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let elementsInReaction = [];
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const elementsWithTooltip = document.querySelectorAll('.draggable-element');
+    
+        elementsWithTooltip.forEach(element => {
+            element.addEventListener('mouseover', function () {
+                const elementSymbol = this.textContent;
+                const tooltip = document.getElementById(`tooltip-${elementSymbol}`);
+                if (tooltip) {
+                    const rect = this.getBoundingClientRect();
+                    const windowWidth = window.innerWidth;
+                    const windowHeight = window.innerHeight;
+                    const tooltipWidth = tooltip.offsetWidth;
+                    const tooltipHeight = tooltip.offsetHeight;
+    
+                    // Calculate the position to center the tooltip slightly to the left and top
+                    const left = (windowWidth - tooltipWidth) / 2 - (windowWidth * 0.3); // Centered and 5% from the left
+                    const top = (windowHeight - tooltipHeight) / 2 - (windowHeight * 0.3); // Centered and 5% from the top
+    
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+    
+                    tooltip.style.display = 'block';
+                }
+            });
+    
+            element.addEventListener('mouseout', function () {
+                const elementSymbol = this.textContent;
+                const tooltip = document.getElementById(`tooltip-${elementSymbol}`);
+                if (tooltip) {
+                    tooltip.style.display = 'none';
+                }
+            });
+        });
+    });
+    
+
     document.querySelectorAll('.draggable-element').forEach(element => {
         element.addEventListener('dragstart', function(event) {
-            const symbol = element.textContent;
-            const state = element.getAttribute('data-state');
+            const info = element.getAttribute('data-info');
+            const [symbol, state] = info.split('|');
+    
             const dragIcon = new Image();
             dragIcon.src = stateIcons[state];
             dragIcon.width = 30;
             dragIcon.height = 30;
-
+    
             dragging = true;
             event.target.style.transform = 'scale(1.5)';
-
+    
             event.dataTransfer.setData('text/plain', `${symbol}|${state}`);
             event.dataTransfer.setDragImage(dragIcon, dragIcon.width / 2, dragIcon.height / 2);
         });
     });
+    
 
     // When the drag operation ends
     document.addEventListener('dragend', function(event) {
@@ -78,10 +116,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const compoundFormulas = {
             water: ['H', 'H', 'O'],
-            co2: ['C', 'O', 'O'],
+            carbonDioxide: ['C', 'O', 'O'],
             ammonia: ['H', 'H', 'N', 'H'],
             salt: ['Na', 'Cl'],
-            hcl: ['H', 'Cl'],
+            muriaticAcid: ['H', 'Cl'],
             aceticAcid: ['C', 'H', 'O', 'O'],
             oxygenGas: ['O', 'O'],
             ammoniumIon: ['N', 'H', 'H', 'H'],
@@ -169,10 +207,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function getCompoundInfo(compound) {
         const compoundData = {
             water: { symbol: 'H2O', icon: stateIcons.water, state: 'liquid' },
-            co2: { symbol: 'CO2', icon: stateIcons.co2, state: 'gas' },
+            carbonDioxide: { symbol: 'CO2', icon: stateIcons.carbonDioxide, state: 'gas' },
             ammonia: { symbol: 'NH3', icon: stateIcons.ammonia, state: 'gas' },
             salt: { symbol: 'NaCl', icon: stateIcons.salt, state: 'solid' },
-            hcl: { symbol: 'HCl', icon: stateIcons.hcl, state: 'gas' },
+            muriaticAcid: { symbol: 'HCl', icon: stateIcons.muriaticAcid, state: 'gas' },
             aceticAcid: { symbol: 'C2H4O2', icon: stateIcons.aceticAcid, state: 'liquid' },
             oxygenGas: { symbol: 'O2', icon: stateIcons.oxygenGas, state: 'gas' },
             ammoniumIon: { symbol: 'NH4+', icon: stateIcons.ammoniumIon, state: 'solid' },
@@ -211,10 +249,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkCompounds() {
         const compoundFormulas = {
             water: [{ symbol: 'H', count: 2 }, { symbol: 'O', count: 1 }],
-            co2: [{ symbol: 'C', count: 1 }, { symbol: 'O', count: 2 }],
+            carbonDioxide: [{ symbol: 'C', count: 1 }, { symbol: 'O', count: 2 }],
             ammonia: [{ symbol: 'H', count: 3 }, { symbol: 'N', count: 1 }],
             salt: [{ symbol: 'Na', count: 1 }, { symbol: 'Cl', count: 1 }],
-            hcl: [{ symbol: 'H', count: 1 }, { symbol: 'Cl', count: 1 }],
+            muriaticAcid: [{ symbol: 'H', count: 1 }, { symbol: 'Cl', count: 1 }],
             aceticAcid: [{ symbol: 'C', count: 2 }, { symbol: 'H', count: 4 }, { symbol: 'O', count: 2 }],
             oxygenGas: [{ symbol: 'O', count: 2 }],
             ammoniumIon: [{ symbol: 'N', count: 1 }, { symbol: 'H', count: 4 }],

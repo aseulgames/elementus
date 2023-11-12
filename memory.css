@@ -30,6 +30,14 @@ body{
     border: 4px solid #fdc54c;
 }
 
+/* Add a wrapper for both stars and cards */
+.stars-and-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10%;
+}
+
+
 .cards {
     display: flex;
     flex-wrap: wrap;
@@ -50,6 +58,7 @@ body{
     margin: 10px; /* Margins between cards */
     will-change: transform;
 }
+
 
 .cards, .card, .view{
     display: flex;

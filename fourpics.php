@@ -62,6 +62,7 @@ $id = $_SESSION['id'];
     <link rel="stylesheet" href="tutorial.css">
     <div class="overlay"></div>
     
+    
     <!-- Your existing HTML content goes here -->
 
     <div class="popup">
@@ -137,6 +138,16 @@ $id = $_SESSION['id'];
             <div id="message"></div>
             </div>
         </div>
+        <i class="star" id="totalStarsDisplay">★ 0</i>
+        <style>
+            .star {
+                color: #ffd700;
+                font-size: 200%;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                margin-left: 5%;
+            }
+        </style>
+
 
 </div>
 

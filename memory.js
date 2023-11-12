@@ -25,6 +25,8 @@ let disableDeck = false;
 let gameOver = false;
 let pairs = [];
 
+let totalStars = 0;
+
 const timerDisplay = document.getElementById("time-display");
 const cards = document.querySelectorAll(".card");
 const popup = document.querySelector(".popup");
@@ -206,13 +208,20 @@ function showOverlay() {
     document.querySelector(".overlay").style.display = "block";
 }
 
+
 function showMemoryStarsPopup(message, stars) {
-    const popupContainer = document.getElementById("stars-popup-container");
-    const popup = document.createElement("div");
-    popup.className = "stars-popup";
+    totalStars += stars; // Update totalStars
+    const totalStarsDiv = document.getElementById("totalStarsDisplay");
 
     // Generate star image based on the number of stars earned
     const starImage = `star${stars}.png`;
+
+    totalStarsDiv.innerHTML = `★ ${totalStars} `;
+
+    // Rest of your existing code for the popup
+    const popupContainer = document.getElementById("stars-popup-container");
+    const popup = document.createElement("div");
+    popup.className = "stars-popup";
 
     popup.innerHTML = `
         <p>${message}</p>
@@ -222,7 +231,6 @@ function showMemoryStarsPopup(message, stars) {
         <button id="nextMemoryLevelButton">Next Level</button>
     `;
 
-    popupContainer.innerHTML = ''; // Clear previous popup content
     popupContainer.appendChild(popup);
 
     const nextLevelButton = popup.querySelector("#nextMemoryLevelButton");
@@ -232,12 +240,17 @@ function showMemoryStarsPopup(message, stars) {
             currentMemoryLevel++;
             initMemoryLevel(currentMemoryLevel);
         } else {
-            // Player has completed all memory levels, handle game completion logic here
+            // Player has completed all memory levels, update totalStars and save to localStorage
+            localStorage.setItem("totalStars", totalStars);
+
+            // Update totalStars display on games.php
+            updateTotalStarsDisplay();
+
             window.location.href = "gamechoices.php";
         }
     });
-
 }
+
 
 function stopTimer() {
     clearInterval(timerInterval);

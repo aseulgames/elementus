@@ -18,6 +18,8 @@ const levels = [
 let currentLevel = 0;
 let timerInterval;
 let elapsedTime = 0;
+let totalStars = 0;
+
 
 const imageContainer = document.getElementById("image-container");
 const answerInput = document.getElementById("answer-input");
@@ -92,14 +94,19 @@ submitButton.addEventListener("click", () => {
         wrongSound.play();
     }
 });
-
 function showStarsPopup(message, stars) {
-    const popupContainer = document.getElementById("stars-popup-container");
-    const popup = document.createElement("div");
-    popup.className = "stars-popup";
+    totalStars += stars; // Update totalStars
+    const totalStarsDiv = document.getElementById("totalStarsDisplay");
 
     // Generate star image based on the number of stars earned
     const starImage = `star${stars}.png`;
+
+    totalStarsDiv.innerHTML = `★ ${totalStars} `;
+
+    // Rest of your existing code for the popup
+    const popupContainer = document.getElementById("stars-popup-container");
+    const popup = document.createElement("div");
+    popup.className = "stars-popup";
 
     popup.innerHTML = `
         <p>${message}</p>
@@ -109,21 +116,20 @@ function showStarsPopup(message, stars) {
         <button id="nextLevelButton">Next Level</button>
     `;
 
-    popupContainer.innerHTML = ''; // Clear previous popup content
     popupContainer.appendChild(popup);
 
-    const nextLevelButton = popup.querySelector("#nextLevelButton"); // Select button inside popup
+    const nextLevelButton = popup.querySelector("#nextLevelButton");
     nextLevelButton.addEventListener("click", function() {
         if (currentLevel < levels.length - 1) {
             popupContainer.removeChild(popup);
-            currentLevel++; // Move to the next level
-            loadLevel(); // Load the next level
+            currentLevel++;
+            loadLevel();
         } else {
-            // Player has completed all levels, redirect to game choices PHP page
             window.location.href = "gamechoices.php";
         }
     });
 }
+
 
 
 function calculateStars(timeInSeconds) {
