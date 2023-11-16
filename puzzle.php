@@ -37,12 +37,12 @@ $id = $_SESSION['id'];
 
         .retry-button {
             position: absolute;
-            bottom: 20px;
             border: none;
             border-radius: 30px; /* Remove circular border */
             padding: 10px; /* Adjust padding as needed */
             cursor: pointer;
             top: 89%;
+            right: 50%;
             background: #fff;
             margin: -12px auto;
         }
@@ -109,6 +109,7 @@ $id = $_SESSION['id'];
             width: 3vw;
             height: 3vw;
             background-color: #ccc;
+            color: #292929;
             border: 1px solid #edb0ce;
             border-radius: 5px;
             text-align: center;
@@ -120,6 +121,7 @@ $id = $_SESSION['id'];
             cursor: pointer;
             user-select: none;
             font-family: 'Sigmar One', cursive, sans-serif;
+            opacity: .7;
         }
 
         .draggable-element {
@@ -177,7 +179,6 @@ $id = $_SESSION['id'];
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #fff;
         }
 
         .element.H, .element.Li, .element.Na, .element.K,
@@ -438,9 +439,8 @@ $id = $_SESSION['id'];
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            opacity: 1;!important;
         }
-
-
 
         #fade {
             opacity: 0;
@@ -464,6 +464,10 @@ $id = $_SESSION['id'];
             color: #6003b4;
             font-style: bold;
         }
+
+        .matched-element {
+            opacity: 1; /* Full opacity for matched elements */
+        }
         
 
     </style>
@@ -471,7 +475,7 @@ $id = $_SESSION['id'];
 <body>
 
 <body>
-<div id="stars-popup-container"></div>
+
 
 <link rel="stylesheet" href="tutorial.css">
 <div class="overlay"></div>
@@ -554,122 +558,142 @@ $id = $_SESSION['id'];
         height: auto; justify-content: right; padding-right: 30px;">
     </div>
 
+    
+
+</div>
+<div id="stars-popup-container">
+<div class="stars-and-wrapper">
+    <i class="star" id="totalStarsDisplay">★ 0</i>
+        <style>
+            .star {
+                color: #ffd700;
+                font-size: 200%;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                margin-left: 5%;
+            }
+        </style>
 </div>
 <div class="outer-rounded-square">
 <div class="container">
 <div class="periodic-table">
     <!-- Row 1 -->
-    <div class="element H hover-text" data-element="H" data-position="1,1">
-        <span class="tooltip-text" id="fade-H">The lightest and most abundant element in the universe.</span>
-    </div>
-    <div class="element He hover-text" data-element="He" data-position="1,18">
-        <span class="tooltip-text" id="fade-He">Named after the Greek god of the Sun, Helios.</span>
-    </div>
+    
+    
+    
+    
+    
+    
+    <div class="element H hover-text" data-element="H" data-position="1,1">1</div>
+    <span class="tooltip-text" id="fade-H">The lightest and most abundant element in the universe.</span>
+
+    <div class="element He hover-text" data-element="He" data-position="1,18">2</div>
+    <span class="tooltip-text" id="fade-He">Named after the Greek god of the Sun, Helios.</span>
     <!-- Row 2 -->
-    <div class="element Li hover-text" data-element="Li" data-position="2,1">
-        <span class="tooltip-text" id="fade-Li">Used in rechargeable batteries and mood-stabilizing medication.</span>
-    </div>
-    <div class="element Be hover-text" data-element="Be" data-position="2,2">
-        <span class="tooltip-text" id="fade-Be">Lightweight metal used in aerospace components.</span>
-    </div>
-    <div class="element B hover-text" data-element="B" data-position="2,13">
-        <span class="tooltip-text" id="fade-B">Found in borax; used in detergents and fiberglass.</span>
-    </div>
-    <div class="element C hover-text" data-element="C" data-position="2,14">
-        <span class="tooltip-text" id="fade-C">Basis of organic chemistry; essential for life on Earth.</span>
-    </div>
-    <div class="element N hover-text" data-element="N" data-position="2,15">
-        <span class="tooltip-text" id="fade-N">Makes up 78% of Earth's atmosphere; vital for plant growth.</span>
-    </div>
-    <div class="element O hover-text" data-element="O" data-position="2,16">
-        <span class="tooltip-text" id="fade-O">A vital element for life.</span>
-    </div>
-    <div class="element F hover-text" data-element="F" data-position="2,17">
-        <span class="tooltip-text" id="fade-F">Highly reactive; used in toothpaste and non-stick coatings.</span>
-    </div>
-    <div class="element Ne hover-text" data-element="Ne" data-position="2,18">
-        <span class="tooltip-text" id="fade-Ne">A noble gas with a distinct reddish-orange glow.</span>
-    </div>
+    <div class="element Li hover-text" data-element="Li" data-position="2,1">3</div>
+    <span class="tooltip-text" id="fade-Li">Used in rechargeable batteries and mood-stabilizing medication.</span>
+
+    <div class="element Be hover-text" data-element="Be" data-position="2,2">4</div>
+    <span class="tooltip-text" id="fade-Be">Lightweight metal used in aerospace components.</span>
+    
+    <!-- Row 2 -->
+    <div class="element B hover-text" data-element="B" data-position="2,13">5</div>
+    <span class="tooltip-text" id="fade-B">Found in borax; used in detergents and fiberglass.</span>
+
+    <div class="element C hover-text" data-element="C" data-position="2,14">6</div>
+    <span class="tooltip-text" id="fade-C">Basis of organic chemistry; essential for life on Earth.</span>
+
+    <div class="element N hover-text" data-element="N" data-position="2,15">7</div>
+    <span class="tooltip-text" id="fade-N">Makes up 78% of Earth's atmosphere; vital for plant growth.</span>
+
+    <div class="element O hover-text" data-element="O" data-position="2,16">8</div>
+    <span class="tooltip-text" id="fade-O">A vital element for life.</span>
+
+    <div class="element F hover-text" data-element="F" data-position="2,17">9</div>
+    <span class="tooltip-text" id="fade-F">Highly reactive; used in toothpaste and non-stick coatings.</span>
+
+    <div class="element Ne hover-text" data-element="Ne" data-position="2,18">10</div>
+    <span class="tooltip-text" id="fade-Ne">A noble gas with a distinct reddish-orange glow.</span>
+
     <!-- Row 3 -->
-    <div class="element Na hover-text" data-element="Na" data-position="3,1">
-        <span class="tooltip-text" id="fade-Na">Reacts violently with water; used in streetlights.</span>
-    </div>
-    <div class="element Mg hover-text" data-element="Mg" data-position="3,2">
-        <span class="tooltip-text" id="fade-Mg">Essential for biological processes; found in chlorophyll.</span>
-    </div>
-    <div class="element Al hover-text" data-element="Al" data-position="3,13">
-        <span class="tooltip-text" id="fade-Al">Lightweight metal; widely used in aerospace and packaging.</span>
-    </div>
-    <div class="element Si hover-text" data-element="Si" data-position="3,14">
-        <span class="tooltip-text" id="fade-Si">Main component of semiconductors; found in sand and quartz.</span>
-    </div>
-    <div class="element P hover-text" data-element="P" data-position="3,15">
-        <span class="tooltip-text" id="fade-P">Essential for DNA, RNA, and ATP; used in fertilizers.</span>
-    </div>
-    <div class="element S hover-text" data-element="S" data-position="3,16">
-        <span class="tooltip-text" id="fade-S">Important in proteins and vitamins; gives characteristic smell to rotten eggs.</span>
-    </div>
-    <div class="element Cl hover-text" data-element="Cl" data-position="3,17">
-        <span class="tooltip-text" id="fade-Cl">Disinfectant; used in PVC, cleaning products, and bleach.</span>
-    </div>
-    <div class="element Ar hover-text" data-element="Ar" data-position="3,18">
-        <span class="tooltip-text" id="fade-Ar">Inert gas; used in welding, electric bulbs, and lasers.</span>
-    </div>
-    <!--Row 4 -->
-    <div class="element K hover-text" data-element="K" data-position="4,19">
-        <span class="tooltip-text" id="fade-K">Essential for nerve function; found in bananas and potatoes.</span>
-    </div>
-    <div class="element Ca hover-text" data-element="Ca" data-position="4,20">
-        <span class="tooltip-text" id="fade-Ca">Important for bone and teeth health; used in construction materials.</span>
-    </div>
-    <div class="element Sc hover-text" data-element="Sc" data-position="4,21">
-        <span class="tooltip-text" id="fade-Sc">Lightweight metal; used in aerospace components.</span>
-    </div>
-    <div class="element Ti hover-text" data-element="Ti" data-position="4,22">
-        <span class="tooltip-text" id="fade-Ti">Strong, corrosion-resistant metal; used in aircraft and spacecraft.</span>
-    </div>
-    <div class="element V hover-text" data-element="V" data-position="4,23">
-        <span class="tooltip-text" id="fade-V">Used in steel alloys for high-strength applications.</span>
-    </div>
-    <div class="element Cr hover-text" data-element="Cr" data-position="4,24">
-        <span class="tooltip-text" id="fade-Cr">Adds hardness to steel; used in stainless steel and chrome plating.</span>
-    </div>
-    <div class="element Mn hover-text" data-element="Mn" data-position="4,25">
-        <span class="tooltip-text" id="fade-Mn">Essential trace element; used in steel production.</span>
-    </div>
-    <div class="element Fe hover-text" data-element="Fe" data-position="4,26">
-        <span class="tooltip-text" id="fade-Fe">Most common metal on Earth; used in construction and manufacturing.</span>
-    </div>
-    <div class="element Co hover-text" data-element="Co" data-position="4,27">
-        <span class="tooltip-text" id="fade-Co">Used in magnets, rechargeable batteries, and aircraft engines.</span>
-    </div>
-    <div class="element Ni hover-text" data-element="Ni" data-position="4,28">
-        <span class="tooltip-text" id="fade-Ni">Used in coins, magnets, and corrosion-resistant alloys.</span>
-    </div>
-    <div class="element Cu hover-text" data-element="Cu" data-position="4,29">
-        <span class="tooltip-text" id="fade-Cu">Excellent conductor of electricity; used in wires and plumbing.</span>
-    </div>
-    <div class="element Zn hover-text" data-element="Zn" data-position="4,30">
-        <span class="tooltip-text" id="fade-Zn">Essential mineral; used in galvanizing steel and batteries.</span>
-    </div>
-    <div class="element Ga hover-text" data-element="Ga" data-position="4,31">
-        <span class="tooltip-text" id="fade-Ga">Low melting point; used in LEDs and solar panels.</span>
-    </div>
-    <div class="element Ge hover-text" data-element="Ge" data-position="4,32">
-        <span class="tooltip-text" id="fade-Ge">Semiconducting material; used in transistors and optics.</span>
-    </div>
-    <div class="element As hover-text" data-element="As" data-position="4,33">
-        <span class="tooltip-text" id="fade-As">Poisonous element; used in semiconductors and wood preservatives.</span>
-    </div>
-    <div class="element Se hover-text" data-element="Se" data-position="4,34">
-        <span class="tooltip-text" id="fade-Se">Essential trace element; used in electronics and photovoltaic cells.</span>
-    </div>
-    <div class="element Br hover-text" data-element="Br" data-position="4,35">
-        <span class="tooltip-text" id="fade-Br">Dark red-brown liquid; used in flame retardants and photography.</span>
-    </div>
-    <div class="element Kr hover-text" data-element="Kr" data-position="4,36">
-        <span class="tooltip-text" id="fade-Kr">Inert gas; used in high-powered photographic flashes.</span>
-    </div>
+    <div class="element Na hover-text" data-element="Na" data-position="3,1">11</div>
+    <span class="tooltip-text" id="fade-Na">Reacts violently with water; used in streetlights.</span>
+
+    <div class="element Mg hover-text" data-element="Mg" data-position="3,2">12</div>
+    <span class="tooltip-text" id="fade-Mg">Essential for biological processes; found in chlorophyll.</span>
+
+    <div class="element Al hover-text" data-element="Al" data-position="3,13">13</div>
+    <span class="tooltip-text" id="fade-Al">Lightweight metal; widely used in aerospace and packaging.</span>
+
+    <div class="element Si hover-text" data-element="Si" data-position="3,14">14</div>
+    <span class="tooltip-text" id="fade-Si">Main component of semiconductors; found in sand and quartz.</span>
+
+    <div class="element P hover-text" data-element="P" data-position="3,15">15</div>
+    <span class="tooltip-text" id="fade-P">Essential for DNA, RNA, and ATP; used in fertilizers.</span>
+
+    <div class="element S hover-text" data-element="S" data-position="3,16">16</div>
+    <span class="tooltip-text" id="fade-S">Important in proteins and vitamins; gives characteristic smell to rotten eggs.</span>
+
+    <div class="element Cl hover-text" data-element="Cl" data-position="3,17">17</div>
+    <span class="tooltip-text" id="fade-Cl">Disinfectant; used in PVC, cleaning products, and bleach.</span>
+
+    <div class="element Ar hover-text" data-element="Ar" data-position="3,18">18</div>
+    <span class="tooltip-text" id="fade-Ar">Inert gas; used in welding, electric bulbs, and lasers.</span>
+
+    <!-- Row 4 -->
+    <div class="element K hover-text" data-element="K" data-position="4,19">19</div>
+    <span class="tooltip-text" id="fade-K">Essential for nerve function; found in bananas and potatoes.</span>
+
+    <div class="element Ca hover-text" data-element="Ca" data-position="4,20">20</div>
+    <span class="tooltip-text" id="fade-Ca">Important for bone and teeth health; used in construction materials.</span>
+
+    <div class="element Sc hover-text" data-element="Sc" data-position="4,21">21</div>
+    <span class="tooltip-text" id="fade-Sc">Lightweight metal; used in aerospace components.</span>
+
+    <div class="element Ti hover-text" data-element="Ti" data-position="4,22">22</div>
+    <span class="tooltip-text" id="fade-Ti">Strong, corrosion-resistant metal; used in aircraft and spacecraft.</span>
+
+    <div class="element V hover-text" data-element="V" data-position="4,23">23</div>
+    <span class="tooltip-text" id="fade-V">Used in steel alloys for high-strength applications.</span>
+
+    <div class="element Cr hover-text" data-element="Cr" data-position="4,24">24</div>
+    <span class="tooltip-text" id="fade-Cr">Adds hardness to steel; used in stainless steel and chrome plating.</span>
+
+    <div class="element Mn hover-text" data-element="Mn" data-position="4,25">25</div>
+    <span class="tooltip-text" id="fade-Mn">Essential trace element; used in steel production.</span>
+
+    <div class="element Fe hover-text" data-element="Fe" data-position="4,26">26</div>
+    <span class="tooltip-text" id="fade-Fe">Most common metal on Earth; used in construction and manufacturing.</span>
+
+    <div class="element Co hover-text" data-element="Co" data-position="4,27">27</div>
+    <span class="tooltip-text" id="fade-Co">Used in magnets, rechargeable batteries, and aircraft engines.</span>
+
+    <div class="element Ni hover-text" data-element="Ni" data-position="4,28">28</div>
+    <span class="tooltip-text" id="fade-Ni">Used in coins, magnets, and corrosion-resistant alloys.</span>
+
+    <div class="element Cu hover-text" data-element="Cu" data-position="4,29">29</div>
+    <span class="tooltip-text" id="fade-Cu">Excellent conductor of electricity; used in wires and plumbing.</span>
+
+    <div class="element Zn hover-text" data-element="Zn" data-position="4,30">30</div>
+    <span class="tooltip-text" id="fade-Zn">Essential mineral; used in galvanizing steel and batteries.</span>
+
+    <div class="element Ga hover-text" data-element="Ga" data-position="4,31">31</div>
+    <span class="tooltip-text" id="fade-Ga">Low melting point; used in LEDs and solar panels.</span>
+
+    <div class="element Ge hover-text" data-element="Ge" data-position="4,32">32</div>
+    <span class="tooltip-text" id="fade-Ge">Semiconducting material; used in transistors and optics.</span>
+
+    <div class="element As hover-text" data-element="As" data-position="4,33">33</div>
+    <span class="tooltip-text" id="fade-As">Poisonous element; used in semiconductors and wood preservatives.</span>
+
+    <div class="element Se hover-text" data-element="Se" data-position="4,34">34</div>
+    <span class="tooltip-text" id="fade-Se">Essential trace element; used in electronics and photovoltaic cells.</span>
+
+    <div class="element Br hover-text" data-element="Br" data-position="4,35">35</div>
+    <span class="tooltip-text" id="fade-Br">Dark red-brown liquid; used in flame retardants and photography.</span>
+
+    <div class="element Kr hover-text" data-element="Kr" data-position="4,36">36</div>
+    <span class="tooltip-text" id="fade-Kr">Inert gas; used in high-powered photographic flashes.</span>
+
 
     <!-- ... Repeat for other rows -->
 </div>
@@ -726,14 +750,6 @@ $id = $_SESSION['id'];
             <!-- onclick="restartGame()" -->
                 <img src="images/memory/retry-icon.png" alt="Retry Icon">
             </button></a>
-
-    <div class="next-container">
-        <div class="next">
-            <a href="#">
-                <button type="button" class="btn-next btn" style="color: #ea2063;">Next >></button>
-            </a>
-        </div>
-    </div>
 
         </div>
 
