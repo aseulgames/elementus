@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    
     
 
     document.querySelectorAll('.draggable-element').forEach(element => {
@@ -81,6 +83,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+
+
 
     // When the drag operation ends
     document.addEventListener('dragend', function(event) {

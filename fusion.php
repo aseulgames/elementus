@@ -614,12 +614,15 @@ $id = $_SESSION['id'];
     </div>
 </div>
     <div class="boxes-container">
-                <button class="clear-area">&#10008;</button>
-                <div class="reaction-area"></div>
-                <div class="goal-box">
-                    GOAL: Your Goal Text Here
-                </div>
-            </div>
+        <button class="clear-area">&#10008;</button>
+        <div class="reaction-area"></div>
+        <div class="goal-box">
+            GOAL:
+        </div>
+    </div>
+
+    <audio id="successSound" src="correct.mp3" preload="auto"></audio>
+
     </main>
     <script>
         document.getElementById("backButton").onclick = function() {
@@ -668,5 +671,66 @@ $id = $_SESSION['id'];
     });
 </script>
 
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const goalBox = document.querySelector('.goal-box');
+        let compoundsGoal = ['H2O', 'CO2', 'NH3']; // Add more compounds as needed
+        let currentGoalIndex = 0;
+        let elementsInReaction = []; // Initialize the array
+        const reactionArea = document.querySelector('.reaction-area');
+
+        function updateGoal() {
+            const currentGoal = compoundsGoal[currentGoalIndex];
+            goalBox.textContent = `GOAL: ${currentGoal} (${getCompoundName(currentGoal)})`;
+        }
+
+        function getCompoundName(compound) {
+            const compoundNames = {
+                'H2O': 'Water',
+                'CO2': 'Carbon dioxide',
+                'NH3': 'Ammonia' // Add more compounds as needed
+            };
+
+            return compoundNames[compound] || '';
+        }
+
+        function playSuccessSound() {
+            const successSound = document.getElementById("successSound");
+            successSound.play();
+        }
+
+        reactionArea.addEventListener('drop', function (event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData('text/plain');
+            const [symbol, state] = data.split('|');
+
+            const element = {
+                symbol: symbol,
+                state: state,
+                icon: stateIcons[state]
+            };
+
+            elementsInReaction.push(element);
+
+            for (const compound of compoundsGoal) {
+                if (elementsInReaction.length === compound.length && canCombine(elementsInReaction, compound.split(''))) {
+                    playSuccessSound();
+                    elementsInReaction = []; // Reset elements after successful combination
+                    currentGoalIndex++;
+
+                    if (currentGoalIndex < compoundsGoal.length) {
+                        updateGoal();
+                    } else {
+                        goalBox.textContent = "Congratulations! You've completed all goals.";
+                        // Add logic for when all goals are completed
+                    }
+
+                    break;
+                }
+            }
+        });
+        updateGoal();
+    });
+</script>
 </body>
 </html>

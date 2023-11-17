@@ -75,11 +75,6 @@
 </head>
 <body style="background-image: url('images/homebg.png');">
 
-<div id="overlay" class="overlay">
-    <div class="overlay-content">
-        <p>Drag your mouse for bubbles!</p>
-    </div>
-</div>
 
 <!-- Background Music -->
 <audio id="backgroundMusic" autoplay loop>
@@ -166,22 +161,22 @@
                     <div class="box-text">Hydrogen</div>
                 </div>
             </a>
-            <a href="" class="box locked" onclick="unlockColumn(this, 6)">
-                <div class="box-img"></div>
+            <a href="element2.php" class="box <?php echo $lesson_completion[6] ?>" onclick="unlockColumn(this, 6)">
+                <div class="box-img" style="background-image: url('images/element2_lesson/Slide1.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div class="box-text">Helium</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 7)">
-                <div class="box-img"></div>
+                <div class="box-img" style="background-image: url('images/element3_lesson/Slide1.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div class="box-text">Lithium</div>
                 </div>
             </a>
             <a href="" class="box locked" onclick="unlockColumn(this, 8)">
-                <div class="box-img"></div>
+                <div class="box-img" style="background-image: url('images/element4_lesson/Slide1.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div class="box-text">Beryllium</div>

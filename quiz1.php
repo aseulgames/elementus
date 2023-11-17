@@ -8,7 +8,8 @@ if (!isset($_SESSION['valid'])) {
 
 if (isset($_POST['finishLesson'])) {
     $user_id = $_SESSION['id'];
-    $lesson_id = 5; // Change this to the appropriate lesson ID
+    // CHANGE LESSON ID
+    $lesson_id = 5; 
     
     // Perform the database insert
     $insert = mysqli_query($con, "INSERT INTO student_lesson_progress (Id, lesson_id, completed) VALUES ($user_id, $lesson_id, 1) ON DUPLICATE KEY UPDATE completed = 1");
@@ -26,7 +27,7 @@ if (isset($_POST['finishLesson'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Awesome Quiz App | CodingNepal</title>
+    <title>Hydrogen Quiz</title>
     <link rel="stylesheet" href="quizzes.css">
     <!-- FontAweome CDN Link for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -69,6 +70,17 @@ if (isset($_POST['finishLesson'])) {
     
 
     <div class="start_btn"><button>Start Quiz</button></div>
+    
+    <!-- <div class="button-row">
+        <button type="button" class="btn" onclick="window.history.back()" name="back" value="back" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;"><  Back </button>
+        
+        <button id="nextButton" class="btn disabled-button" name="next" value="next" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;" disabled>
+            <a href="element1.php">Next ></a>
+        </button>
+        
+        <button id="lessonCompleteButton" class="btn disabled-button" name="finishLesson" value="finishLesson" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;">Finish Lesson</button>
+        
+</div> -->
 
     <!-- Info Box -->
     <div class="info_box">
@@ -117,21 +129,19 @@ if (isset($_POST['finishLesson'])) {
 
     <!-- Result Box -->
     <div class="result_box">
-        <div class="icon">
-            <i class="fas fa-crown"></i>
-        </div>
         <div class="complete_text">You've completed the Quiz!</div>
         <div class="score_text">
             <!-- Here I've inserted Score Result from JavaScript -->
         </div>
         <div class="buttons">
             <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>
+            <button class="quit">Next Lesson</button>
         </div>
     </div>
 
+
     <link rel="stylesheet" href="lessons.css">
-    <div class="button-row">
+    <!-- <div class="button-row">
         <button type="button" class="btn" onclick="window.history.back()" name="back" value="back" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;"><  Back </button>
         
         <button id="nextButton" class="btn disabled-button" name="next" value="next" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;" disabled>
@@ -140,10 +150,9 @@ if (isset($_POST['finishLesson'])) {
         
         <button id="lessonCompleteButton" class="btn disabled-button" name="finishLesson" value="finishLesson" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;">Finish Lesson</button>
         
-    </div>
+    </div> -->
 
-    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
-    <script>// creating an array and passing the number, questions, options, and answers
+    <script>
         let questions = [
             {
             numb: 1,
@@ -199,104 +208,55 @@ if (isset($_POST['finishLesson'])) {
             "Aerospace",
             "Electronics"
             ]
-        },
-        // you can uncomment the below codes and make duplicate as more as you want to add question
-        // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
-
-        //   {
-        //   numb: 6,
-        //   question: "Your Question is Here",
-        //   answer: "Correct answer of the question is here",
-        //   options: [
-        //     "Option 1",
-        //     "option 2",
-        //     "option 3",
-        //     "option 4"
-        //   ]
-        // },
+        }
         ];
         </script>
 
-    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
     <script src="quizscript.js"></script>
     <script src="homescript.js"></script>
+
     <script>
-        $(document).ready(function() {
+    // Assuming quiz completion status is stored in a variable
+    let lessonCompleted = false;
+
+    // Function to save lesson progress
+    function saveLessonProgress() {
+        // Check if the lesson is completed
+        if (lessonCompleted) {
+            // Assuming the lesson ID is 5
+            let lessonId = 5;
+
+            // Perform the database insert using PHP
             <?php
                 $user_id = $_SESSION['id'];
-                //CHANGE LESSON NUMBER!!
                 $lesson_id = 5;
 
-                $query = mysqli_query($con, "SELECT completed FROM student_lesson_progress WHERE Id = $user_id AND lesson_id = $lesson_id");
-                
+                $insert = mysqli_query($con, "INSERT INTO student_lesson_progress (Id, lesson_id, completed) VALUES ($user_id, $lesson_id, 1) ON DUPLICATE KEY UPDATE completed = 1");
 
-                $lessonCompleted = false; // Initialize as false by default
-
-                if ($query && mysqli_num_rows($query) > 0) {
-                    $row = mysqli_fetch_assoc($query);
-                    $lessonCompleted = $row['completed'] == 1;
-                }
-                // Check if the lesson is completed
-                if ($lessonCompleted) {
-                    echo 'var timer = 0;
-                    $("#nextButton").prop("disabled", false);
-                    $("#nextButton").removeClass("disabled-button");';
-                    
+                if ($insert) {
+                    echo "console.log('Lesson progress inserted successfully.');";
                 } else {
-                    echo 'var timer = 0; 
-                    function updateTimer() {
-                        var minutes = Math.floor(timer / 60);
-                        var seconds = timer % 60;
-                        var timeString = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
-                        $("#timer").text("Time remaining: " + timeString);
-                    }
-
-                    var countdown = setInterval(function() {
-                        timer--;
-                        updateTimer();
-                        if (timer <= 0) {
-                            clearInterval(countdown);
-                            $("#lessonCompleteButton").prop("disabled", false);
-                            $("#lessonCompleteButton").removeClass("disabled-button");
-                            
-                        }
-                    }, 1000);';
-                    
-                }
-
-                if (isset($_POST['finishLesson'])) {
-                    $insert = mysqli_query($con, "INSERT INTO student_lesson_progress (Id, lesson_id, completed) VALUES ($user_id, $lesson_id, 1) ON DUPLICATE KEY UPDATE completed = 1");
+                    echo "console.error('Error inserting lesson progress: " . mysqli_error($con) . "');";
                 }
             ?>
+        }
+    }
 
-            $("#lessonCompleteButton").click(function() {
-                clearInterval(countdown);
-                $("#nextButton").prop("disabled", false);
-                $("#nextButton").removeClass("disabled-button");
+    // Example: Call saveLessonProgress when the "Next Lesson" button is clicked
+    document.querySelector('.result_box .buttons .quit').addEventListener('click', function() {
+        saveLessonProgress();
+        // Add logic to navigate to the next lesson or handle replay quiz as needed
+        window.location.href = "element2.php"; // Example: Navigate to the next lesson
+    });
 
-                //CHANGEEEEEEEE
-                $.post("quiz1.php", { finishLesson: 1 }, function(response) {
-                    console.log(response);
-                }).fail(function() {
-                    alert("An error occurred.");
-                });
-            });
-        });
-
-        window.addEventListener("scroll", function() {
-            var scrollIndicator = document.querySelector(".scroll-down-indicator");
-            var windowScroll = window.scrollY;
-
-            var threshold = 100;
-
-            // Check if the user has scrolled beyond the threshold
-            if (windowScroll > threshold) {
-                scrollIndicator.style.opacity = "0"; 
-            } else {
-                scrollIndicator.style.opacity = "1"; 
-            }
-        });
-    </script>
+    // Example: Call saveLessonProgress when the "Replay Quiz" button is clicked
+    document.querySelector('.result_box .buttons .restart').addEventListener('click', function() {
+        saveLessonProgress();
+        // Add logic to replay the quiz as needed
+        // Example: Reset quiz state or reload the quiz questions
+    });
+</script>
+    
 </body>
-</html>
+
 </html>
