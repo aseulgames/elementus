@@ -15,7 +15,7 @@ if (!isset($_SESSION['valid'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="lessons.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Hydrogen</title>
+    <title>Lithium</title>
 
     <style>
         .btn {
@@ -93,7 +93,7 @@ if (!isset($_SESSION['valid'])) {
 
     <main>
         <video controls class="video-container">
-            <source src="images/lessons/1H.mp4" type="video/mp4">
+            <source src="images/lessons/3Li.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </main>
@@ -104,7 +104,7 @@ if (!isset($_SESSION['valid'])) {
         </button>
         
         <button id="startQuiz" class="btn disabled-button" style="margin-right: 10px; background-color: #5c67d9; border-radius: 20px; border: solid #5c67d9; color: #fff;">
-            <a href="quiz1.php">Start Quiz</a>
+            <a href="quiz3.php">Start Quiz</a>
         </button>
     </div>
 
@@ -126,7 +126,7 @@ if (!isset($_SESSION['valid'])) {
     });
 
     document.getElementById("startQuiz").addEventListener("click", function() {
-        window.location.href = "quiz1.php";
+        window.location.href = "quiz3.php";
     });
 </script>
 

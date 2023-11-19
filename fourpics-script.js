@@ -13,6 +13,15 @@ const levels = [
         images: ["images/fourpics/neonA.jpg", "images/fourpics/neonB.jpg", "images/fourpics/neonC.jpg", "images/fourpics/neonD.jpg"],
         correctAnswer: "neon"
     },
+
+    {
+        images: ["images/fourpics/arA.jpg", "images/fourpics/arB.jpg", "images/fourpics/arC.jpg", "images/fourpics/arD.png"],
+        correctAnswer: "arsenic"
+    },
+    {
+        images: ["images/fourpics/cuA.png", "images/fourpics/cuB.jpg", "images/fourpics/cuC.png", "images/fourpics/cuD.jpg"],
+        correctAnswer: "copper"
+    },
 ];
 
 let currentLevel = 0;

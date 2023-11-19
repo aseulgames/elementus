@@ -64,6 +64,13 @@ while ($lesson = mysqli_fetch_assoc($query)) {
             overflow: hidden; /* Hide overflow content */
         }
 
+        .box {
+        /* ... (existing styles) ... */
+        width: 100%; /* Adjust this value to control the width of the boxes */
+        margin: 0 1%; /* Adjust this value to control the spacing between the boxes */
+    }
+
+
 
     </style>
 </head>
@@ -206,14 +213,14 @@ while ($lesson = mysqli_fetch_assoc($query)) {
                     <div class="box-text">Helium</div>
                 </div>
             </a>
-            <a href="" class="box locked" onclick="unlockColumn(this, 7)">
+            <a href="element3.php" class="box <?php echo $lesson_completion[7] ?>" onclick="unlockColumn(this, 7)">
                 <div class="box-img" style="background-image: url('images/element3_lesson/Slide1.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
                     <div class="box-text">Lithium</div>
                 </div>
             </a>
-            <a href="" class="box locked" onclick="unlockColumn(this, 8)">
+            <a href="element4.php" class="box <?php echo $lesson_completion[8] ?>" onclick="unlockColumn(this, 8)">
                 <div class="box-img" style="background-image: url('images/element4_lesson/Slide1.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
