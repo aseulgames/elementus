@@ -57,8 +57,25 @@ function showTutorial() {
     popup.style.display = "block"; // Show the popup tutorial
 }
 
-// Call the showTutorial function when the page is loaded
-window.onload = showTutorial;
+window.onload = function () {
+    showTutorial();
+
+    // Load the stored level when the page is loaded
+    const storedLevel = getStoredMemoryLevel();
+    if (storedLevel > 0) {
+        // If a stored level is found, initialize the game with that level
+        initMemoryLevel(storedLevel);
+    }
+};
+
+function getStoredMemoryLevel() {
+    return parseInt(localStorage.getItem("currentMemoryLevel")) || 0;
+}
+
+function saveStoredMemoryLevel(level, elapsedTime) {
+    localStorage.setItem("currentMemoryLevel", level);
+    localStorage.setItem("memoryElapsedTime", elapsedTime);
+}
 
 function startTimer() {
     clearInterval(timerInterval);
@@ -195,7 +212,7 @@ function shuffleCard() {
         });
 
         function restartGame() {
-            // Your existing shuffleCard() logic goes here
+            const restartConfirmation = confirm("Are you sure you want to restart the game? Your progress will be lost.");
             shuffleCard();
             gameOver = false; // Reset game over flag
             elapsedTime = 0; // Reset timer
@@ -237,19 +254,69 @@ function showMemoryStarsPopup(message, stars) {
     nextLevelButton.addEventListener("click", function() {
         if (currentMemoryLevel < memoryLevels.length - 1) {
             popupContainer.removeChild(popup);
+
+            // Save stars to the database before loading the next level
+            saveMemoryStarsToDatabase(stars, currentMemoryLevel);
+
+            // Increment the current level before initializing the next level
             currentMemoryLevel++;
+
+            // Initialize the next level
             initMemoryLevel(currentMemoryLevel);
+
+            // Restart the timer for the next level
+            startTimer();
         } else {
-            // Player has completed all memory levels, update totalStars and save to localStorage
+            // Save stars to the database before completing the game
+            saveMemoryStarsToDatabase(stars, currentMemoryLevel);
+
+            // Redirect to the game choices page or handle the end of the game as needed
             localStorage.setItem("totalStars", totalStars);
-
-            // Update totalStars display on games.php
             updateTotalStarsDisplay();
-
+            saveStoredMemoryLevel(0, 0); // Reset stored level and elapsed time
             window.location.href = "gamechoices.php";
         }
     });
 }
+
+function saveMemoryStarsToDatabase(stars, currentMemoryLevel) {
+    const xhr = new XMLHttpRequest();
+    const url = "saveUserProgress2.php"; // Update the URL to the PHP file handling saving stars for Memory game
+
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    // Include additional parameters as needed for your saveUserProgress2.php file
+    const params = `stars=${stars}&currentLevel=${currentMemoryLevel}&gameId=2`; // Add gameId parameter for Memory game
+
+    xhr.send(params);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                console.log("Memory Stars saved successfully");
+
+                // Check if the current level is completed
+                if (response.level_completed) {
+                    // Mark the level as done (e.g., disable buttons, show completion message)
+                    handleMemoryLevelCompletion(currentMemoryLevel);
+                }
+            } else {
+                console.log("Memory Stars not saved:", response.message);
+            }
+        }
+    };
+
+    saveStoredMemoryLevel(currentMemoryLevel, elapsedTime);
+
+}
+
+// Modify the existing function call in the Memory game code where you show the stars popup
+showMemoryStarsPopup(popupMessage, stars);
+
+// Modify the existing function call in the Memory game code where you save stars to the database
+saveMemoryStarsToDatabase(stars, currentMemoryLevel);
 
 
 function stopTimer() {
