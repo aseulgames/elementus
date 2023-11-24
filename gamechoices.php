@@ -16,6 +16,7 @@ $id = $_SESSION['id'];
                 $res_Lname = $result['LastName'];
                 $res_id = $result['Id'];
             }
+
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +31,8 @@ $id = $_SESSION['id'];
     <style>
         body{
             background-image: url('images/gameschoices.png'); 
+            overflow-x: hidden;
+            overflow-y: auto;
         }
 
         .intro-container{
@@ -42,8 +45,6 @@ $id = $_SESSION['id'];
 
         html, body {
 			max-width: 100%;
-			overflow-x: hidden;
-            overflow-y: hidden;
 		}
         
         .bubble {
@@ -59,15 +60,15 @@ $id = $_SESSION['id'];
         }
         .mute-icon {
             position: absolute;
-            top: 24vh;
+            top: 22vh;
             right: 7vh;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .mute-icon img {
-            width: 6vh;
-            height: 6vh;
+            width: 5vh;
+            height: 5vh;
         }
 
         @media screen and (max-width: 768px) {
@@ -99,45 +100,58 @@ $id = $_SESSION['id'];
         SELECT A GAME YOU'D LIKE TO PLAY
     </header>
     <main>
-    <div class="container">
-        <br><br><br><br>
+        <link rel="stylesheet" href="circular.css">
         <div class="intro-container">
-            <a href="playfourpics.php" class="box boxone <?php echo $lesson_completion[1] ?>" onclick="unlockColumn(this, 1)">
-                <div class="box-img" style="background-image: url('images/iconone.png');"></div>
+    <?php
+    $games = array(
+        "Four Pics Game" => array("id" => 1,"logo_class" => "fourpicslogo-img", "href" => "playfourpics.php"),
+        "Memory Game" => array("id" => 2,"logo_class" => "memorylogo-img", "href" => "playmemory.php"),
+        "Puzzle Game" => array("id" => 3, "logo_class" => "puzzlelogo-img", "href" => "playpuzzle.php"),
+        "Fusion Game" => array("id" => 4, "logo_class" => "fuselogo-img", "href" => "playfusion.php")
+    );
+
+    foreach ($games as $gameName => $gameDetails) {
+        $gameId = $gameDetails['id'];
+        $gameQuery = "SELECT max_stars FROM games WHERE game_name = '$gameName'";
+        $gameResult = mysqli_query($con, $gameQuery);
+
+        if ($gameResult && mysqli_num_rows($gameResult) > 0) {
+            $gameRow = mysqli_fetch_assoc($gameResult);
+            $maxStars = $gameRow['max_stars'];
+
+            // Fetch total stars for the current user and game
+            $totalStarsQuery = "SELECT SUM(stars_earned) AS totalStars FROM game_progress WHERE user_id = $id AND game_id = '$gameId'";
+            $totalStarsResult = mysqli_query($con, $totalStarsQuery);
+
+            if ($totalStarsResult && mysqli_num_rows($totalStarsResult) > 0) {
+                $totalStarsRow = mysqli_fetch_assoc($totalStarsResult);
+                $totalStars = $totalStarsRow['totalStars'];
+            } else {
+                $totalStars = 0;
+            }
+    ?>
+
+            <a href="<?php echo strtolower($gameDetails['href']); ?>" class="box box<?php echo $gameId; ?>" onclick="unlockColumn(this, <?php echo $gameId; ?>)">
+                <div class="box-img" style="background-image: url('images/icon<?php echo $gameId; ?>.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div class="fourpicslogo-img"></div>
+                    <div class="<?php echo $gameDetails['logo_class']; ?>"></div>
                 </div>
-            </a>
-            <a href="playmemory.php" class="box boxtwo <?php echo $lesson_completion[2] ?>" onclick="unlockColumn(this, 2)">
-                <div class="box-img" style="background-image: url('images/icontwo.png');"></div>
-                <div class="box-divider"></div>
-                <div class="box-content">
-                    <div class="memorylogo-img"></div>
-                </div>
-            </a>
-            <a href="playpuzzle.php" class="box boxthree <?php echo $lesson_completion[3] ?>" onclick="unlockColumn(this, 3)">
-                <div class="box-img" style="background-image: url('images/iconthree.gif');"></div>
-                <div class="box-divider"></div>
-                <div class="box-content">
-                    <div class="puzzlelogo-img"></div>
-                </div>
-            </a>
-            <a href="playfusion.php" class="box boxfour <?php echo $lesson_completion[4] ?>" onclick="unlockColumn(this, 4)">
-                <div class="box-img" style="background-image: url('images/iconfour.png');"></div>
-                <div class="box-divider"></div>
-                <div class="box-content">
-                    <div class="fuselogo-img"></div>
+                <div class="circular-progress" data-percentage="<?php echo round($totalStars / $maxStars * 100); ?>">
+                    <span class="progress-value"><?php echo "{$totalStars}/{$maxStars} ★"; ?></span>
                 </div>
             </a>
 
-            
-            <div class="button-container">
-                <button type="button" class="btn" onclick="window.location.href = 'games.php'" name="cancel" value="Cancel" style="background-color: #E24B4B; border-radius: 20px; border: solid #E24B4B; color: #fff;">Cancel</button>
-            </div>
+    <?php
+        }
+    }
+    ?>
 
-        </div>
+    <div class="button-container">
+        <button type="button" class="btn" onclick="window.location.href = 'games.php'" name="cancel" value="Cancel" style="background-color: #E24B4B; border-radius: 20px; border: solid #E24B4B; color: #fff;">Cancel</button>
     </div>
+</div>
+        
     
       
     </main>
@@ -166,5 +180,53 @@ $id = $_SESSION['id'];
     };
 
     </script>
+<script>
+    window.onload = function () {
+        var backgroundMusic = document.getElementById("backgroundMusic");
+        var hoverSound = document.getElementById("hoverSound");
+        var boxes = document.querySelectorAll(".box");
+
+        // Set background music volume to 0.3 (30% volume)
+        backgroundMusic.volume = 0.4;
+
+        // Play background music on page load
+        backgroundMusic.play();
+
+        // Add hover sound to all boxes
+        boxes.forEach(function (box) {
+            box.addEventListener("mouseenter", function () {
+                hoverSound.currentTime = 0.4; // Reset sound to the beginning
+                hoverSound.play();
+            });
+        });
+
+        // Add circular progress animation
+        document.querySelectorAll('.circular-progress').forEach(function (circular) {
+            var percentage = circular.getAttribute('data-percentage');
+            var circularProgress = circular.querySelector('.progress-value');
+            var progressStartValue = 0;
+            var speed = 10;
+
+            // Check if there's progress before starting the animation
+            if (percentage > 0) {
+                var progress = setInterval(() => {
+                    progressStartValue++;
+                    // circularProgress.textContent = `${$progress}/${$maxStars}★`;
+                    circular.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6}deg, #ededed 0deg)`;
+
+                    if (progressStartValue == percentage) {
+                        clearInterval(progress);
+                    }
+                }, speed);
+            } else {
+                // If there's no progress, set the initial state
+                circularProgress.textContent = '0/0★';
+                circular.style.background = `conic-gradient(#ededed 0deg, #ededed 0deg)`;
+            }
+        });
+    };
+</script>
+
+
 </body>
 </html>

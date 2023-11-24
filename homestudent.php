@@ -174,7 +174,7 @@ while ($lesson = mysqli_fetch_assoc($query)) {
                 <div class="box-img" style="background-image: url('images/namessymbols.png');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">
-                    <div class="box-text">Names, Symbols, & Atomic number of the Elements</div>
+                    <div class="box-text">Names, Symbols, & Atomic Number</div>
                 </div>
             </a>
             <a href="groupsperiods.php" class="box <?php echo $lesson_completion[3] ?>" onclick="unlockColumn(this, 3)">

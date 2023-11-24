@@ -679,6 +679,15 @@ $id = $_SESSION['id'];
         let elementsInReaction = []; // Initialize the array
         const reactionArea = document.querySelector('.reaction-area');
 
+        function changeGoal() {
+        currentGoalIndex++;
+        if (currentGoalIndex >= goals.length) {
+            currentGoalIndex = 0;
+        }
+        currentGoal = goals[currentGoalIndex];
+        goalBox.textContent = currentGoal.goalTitle;
+        }
+
         function updateGoal() {
             const currentGoal = compoundsGoal[currentGoalIndex];
             goalBox.textContent = `GOAL: ${currentGoal} (${getCompoundName(currentGoal)})`;

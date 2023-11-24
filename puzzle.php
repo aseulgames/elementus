@@ -758,7 +758,7 @@ $id = $_SESSION['id'];
     </div>
 </div>
     </main>
-    <script>
+    <!-- <script>
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -767,20 +767,13 @@ $id = $_SESSION['id'];
             return array;
         }
 
-        // Select all draggable elements
         const draggableElements = Array.from(document.querySelectorAll('.draggable-element'));
-
-        // Shuffle the array of draggable elements
         const shuffledElements = shuffleArray(draggableElements);
-
-        // Get the container where elements will be appended
         const container = document.querySelector('.element-list');
-
-        // Append the shuffled elements to the container
         shuffledElements.forEach(element => {
             container.appendChild(element);
         });
-    </script>
+    </script> -->
     <script>
         document.getElementById("backButton").onclick = function() {
             history.back();
@@ -788,6 +781,80 @@ $id = $_SESSION['id'];
     </script>
 
     <script src="puzzle.js"></script>
+
+    <!-- Include this script in each level PHP file -->
+
+    <script>
+    let currentLevel = 1; // Assuming the default level is 1
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // ... (existing code)
+
+        const restartButton = document.querySelector('.retry-button');
+        restartButton.addEventListener('click', function () {
+            // ... (existing code)
+        });
+    });
+
+    function updateStarDisplay(value = 0) {
+        totalStars = Math.max(totalStars + value, 0);
+        const totalStarsDiv = document.getElementById("totalStarsDisplay");
+        totalStarsDiv.innerHTML = `★ ${totalStars} `;
+    }
+
+    function showStarsPopup() {
+        console.log('showStarsPopup called');
+        // Rest of your existing code for the popup
+        const popupContainer = document.getElementById("stars-popup-container");
+        const popup = document.createElement("div");
+        popup.className = "stars-popup";
+
+        popup.innerHTML = `
+            <p>Congratulations! You completed the level with ${totalStars} stars.</p>
+            <button id="nextLevelButton">Next Level</button>
+        `;
+
+        popupContainer.appendChild(popup);
+
+        const nextLevelButton = popup.querySelector("#nextLevelButton");
+        nextLevelButton.addEventListener("click", function () {
+            // Save stars to the database before loading the next level
+            saveStarsToDatabase(totalStars, currentLevel);
+
+            // Navigate to the next level or PHP page
+            // Adjust the URL based on your file structure
+            window.location.href = "puzzle-lvl2.php";
+        });
+    }
+
+    function saveStarsToDatabase(stars, level) {
+        const xhr = new XMLHttpRequest();
+        const url = "saveUserProgress3.php"; // Adjust the URL based on your file structure
+
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+        // Pass stars and level to the server
+        xhr.send(`stars=${stars}&currentLevel=1`);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log("Stars saved successfully");
+                    // Check if the current level is completed
+                    if (response.level_completed) {
+                        // Mark the level as done (e.g., disable buttons, show completion message)
+                        handleLevelCompletion(currentLevel);
+                    }
+                } else {
+                    console.log("Stars not saved:", response.message);
+                }
+            }
+        };
+    }
+</script>
+
 
     <script src="music.js"></script>
 

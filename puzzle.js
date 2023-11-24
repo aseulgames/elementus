@@ -1,9 +1,9 @@
 //script 1
-let elementPlaceholders; // Declare elementPlaceholders as a global variable
+let elementPlaceholders;
 let totalStars = 0;
-let totalMistakes = 0; // New variable to track total mistakes
-let totalElements; // New variable to track total elements
-let correctElements = 0; // New variable to track correct elements
+let totalMistakes = 0;
+let totalElements;
+let correctElements = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
     const draggableElements = document.querySelectorAll('.draggable-element');
@@ -63,18 +63,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const restartButton = document.querySelector('.retry-button');
     restartButton.addEventListener('click', function () {
-        draggableElements.forEach((element) => {
-            element.style.display = 'block';
-        });
-
-        elementPlaceholders.forEach((placeholder) => {
-            placeholder.innerHTML = '';
-            placeholder.classList.remove('matched-element');
-        });
-
-        totalMistakes = 0; // Reset mistakes count
-        correctElements = 0; // Reset correct elements count
-        updateStarDisplay(); // Reset star display
+        const restartConfirmation = confirm("Are you sure you want to restart the game? Your progress will be lost.");
+            if (restartConfirmation) {
+                draggableElements.forEach((element) => {
+                    element.style.display = 'block';
+                });
+        
+                elementPlaceholders.forEach((placeholder) => {
+                    placeholder.innerHTML = '';
+                    placeholder.classList.remove('matched-element');
+                });
+        
+                totalMistakes = 0; // Reset mistakes count
+                correctElements = 0; // Reset correct elements count
+                updateStarDisplay(); // Reset star display
+            }
     });
 });
 
@@ -160,14 +163,12 @@ window.addEventListener("load", function () {
 
 document.querySelector("#close").addEventListener("click", function () {
     document.querySelector(".popup").style.display = "none";
-    hideOverlay(); // Hide the overlay when the pop-up is closed
-    startTimer();
+    hideOverlay(); 
     loadLevel();
 });
 
 document.querySelector("#okay").addEventListener("click", function () {
     document.querySelector(".popup").style.display = "none";
-    hideOverlay(); // Hide the overlay when the pop-up is closed
-    startTimer();
+    hideOverlay(); 
     loadLevel();
 });

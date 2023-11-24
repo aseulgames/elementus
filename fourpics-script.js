@@ -55,10 +55,14 @@ function updateTimerDisplay() {
 }
 
 function loadLevel() {
+    const storedLevel = getStoredLevel();
+    currentLevel = storedLevel > 0 && storedLevel <= levels.length ? storedLevel : 0;
+
     const level = levels[currentLevel];
     imageContainer.innerHTML = ''; // Clear previous images
     answerInput.value = '';
     message.textContent = '';
+
     // Display the images for the current level
     for (let i = 0; i < level.images.length; i++) {
         const img = document.createElement("img");
@@ -66,16 +70,6 @@ function loadLevel() {
         img.alt = `Image ${i + 1}`;
         imageContainer.appendChild(img);
     }
-
-    // Check if the current level is completed and show stars popup
-    if (currentLevel > 0) {
-        // const stars = calculateStars(elapsedTime);
-        // const popupMessage = `Congratulations! You earned ${stars} stars.`;
-        // showStarsPopup(popupMessage);
-    }
-
-    // Start the timer for the new level
-    startTimer();
 }
 
 submitButton.addEventListener("click", () => {
@@ -86,16 +80,16 @@ submitButton.addEventListener("click", () => {
         const seconds = elapsedTime;
         const stars = calculateStars(seconds);
         const popupMessage = `Correct! You earned ${stars} stars.`;
-        showStarsPopup(popupMessage, stars); // Show stars popup for correct answer
+        showStarsPopup(popupMessage, stars); // Show stars popup for the correct answer
 
         answerInput.value = '';
         elapsedTime = 0;
-        if (currentLevel < levels.length) {
-            
+        if (currentLevel < levels.length - 1) {
+            saveStoredLevel(currentLevel + 1); // Save the next level
+            currentLevel++;
+            loadLevel();
         } else {
-            answerInput.disabled = true;
-            submitButton.disabled = true;
-            // Handle game completion logic here
+            saveStoredLevel(currentLevel + 1);
         }
         correctSound.play();
     } else {
@@ -103,9 +97,11 @@ submitButton.addEventListener("click", () => {
         wrongSound.play();
     }
 });
+
 function showStarsPopup(message, stars) {
-    totalStars += stars; // Update totalStars
+    totalStars += parseInt(stars); // or parseFloat(stars) depending on whether stars can be decimal values
     const totalStarsDiv = document.getElementById("totalStarsDisplay");
+
 
     // Generate star image based on the number of stars earned
     const starImage = `star${stars}.png`;
@@ -122,23 +118,79 @@ function showStarsPopup(message, stars) {
         <div class="stars-container">
             <img src="images/${starImage}" alt="Star ${stars}" style="width: 20vw;">
         </div>
-        <button id="nextLevelButton">Next Level</button>
+        <form id="starsForm" method="post" action="saveUserProgress.php">
+            <input type="hidden" name="stars" value="${stars}">
+            <input type="hidden" name="currentLevel" value="${currentLevel}">
+            <button type="submit" id="nextLevelButton">Next Level</button>
+        </form>
     `;
 
     popupContainer.appendChild(popup);
 
     const nextLevelButton = popup.querySelector("#nextLevelButton");
-    nextLevelButton.addEventListener("click", function() {
-        if (currentLevel < levels.length - 1) {
-            popupContainer.removeChild(popup);
+    nextLevelButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent the form submission for now
+    
+        if (currentLevel < levels.length - 0) {
+            // Save stars to the database before loading the next level
+            saveStarsToDatabase(stars, currentLevel);
+    
+            // Increment the current level here
             currentLevel++;
+    
+            // Load the next level
             loadLevel();
+    
+            // Remove the popup after loading the next level
+            popupContainer.removeChild(popup);
+
+            
+
+            if (currentLevel !==0){
+                startTimer();
+            }
         } else {
+            saveStarsToDatabase(stars, currentLevel);
+            saveStoredLevel(0);
+            currentLevel = 0;
             window.location.href = "gamechoices.php";
         }
     });
+    
 }
 
+function saveStarsToDatabase(stars, currentLevel) {
+    const xhr = new XMLHttpRequest();
+    const url = "saveUserProgress.php";
+
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhr.send(`stars=${stars}&currentLevel=${currentLevel}`);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                console.log("Stars saved successfully");
+
+                // Check if the current level is completed
+                if (response.level_completed) {
+                    // Mark the level as done (e.g., disable buttons, show completion message)
+                    handleLevelCompletion(currentLevel);
+                }
+            } else {
+                console.log("Stars not saved:", response.message);
+            }
+        }
+    };
+    
+}
+
+function handleLevelCompletion(level) {
+    // Implement logic to handle completion of the level, if needed
+    console.log(`Level ${level} completed!`);
+}
 
 
 function calculateStars(timeInSeconds) {
@@ -154,38 +206,42 @@ function calculateStars(timeInSeconds) {
     return 1;
 }
 
+function saveStoredLevel(level) {
+    localStorage.setItem("currentLevel", level);
+}
+
+function getStoredLevel() {
+    return parseInt(localStorage.getItem("currentLevel")) || 0;
+}
 
 document.getElementById("backButton").onclick = function() {
     history.back();
 };
 
 
-window.addEventListener("load", function(){
-    setTimeout(
-        function open(event){
-            document.querySelector(".popup").style.display = "block";
-        },
-        10
-    )
-});
-
-
-// Function to show the overlay
 function showOverlay() {
     document.querySelector(".overlay").style.display = "block";
 }
 
-// Function to hide the overlay
 function hideOverlay() {
     document.querySelector(".overlay").style.display = "none";
 }
 
-window.addEventListener("load", function() {
-    setTimeout(function() {
-        document.querySelector(".popup").style.display = "block";
-        showOverlay(); // Show the overlay when the pop-up appears
-    }, 10);
+window.addEventListener("load", function(){
+    fetchTotalStars();
+
+    // Load stored level and show tutorial only for level 1
+    loadStoredLevel();
+
+    // Check if the current level is level 1 (hydrogen) before showing the tutorial
+    if (currentLevel === 0) {
+        setTimeout(function() {
+            document.querySelector(".popup").style.display = "block";
+            showOverlay(); // Show the overlay when the pop-up appears
+        }, 10);
+    }
 });
+
 
 document.querySelector("#close").addEventListener("click", function() {
     document.querySelector(".popup").style.display = "none";
@@ -204,3 +260,43 @@ answerInput.addEventListener("keydown", function(event) {
         submitButton.click(); // Trigger the click event of the submit button
     }
 });
+
+function loadStoredLevel() {
+    currentLevel = getStoredLevel();
+    totalStars = 0;
+
+    // Check if the current level is completed and show stars popup
+    if (currentLevel > 1) {
+        // const stars = calculateStars(elapsedTime);
+        // const popupMessage = `Congratulations! You earned ${stars} stars.`;
+        // showStarsPopup(popupMessage);
+    }
+
+    loadLevel();
+}
+
+function fetchTotalStars() {
+    const xhr = new XMLHttpRequest();
+    const url = "fetchTotalStars.php";
+
+    xhr.open("GET", url, true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                totalStars = response.totalStars !== null ? response.totalStars : 0;
+                updateTotalStarsDisplay();
+            } else {
+                console.log("Error fetching total stars:", response.message);
+            }
+        }
+    };
+
+    xhr.send();
+}
+
+function updateTotalStarsDisplay() {
+    const totalStarsDiv = document.getElementById("totalStarsDisplay");
+    totalStarsDiv.innerHTML = `★ ${totalStars} `;
+}

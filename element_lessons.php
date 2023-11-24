@@ -212,7 +212,7 @@
                 </div>
             </a>
 
-            <a href="element7.php" class="box <?php echo $lesson_completion[13] ?>" onclick="unlockColumn(this, 13)">
+            <a href="element9.php" class="box <?php echo $lesson_completion[13] ?>" onclick="unlockColumn(this, 13)">
                 <div class="box-img" style="background-image: url('images/lessons/SlideF.jpg');"></div>
                 <div class="box-divider"></div>
                 <div class="box-content">

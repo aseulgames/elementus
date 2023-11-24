@@ -136,22 +136,22 @@
     align-items: left;
     justify-content: center;
     min-height: 45vh;
-    padding-top: 20px; 
+    padding-top: 100px; 
 }
 
-.boxone{
+.box1{
     background: #9b5bff;
 }
 
-.boxtwo{
+.box2{
     background: #ffd341;
 }
 
-.boxthree{
+.box3{
     background: #ff81ab;
 }
 
-.boxfour{
+.box4{
     background: #b9fa9d;
 }
 

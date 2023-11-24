@@ -15,6 +15,8 @@ $id = $_SESSION['id'];
                 $res_Lname = $result['LastName'];
                 $res_id = $result['Id'];
             }
+
+            
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +27,7 @@ $id = $_SESSION['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="bootstrap/bootstrap.min.css"> -->
     <link rel="stylesheet" href="games.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="homescript.js"></script>
     <title>Games</title>
     <style>
@@ -79,7 +82,6 @@ $id = $_SESSION['id'];
     </div>
     <input type="button" value="Got It!" id="okay" class="btn">
 </div>
-
 
 
 <!-- Background Music -->
@@ -182,6 +184,7 @@ $id = $_SESSION['id'];
     <script src="homescript.js"></script>
     <script src="music.js"></script>
     <script src="hover.js"></script>
+    
 
 </body>
 </html>
