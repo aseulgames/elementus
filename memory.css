@@ -129,11 +129,11 @@ body{
 
 @media screen and (max-width: 900px) {
     .wrapper {
-        max-width: 80vw;
+        max-width: 70vw;
     }
 
     .cards {
-        max-width: 80%;
+        max-width: 70%;
     }
 
     .card {
@@ -155,11 +155,11 @@ body{
 
 @media screen and (max-width: 530px) {
     .wrapper {
-        max-width: 90vw;
+        max-width: 60vw;
     }
 
     .cards {
-        max-width: 90%;
+        max-width: 60%;
     }
 
     .card {

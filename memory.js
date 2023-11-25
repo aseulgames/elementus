@@ -38,35 +38,82 @@ const wrongMatchSound = document.getElementById("wrongMatchSound");
 
 currentMemoryLevel = 0; // Set the current level to the first level
 
+function getStoredMemoryElapsedTime() {
+    return parseInt(localStorage.getItem("memoryElapsedTime")) || 0;
+}
+
+
 function initMemoryLevel(level) {
     currentMemoryLevel = level;
     hideOverlay();
     gameStarted = false; // Reset game state
-    elapsedTime = 0; // Reset timer
-    updateTimerDisplay(); // Update timer display to show 0:00
-    if (!gameStarted) {
+
+    // Load stored level and elapsed time
+    const storedLevel = getStoredMemoryLevel();
+    const storedTime = getStoredMemoryElapsedTime();
+
+    // Use the stored level if available, otherwise use the provided level
+    currentMemoryLevel = storedLevel > 0 ? storedLevel : level;
+
+    if (storedTime > 0) {
+        // If stored time is greater than 0, it means the game is being resumed from storage
         gameStarted = true;
+        elapsedTime = storedTime;
+        startTimer();
+        // Calculate minutes and seconds from elapsed time
+        const minutes = Math.floor(elapsedTime / 60);
+        const seconds = elapsedTime % 60;
+        // Update timer display with the calculated time
+        updateTimerDisplay(minutes, seconds);
+        shuffleCard(); // This function will shuffle cards based on the current level
+    } else {
+        // If stored time is 0, it means the game is starting for the first time
         startTimer();
         shuffleCard(); // This function will shuffle cards based on the current level
     }
+    // Save the updated level to storage
+    saveStoredMemoryLevel(currentMemoryLevel, elapsedTime);
 }
 
-// Function to show the overlay and popup tutorial
+
+let overlayShown = false;
+
 function showTutorial() {
-    overlay.style.display = "flex"; // Show the overlay
-    popup.style.display = "block"; // Show the popup tutorial
+    if (!overlayShown) {
+        overlay.style.display = "flex"; // Show the overlay
+        popup.style.display = "block"; // Show the popup tutorial
+        overlayShown = true;
+    }
 }
 
-window.onload = function () {
+// window.onload = function () {
+//     showTutorial();
+
+//     const storedLevel = getStoredMemoryLevel();
+//     const storedTime = getStoredMemoryElapsedTime();
+//     if (storedLevel > 0) {
+//         currentMemoryLevel = storedLevel;
+//         elapsedTime = storedTime;
+//         initMemoryLevel(currentMemoryLevel);
+//     }
+// };
+
+document.addEventListener("DOMContentLoaded", function () {
     showTutorial();
 
-    // Load the stored level when the page is loaded
+    // Load the stored level and elapsed time when the page is loaded
     const storedLevel = getStoredMemoryLevel();
+    const storedTime = getStoredMemoryElapsedTime();
     if (storedLevel > 0) {
-        // If a stored level is found, initialize the game with that level
-        initMemoryLevel(storedLevel);
+        // If a stored level is found, initialize the game with that level and elapsed time
+        currentMemoryLevel = storedLevel;
+        elapsedTime = storedTime;
+        initMemoryLevel(currentMemoryLevel);
     }
-};
+
+    navigateBackToGame(); // Add this line
+});
+
 
 function getStoredMemoryLevel() {
     return parseInt(localStorage.getItem("currentMemoryLevel")) || 0;
@@ -77,7 +124,10 @@ function saveStoredMemoryLevel(level, elapsedTime) {
     localStorage.setItem("memoryElapsedTime", elapsedTime);
 }
 
+
 function startTimer() {
+    elapsedTime = 0; // Reset elapsed time to 0
+    updateTimerDisplay(); // Update the timer display to show 0:00
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
         elapsedTime++;
@@ -111,16 +161,20 @@ document.querySelector("#okay").addEventListener("click", closeTutorial);
 
 
 function flipCard(clickedCard) {
+    console.log("flipCard function called");console.log("Variables:", { gameStarted, disableDeck, gameOver });
     if (gameStarted && !disableDeck && !gameOver) {
+        console.log("Inside flipCard function", { clickedCard, cardOne, cardTwo });
+
         if (clickedCard.classList.contains("flip") || clickedCard === cardOne) {
+            console.log("Skipping card flip - already flipped or same card clicked twice");
             return; // Do not flip the card if it's already flipped or if it's the same card clicked twice
         }
-        
+
         clickedCard.classList.add("flip");
-        // flipSound.play();
 
         if (!cardOne) {
             cardOne = clickedCard;
+            console.log("cardOne set", { cardOne });
         } else {
             cardTwo = clickedCard;
             disableDeck = true;
@@ -130,6 +184,12 @@ function flipCard(clickedCard) {
         }
     }
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    navigateBackToGame();
+});
+
 
 
 function matchCards(img1, img2) {
@@ -169,6 +229,51 @@ function matchCards(img1, img2) {
         }, 1200);
     }
 }
+
+function resetGameState() {
+    gameStarted = true;
+    disableDeck = false;
+    cardOne = null;
+    cardTwo = null;
+    gameOver = false;
+    pairs = [];
+    // Reset any other game-related variables
+}
+
+const cardsContainer = document.querySelector("#cards-container");
+
+function addCardEventListeners() {
+    console.log("Adding card event listeners");
+    cards.forEach(card => {
+        card.addEventListener("click", () => flipCard(card));
+        console.log("Event listener added to card:", card);
+    });
+}
+
+
+// Call this function after recreating the cards
+addCardEventListeners();
+
+function navigateBackToGame() {
+    console.log("Navigating back to the game");
+    resetGameState();
+    // Other initialization code
+    shuffleCard();
+    addCardEventListeners();
+    console.log("Game state after navigating back:", {
+        currentMemoryLevel,
+        timerInterval,
+        elapsedTime,
+        gameStarted,
+        matched,
+        cardOne,
+        cardTwo,
+        disableDeck,
+        gameOver,
+        pairs,
+    });
+}
+
 
 
 function shuffleCard() {
@@ -213,11 +318,16 @@ function shuffleCard() {
 
         function restartGame() {
             const restartConfirmation = confirm("Are you sure you want to restart the game? Your progress will be lost.");
-            shuffleCard();
-            gameOver = false; // Reset game over flag
-            elapsedTime = 0; // Reset timer
-            updateTimerDisplay(); // Update timer display to show 0:00
-            startTimer(); // Restart the timer
+            if (restartConfirmation) {
+                // Reset the current level to 0 when restarting the game
+                currentMemoryLevel = 0;
+                saveStoredMemoryLevel(currentMemoryLevel, 0); // Reset stored level and elapsed time
+                shuffleCard();
+                gameOver = false; // Reset game over flag
+                elapsedTime = 0; // Reset timer
+                updateTimerDisplay(); // Update timer display to show 0:00
+                startTimer(); // Restart the timer
+            }
         }
 
 // Function to show the overlay
@@ -252,32 +362,54 @@ function showMemoryStarsPopup(message, stars) {
 
     const nextLevelButton = popup.querySelector("#nextMemoryLevelButton");
     nextLevelButton.addEventListener("click", function() {
-        if (currentMemoryLevel < memoryLevels.length - 1) {
-            popupContainer.removeChild(popup);
-
-            // Save stars to the database before loading the next level
-            saveMemoryStarsToDatabase(stars, currentMemoryLevel);
-
-            // Increment the current level before initializing the next level
-            currentMemoryLevel++;
-
-            // Initialize the next level
-            initMemoryLevel(currentMemoryLevel);
-
-            // Restart the timer for the next level
-            startTimer();
-        } else {
-            // Save stars to the database before completing the game
-            saveMemoryStarsToDatabase(stars, currentMemoryLevel);
-
-            // Redirect to the game choices page or handle the end of the game as needed
-            localStorage.setItem("totalStars", totalStars);
-            updateTotalStarsDisplay();
-            saveStoredMemoryLevel(0, 0); // Reset stored level and elapsed time
-            window.location.href = "gamechoices.php";
+        try {
+            console.log("Next Level button clicked");
+    
+            if (currentMemoryLevel < memoryLevels.length - 1) {
+                console.log("Before loading next level. Current level:", currentMemoryLevel);
+    
+                // Save stars to the database before loading the next level
+                saveMemoryStarsToDatabase(stars, currentMemoryLevel);
+    
+                // Increment the current level before initializing the next level
+                currentMemoryLevel++;
+    
+                console.log("After incrementing. Updated currentMemoryLevel:", currentMemoryLevel);
+    
+                // Save the updated level to storage before initializing the next level
+                saveStoredMemoryLevel(currentMemoryLevel, elapsedTime);
+    
+                // Initialize the next level
+                initMemoryLevel(currentMemoryLevel);
+    
+                // Restart the timer for the next level
+                startTimer();
+    
+                // Remove the popup after initializing the next level
+                popupContainer.removeChild(popup);
+    
+                console.log("After loading next level. Current level:", currentMemoryLevel);
+            } else {
+                console.log("Completing the game");
+    
+                // Save stars to the database before completing the game
+                saveMemoryStarsToDatabase(stars, currentMemoryLevel);
+    
+                // Redirect to the game choices page or handle the end of the game as needed
+                localStorage.setItem("totalStars", totalStars);
+                updateTotalStarsDisplay();
+                saveStoredMemoryLevel(0, 0); // Reset stored level and elapsed time
+                window.location.href = "gamechoices.php";
+    
+                console.log("After completing the game");
+            }
+        } catch (error) {
+            console.error("Error in next level button click:", error);
         }
     });
+
 }
+
 
 function saveMemoryStarsToDatabase(stars, currentMemoryLevel) {
     const xhr = new XMLHttpRequest();
@@ -286,7 +418,6 @@ function saveMemoryStarsToDatabase(stars, currentMemoryLevel) {
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    // Include additional parameters as needed for your saveUserProgress2.php file
     const params = `stars=${stars}&currentLevel=${currentMemoryLevel}&gameId=2`; // Add gameId parameter for Memory game
 
     xhr.send(params);
