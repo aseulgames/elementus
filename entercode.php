@@ -16,23 +16,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If there's a match, proceed
     if (mysqli_stmt_num_rows($stmt) > 0) {
-        // Get the room details
         $roomDetails = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM rooms WHERE RoomCode = '$enteredCode'"));
 
-        // Get the student information from the students table (replace 'student_id', 'first_name', 'last_name', and 'student_table' with your actual column and table names)
-        $id = $_SESSION['id']; // Change 'student_id' to your actual session variable
-        $studentQuery = mysqli_query($con, "SELECT * FROM students WHERE Id = $id");
-        $studentInfo = mysqli_fetch_assoc($studentQuery);
+        $id = $_SESSION['id'];
 
-        // Combine the first and last name to create the student name
-        $studentName = $studentInfo['FirstName'] . ' ' . $studentInfo['LastName'];
+        $checkQuery = "SELECT * FROM studentgameprogress WHERE StudentID = ? AND RoomCode = ?";
+        $checkStmt = mysqli_prepare($con, $checkQuery);
+        mysqli_stmt_bind_param($checkStmt, "is", $id, $enteredCode);
+        mysqli_stmt_execute($checkStmt);
+        mysqli_stmt_store_result($checkStmt);
 
-        // Insert student information into studentgameprogress
-        $insertQuery = "INSERT INTO studentgameprogress (StudentID, StudentName, RoomID, RoomCode)
-                        VALUES (?, ?, ?, ?)";
-        $insertStmt = mysqli_prepare($con, $insertQuery);
-        mysqli_stmt_bind_param($insertStmt, "issi", $id, $studentName, $roomDetails['RoomID'], $enteredCode);
-        mysqli_stmt_execute($insertStmt);
+        if (mysqli_stmt_num_rows($checkStmt) === 0) {
+            $gameNames = ['Four Pics Game', 'Memory Game', 'Puzzle Game', 'Fusion Game'];
+
+            // Insert four rows for each GameName
+            foreach ($gameNames as $gameName) {
+                // Get the student's information
+                $studentQuery = mysqli_query($con, "SELECT * FROM students WHERE Id = $id");
+                $studentInfo = mysqli_fetch_assoc($studentQuery);
+
+                // Combine the first and last name to create the student name
+                $studentName = $studentInfo['FirstName'] . ' ' . $studentInfo['LastName'];
+
+                // Insert student information into studentgameprogress
+                $insertQuery = "INSERT INTO studentgameprogress (StudentID, StudentName, RoomID, RoomCode, GameName)
+                                VALUES (?, ?, ?, ?, ?)";
+                $insertStmt = mysqli_prepare($con, $insertQuery);
+                mysqli_stmt_bind_param($insertStmt, "isiss", $id, $studentName, $roomDetails['RoomID'], $enteredCode, $gameName);
+                mysqli_stmt_execute($insertStmt);
+            }
+        }
 
         // Redirect to the student's personal account page for that room
         header("Location: student_enter_room.php?code=$enteredCode");
@@ -45,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_stmt_close($stmt);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +87,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     </style>
 </head>
-
+<div class="row">
+    <div class="row" style="justify-content: left; padding-left: 30px;">
+        <img src="logo_dark.png" style="max-width: 23%;
+        height: auto;">
+    </div>
+</div>
 <body style="background-image: url('code_bg.png');">
     <div style="display: flex;
     flex-direction: row;

@@ -11,8 +11,11 @@ $roomDetails = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM rooms WHERE 
 // Fetch teacher details
 $teacherDetails = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM teachers WHERE Id = {$roomDetails['TeacherID']}"));
 
-// Fetch list of students with access to the room
-$studentsQuery = mysqli_query($con, "SELECT * FROM studentgameprogress WHERE RoomCode = '$roomCode'");
+// Fetch the student's information
+$id = $_SESSION['id'];
+
+// Fetch the list of distinct student names with access to the room
+$studentsQuery = mysqli_query($con, "SELECT DISTINCT StudentName FROM studentgameprogress WHERE RoomCode = '$roomCode'");
 $students = [];
 while ($student = mysqli_fetch_assoc($studentsQuery)) {
     $students[] = $student;
@@ -28,8 +31,22 @@ while ($student = mysqli_fetch_assoc($studentsQuery)) {
     <link rel="stylesheet" href="style_student_enter_room.css">
     <title>Enter Room</title>
 </head>
+
 <body style="background-image: url('background_image.jpg');">
+    <div id="overlay" class="overlay">
+        <div class="overlay-content" style="visibility: hidden;">
+            
+        </div>
+    </div>   
+    <div id="board"></div>
+    <audio id="bubbleSound">
+        <source src="bubbles.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <div class="container">
+        <div class="logo-row" style="text-align: center;">
+            <img src="logo_dark.png" alt="logopng" class="logopng" style="max-width: 40%; height: auto;">
+        </div>
         <div class="room-details">
             <h1><?php echo $roomDetails['RoomName']; ?></h1>
             <p>Room Code: <?php echo $roomCode; ?></p>
@@ -44,7 +61,7 @@ while ($student = mysqli_fetch_assoc($studentsQuery)) {
                 <?php endforeach; ?>
             </ul>
         </div>
-
+        <br><br>
         <div class="start-button">
             <button onclick="startPlaying()">Start Playing</button>
         </div>
@@ -56,5 +73,7 @@ while ($student = mysqli_fetch_assoc($studentsQuery)) {
             alert('Game is starting!');
         }
     </script>
+    <script src="bubbles.js"></script>
 </body>
+
 </html>

@@ -17,6 +17,7 @@ $rooms = [];
 while ($result = mysqli_fetch_assoc($query)) {
     $rooms[] = $result;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -162,49 +163,46 @@ while ($result = mysqli_fetch_assoc($query)) {
     </header>
     <link rel="stylesheet" href="home.css">
     <main>
-        <header style="padding-left: 2%; color: #004aad">Hello, <b><?php echo $res_Uname ?>!</b></header><br>
+    <header style="padding-left: 2%; color: #004aad">Hello, <b><?php echo $res_Uname ?>!</b></header><br>
 
-        <div class="container">
-            <header>Rooms</header>
-            <div class="intro-container">
-                <?php
-                // Loop through the rooms and generate HTML for each room box
-                foreach ($rooms as $room) {
-                    $roomId = $room['RoomID'];
-                    $roomName = $room['RoomName'];
-                    $roomCode = $room['RoomCode'];
+    <div class="container">
+        <header>Rooms</header>
+        <div class="intro-container">
+            <?php
+            // Loop through the rooms and generate HTML for each room box
+            foreach ($rooms as $room) {
+                $roomId = $room['RoomID'];
+                $roomName = $room['RoomName'];
+                $roomCode = $room['RoomCode'];
 
-                    echo '<div class="box unlocked">';
-                    echo '<div class="box-content">';
-                    echo '<div class="box-text">' . $roomName . '  ' . $roomCode . '</div>';
+                echo '<div class="box unlocked">';
+                echo '<div class="box-content">';
+                echo '<div class="box-text">' . $roomName . '  ' . $roomCode . '</div>';
 
-                    // Display fixed spaces for three students
-                    echo '<div class="leaderboard">';
-                    echo '<h5>Leaderboard:</h5>';
-                    for ($i = 1; $i <= 3; $i++) {
-                        echo '<p>Student ' . $i . '</p>';
-                    }
-                    echo '</div>';
+                // Fetch DISTINCT student names for the current room
+                $distinctStudentsQuery = mysqli_query($con, "SELECT DISTINCT StudentName FROM studentgameprogress WHERE RoomID = $roomId");
 
-                    echo '</div>';
-                    echo '</div>';
+                // Display fixed spaces for three students
+                echo '<div class="leaderboard">';
+                echo '<h5>Leaderboard:</h5>';
+                while ($distinctStudent = mysqli_fetch_assoc($distinctStudentsQuery)) {
+                    echo '<p>' . $distinctStudent['StudentName'] . '</p>';
                 }
+                echo '</div>';
 
-                $remainingBoxes = 4 - count($rooms);
-                for ($i = 0; $i < $remainingBoxes; $i++) {
-                    echo '<div class="box locked">Empty Room</div>';
-                }
-                ?>
-            </div>
+                echo '</div>';
+                echo '</div>';
+            }
+
+            $remainingBoxes = 4 - count($rooms);
+            for ($i = 0; $i < $remainingBoxes; $i++) {
+                echo '<div class="box locked">Empty Room</div>';
+            }
+            ?>
         </div>
-    </main>
+    </div>
+</main>
     <script src="bootstrap/bootstrap.bundle.min.js"></script>
     <script src="homescript.js"></script>
-    <script>
-    window.onload = function() {
-        backgroundMusic.volume = 0.6;
-            backgroundMusic.play();
-        }
-    </script>
 </body>
 </html>
