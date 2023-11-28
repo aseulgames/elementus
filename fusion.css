@@ -381,7 +381,7 @@ h1{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin: 31vw auto 0; 
+    margin: 25vw auto 0; 
 }
 
 .clear-area {
@@ -467,3 +467,8 @@ h1{
     text-align: center;
 }
 
+@media screen and (max-width: 1050px) {
+    .boxes-container{
+        margin-top: 320px;
+    }
+}

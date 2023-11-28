@@ -119,7 +119,7 @@
     </style>
 <nav class="nav navbar navbar-expand-lg navbar-light">
         <div class="logo-container">
-            <a href="homestudent.php" class="logo navbar-brand">
+            <a href="hometeacher.php" class="logo navbar-brand">
                 <img src="logo_dark.png" alt="logopng" class="logopng">
             </a>
         </div>
@@ -130,25 +130,25 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="menu navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="homestudent.php">Home</a>
+                    <a class="nav-link" href="hometeacher.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.php">About</a>
+                    <a class="nav-link" href="about-teacher.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="games.php">Games</a>
+                    <a class="nav-link" href="createroom.php">Create Room</a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="periodictable.php">Manage Rooms</a>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="periodictable.php">Periodic Table</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profileedit_student.php">Profile</a>
+                    <a class="nav-link" href="profileedit_teacher.php">Profile</a>
                 </li>
                 <li class="nav-item">
                     <!-- Mute and Unmute Icons -->
-                    <!-- <div class="mute-icon" onclick="toggleMute()">
+                    <div class="mute-icon" onclick="toggleMute()">
                         <img id="muteImg" src="images/play.png" alt="Mute">
-                    </div> -->
+                    </div>
                 </li>
             </ul>
 
@@ -159,7 +159,7 @@
             <?php
 
             $id = $_SESSION['id'];
-            $query = mysqli_query($con, "SELECT * FROM students WHERE Id = $id");
+            $query = mysqli_query($con, "SELECT * FROM teachers WHERE Id = $id");
 
             while($result = mysqli_fetch_assoc($query)){
                 $res_Uname = $result['Username'];
@@ -211,7 +211,7 @@
 
                 $id = $_SESSION['id'];
 
-                $verify_query = mysqli_query($con, "SELECT Email FROM students WHERE Email='$email' AND Id != $id");
+                $verify_query = mysqli_query($con, "SELECT Email FROM teachers WHERE Email='$email' AND Id != $id");
                 
                 if(mysqli_num_rows($verify_query) != 0){
                     $errorMessages[] = "This email is already used";
@@ -232,16 +232,16 @@
                     if($verify_query){
                         // Perform the update operation here
                         if(strlen($password) == 0){
-                            mysqli_query($con, "UPDATE students SET FirstName='$fname', LastName='$lname', Username='$username', Email='$email' WHERE Id=$id") or die("Error occurred");
+                            mysqli_query($con, "UPDATE teachers SET FirstName='$fname', LastName='$lname', Username='$username', Email='$email' WHERE Id=$id") or die("Error occurred");
                         } else {
-                            mysqli_query($con, "UPDATE students SET FirstName='$fname', LastName='$lname', Username='$username', Email='$email', Password='$password' WHERE Id=$id") or die("Error occurred");
+                            mysqli_query($con, "UPDATE teachers SET FirstName='$fname', LastName='$lname', Username='$username', Email='$email', Password='$password' WHERE Id=$id") or die("Error occurred");
                         }
                         
 
                         echo "<div class='message'>
                             <p>Profile updated</p>
                         </div><br>";
-                        echo "<a href='homestudent.php'><button class='btn'>Home</button>";
+                        echo "<a href='hometeacher.php'><button class='btn'>Home</button>";
                     }
                 } else {
                     foreach ($errorMessages as $errorMessage) {
@@ -253,7 +253,7 @@
                 }
             } else {
                 $id = $_SESSION['id'];
-                $query = mysqli_query($con, "SELECT*FROM students WHERE Id=$id");
+                $query = mysqli_query($con, "SELECT*FROM teachers WHERE Id=$id");
 
                 while($result = mysqli_fetch_assoc($query)){
                     $res_Uname = $result['Username'];

@@ -86,7 +86,7 @@ $id = $_SESSION['id'];
 
     
         <audio id="backgroundMusic" autoplay loop>
-            <source src="game-music.mp3" type="audio/mpeg">
+            <source src="games.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
 
@@ -95,6 +95,7 @@ $id = $_SESSION['id'];
         </div>
 
         <audio id="waterDropSound" preload="auto" src="drop.mp3"></audio>
+        
 
     <main>
     <div class="row" style="padding-top: 20px;">
@@ -106,9 +107,20 @@ $id = $_SESSION['id'];
     <div class="row" style="justify-content: right; padding-right: 20px;">
         <img src="logo_dark.png" style="max-width: 25%;
         height: auto; justify-content: right; padding-right: 30px;">
+        
     </div>
+    
 
 </div>
+<i class="star" id="totalStarsDisplay">★ 0</i>
+        <style>
+            .star {
+                color: #ffd700;
+                font-size: 200%;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                margin-left: 5%;
+            }
+        </style>
 <div class="outer-rounded-square">
 <div class="container">
 <div class="periodic-table">
@@ -630,8 +642,6 @@ $id = $_SESSION['id'];
         };
     </script>
 
-    <script src="puzzle.js"></script>
-
     <script src="music.js"></script>
 
     <script src="fusion.js"></script>
@@ -672,74 +682,7 @@ $id = $_SESSION['id'];
 </script>
 
 <script>
-        document.addEventListener('DOMContentLoaded', function () {
-        const goalBox = document.querySelector('.goal-box');
-        let compoundsGoal = ['H2O', 'CO2', 'NH3']; // Add more compounds as needed
-        let currentGoalIndex = 0;
-        let elementsInReaction = []; // Initialize the array
-        const reactionArea = document.querySelector('.reaction-area');
 
-        function changeGoal() {
-        currentGoalIndex++;
-        if (currentGoalIndex >= goals.length) {
-            currentGoalIndex = 0;
-        }
-        currentGoal = goals[currentGoalIndex];
-        goalBox.textContent = currentGoal.goalTitle;
-        }
-
-        function updateGoal() {
-            const currentGoal = compoundsGoal[currentGoalIndex];
-            goalBox.textContent = `GOAL: ${currentGoal} (${getCompoundName(currentGoal)})`;
-        }
-
-        function getCompoundName(compound) {
-            const compoundNames = {
-                'H2O': 'Water',
-                'CO2': 'Carbon dioxide',
-                'NH3': 'Ammonia' // Add more compounds as needed
-            };
-
-            return compoundNames[compound] || '';
-        }
-
-        function playSuccessSound() {
-            const successSound = document.getElementById("successSound");
-            successSound.play();
-        }
-
-        reactionArea.addEventListener('drop', function (event) {
-            event.preventDefault();
-            const data = event.dataTransfer.getData('text/plain');
-            const [symbol, state] = data.split('|');
-
-            const element = {
-                symbol: symbol,
-                state: state,
-                icon: stateIcons[state]
-            };
-
-            elementsInReaction.push(element);
-
-            for (const compound of compoundsGoal) {
-                if (elementsInReaction.length === compound.length && canCombine(elementsInReaction, compound.split(''))) {
-                    playSuccessSound();
-                    elementsInReaction = []; // Reset elements after successful combination
-                    currentGoalIndex++;
-
-                    if (currentGoalIndex < compoundsGoal.length) {
-                        updateGoal();
-                    } else {
-                        goalBox.textContent = "Congratulations! You've completed all goals.";
-                        // Add logic for when all goals are completed
-                    }
-
-                    break;
-                }
-            }
-        });
-        updateGoal();
-    });
 </script>
 </body>
 </html>

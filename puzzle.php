@@ -529,7 +529,7 @@ $id = $_SESSION['id'];
 </style>
 </div>
         <audio id="backgroundMusic" autoplay loop>
-            <source src="game-music.mp3" type="audio/mpeg">
+            <source src="games.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
 

@@ -2,6 +2,10 @@
     session_start();
 
     include("php/config.php");
+    if(!isset($_SESSION['valid'])){
+        header("Location: index.php");
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -10,169 +14,239 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>User type</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="edit.css">
+    <title>Manage Profile</title>
 </head>
-<style>
+    <style>
     #submitButton:disabled {
-    opacity: 0.5;
-}
-</style>
+        opacity: 0.5; 
+    }
+    .nav{
+        background: linear-gradient(-45deg, #fff466, #fff174, #fff0a0); 
+        z-index: 2;
+    }
+    
+    .register-box {
+        box-shadow: 20px 20px 0px #ebb503; 
+        background: #f4f4f4;
+        margin-left: 30vw;
+        min-width: 60vw;
+    }
 
-<body>
-<div class="nav">
-    <div class="logo"><a href="hometeacher.php" >
-        <img src="logo_light.png" alt="logopng" class="logopng" style="max-width: 30%; padding-top:0px;
-            height: auto;">
+    .register-box header {
+        font-size: 100%;
+        padding: 2px;
+        margin: 0;
+    }
+
+    .register-box .btn-container {
+        margin-left: auto;
+    }
+
+    .gradient-rectangle {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%; /* Set the height to cover the entire viewport height */
+        width: 10vw; /* Set the width to 100% to cover the entire viewport width */
+        background: linear-gradient(45deg, #fff466, #fff171, #fff0a0, #fffad7);
+        border-right: 8px solid #ffe13a;
+    }
+
+        .profile-picture-container {
+            position: absolute;
+            top: 40%; /* Adjust the top position to center the profile picture vertically */
+            left: 120%; /* Adjust the left position to center the profile picture horizontally */
+            width: 15vw; /* Adjust the width to make it smaller */
+            height: 15vw; /* Adjust the height to maintain a square aspect ratio */
+            border-radius: 50%;
+            overflow: hidden;
+            transform: translate(-50%, -50%);
+            border: 10px solid #ffe13a;
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            mask: url(#circle-mask);
+        }
+
+        svg {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+
+        /* Define circular mask */
+        #circle-mask circle {
+            fill: white;
+        }
+
+        /* Define gradient for the circular border */
+        .gradient-border {
+            fill: none;
+            stroke: url(#gradient-border); /* Apply gradient to stroke */
+            stroke-width: 10; /* Set border width */
+        }
+
+        .btn{
+            height: 3.4vw;
+            width: 10vw;
+            background: #fff;
+            border: 0;
+            border-radius: 20px;
+            color: #e4b723;
+            font-size: 1.2vw;
+            cursor: pointer;
+            transition: all .3s;
+            margin-top: 10px;
+            margin-right: 5px;
+            padding: 0px 10px;
+            box-shadow: 0px 2px 5px rgba(76, 76, 76, 0.2);
+        }
+
+        .logopng{
+            max-width: 20vw;
+            padding-top:0px;
+            max-height: 100% ;
+            margin-left: 5vw;
+        }
+
+        
+    </style>
+<nav class="nav navbar navbar-expand-lg navbar-light">
+        <div class="logo-container">
+            <a href="hometeacher.php" class="logo navbar-brand">
+                <img src="logo_dark.png" alt="logopng" class="logopng">
             </a>
         </div>
-        <ul class="menu">
-            <li><a class="#" href="hometeacher.php">Home</a></li>
-            <li><a class="#" href="#">About</a></li>
-            <li><a class="#" href="#">Games</a></li>
-            <li><a class="#" href="#">History</a></li>
-            <li><a class="#" href="#">Profile</a></li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="menu navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="hometeacher.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about-teacher.php">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="createroom.php">Create Room</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="periodictable.php">Manage Rooms</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="profileedit_teacher.php">Profile</a>
+                </li>
+            </ul>
+
+            </div>
+        </div>
+    </nav>
+
+            <?php
+
+            $id = $_SESSION['id'];
+            $query = mysqli_query($con, "SELECT * FROM teachers WHERE Id = $id");
+
+            while($result = mysqli_fetch_assoc($query)){
+                $res_Uname = $result['Username'];
+                $res_Email = $result['Email'];
+                $res_Fname = $result['FirstName'];
+                $res_Lname = $result['LastName'];
+                $res_id = $result['Id'];
+            }
+            ?>
+
+            
         </ul>
+		
     </div>
+</div>
+<body>
+
 <br>
 
-<div class="register-container" style="min-height: 60vh;">
-        <div class="faded-box2 register-box"></div>
-        <div class="faded-box2 register-box" style="width: 56%; height: 62%; 
-            border: 2px solid #6A08C4;
-            background-color: #F9FAFB;"></div>
-        <div class="register-box form-box" style="background: #f9f9f9; border: 2px solid #6A08C4; height: 67%; width: 53%;">
-        <header style="font-size: 150%; padding: 2px">Manage Profile</header>
-            <?php
-            $errorMessages = array(); // Array to store error messages
+<div class="gradient-rectangle">
+<div class="profile-picture-container">
+        <img src="prfile.jpg" alt="Profile Picture" class="profile-picture">
+    </div>
+</div>
+            
 
-            if(isset($_POST['submit'])){
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $fname = $_POST['fname'];
-                $lname = $_POST['lname'];
-                $password = $_POST['password'];
-                $confirmPassword = $_POST['confirm'];
-
-                $id = $_SESSION['id'];
-
-                $verify_query = mysqli_query($con, "SELECT Email FROM teachers WHERE Email='$email' AND Id != $id");
+            <div class="register-container" style="min-height: 60vh;">
+            <div class="register-box form-box">
+            
+                <header style="font-size: 1.3vw; font-weight: normal;">About You</header>
                 
-                if(mysqli_num_rows($verify_query) != 0){
-                    $errorMessages[] = "This email is already used";
-                }
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strpos($email, '.com') === false) {
-                    $errorMessages[] = "Please enter a valid email with '@' and '.com'";
-                }
-                if(strlen($password) != 0){
-                    if (strlen($password) < 8) {
-                        $errorMessages[] = "Password should be at least 8 characters";
-                    }
-                    if ($password !== $confirmPassword) {
-                        $errorMessages[] = "Passwords do not match";
-                    }
-                }
-
-                if (empty($errorMessages)) {
-                    if($verify_query){
-                        // Perform the update operation here
-                        if(strlen($password) == 0){
-                            mysqli_query($con, "UPDATE teachers SET FirstName='$fname', LastName='$lname', Username='$username', Email='$email' WHERE Id=$id") or die("Error occurred");
-                        } else {
-                            mysqli_query($con, "UPDATE teachers SET FirstName='$fname', LastName='$lname', Username='$username', Email='$email', Password='$password' WHERE Id=$id") or die("Error occurred");
-                        }
-                        
-
-                        echo "<div class='message'>
-                            <p>Profile updated</p>
-                        </div><br>";
-                        echo "<a href='hometeachers.php'><button class='btn'>Home</button>";
-                    }
-                } else {
-                    foreach ($errorMessages as $errorMessage) {
-                        echo "<div class='message'>
-                            <p>$errorMessage</p>
-                        </div><br>";
-                    }
-                    echo "<a href='javascript:self.history.back()'><button class='btn'>Back</button>";
-                }
-            } else {
-                $id = $_SESSION['id'];
-                $query = mysqli_query($con, "SELECT*FROM teachers WHERE Id=$id");
-
-                while($result = mysqli_fetch_assoc($query)){
-                    $res_Uname = $result['Username'];
-                    $res_Email = $result['Email'];
-                    $res_Fname = $result['FirstName'];
-                    $res_Lname = $result['LastName'];
-                }
-        ?>
-
-            <form action="" method="post" id="form">
-
-                <div class="name-row" style="display: flex; align-items: center;">
-                    <div class="field input" style="margin-right: 10px; width: 100%;">
-                    <label for="email">First Name</label>
-                    <input type="text" name="fname" id="fname" value="<?php echo $res_Fname?>" autocomplete="off">
-                    </div>
-
-                    <div class="field input" style="width: 100%;">
-                    <label for="email">Last Name</label>
-                    <input type="text" name="lname" id="lname"  value="<?php echo $res_Lname?>" autocomplete="off">
-                    </div>
+            <!-- Display user information -->
+            <div class="user-info">
+                <div class="info-item">
+                    <p><strong>Username:</strong></p>
                 </div>
-
-                <div class="name-row" style="display: flex; align-items: center;">
-                    <div class="field input" style="margin-right: 10px; width: 40%;">
-                    <label for="email">Username</label>
-                    <input type="text" name="username" id="username" value="<?php echo $res_Uname?>"  autocomplete="off">
-                    </div>
-    
-                    <div class="field input" style="width: 60%;">
-                    <label for="email">Email</label>
-                    <input type="text" name="email" id="email"  value="<?php echo $res_Email?>"  autocomplete="off">
-                    </div>
+                <div class="info-content">
+                    <p><?php echo $res_Uname; ?></p>
                 </div>
-
-
-                <div class="field input">
-                <input placeholder="New Password" type="password" name="password" id="password" autocomplete="off">
+            </div>
+            <div class="user-info">
+                <div class="info-item">
+                    <p><strong>Email:</strong></p>
                 </div>
-
-                <div class="field input">
-                <input placeholder="Confirm Password" type="password" name="confirm" id="confirm" autocomplete="off">
+                <div class="info-content">
+                    <p><?php echo $res_Email; ?></p>
                 </div>
-
-                <div class="button-row" style="display: flex; margin-top: 20px; justify-content: right;">
-                <button type="button" class="btn" onclick="window.history.back()" name="cancel" value="Cancel" style="margin-right: 10px; background-color: #E24B4B; border-radius: 20px;">Cancel</button>
-                <button type="submit" id="submitButton" class="btn" name="submit" value="Submit" style="margin-right: 10px; background-color: #E2AF4B; border-radius: 20px;" disabled>Update</button>
+            </div>
+            <div class="user-info">
+                <div class="info-item">
+                    <p><strong>First Name:</strong></p>
                 </div>
-
-                <script>
-                const form = document.getElementById('form');
-                const fields = form.querySelectorAll('input[type="text"], input[type="password"]');
-                const submitButton = document.getElementById('submitButton');
-
-                let formChanged = false;
-
-                // Function to enable or disable the submit button based on form changes
-                function toggleSubmitButton() {
-                formChanged = Array.from(fields).some(field => field.value !== field.defaultValue);
-                submitButton.disabled = !formChanged;
-                }
-
-                // Add an event listener to each field to detect changes
-                fields.forEach(field => {
-                field.addEventListener('input', toggleSubmitButton);
-                });
-
-                // Call the toggleSubmitButton function initially to check for changes
-                toggleSubmitButton();
-                </script>
+                <div class="info-content">
+                    <p><?php echo $res_Fname; ?></p>
                 </div>
-            </form>
+            </div>
+            <div class="user-info">
+                <div class="info-item">
+                    <p><strong>Last Name:</strong></p>
+                </div>
+                <div class="info-content">
+                    <p><?php echo $res_Lname; ?></p>
+                </div>
+            </div>
+
+
+            <div class="button-row">
+                    
+                </div>
+            <div class="button-row">
+                <button onclick="logout()" class="btn" style="color: red;">Log Out</button>
+                <span><a href="profileedit_realteacher.php"><button class="btn">Edit Profile</button></a></span>
+            </div>
         </div>
-        <?php } ?>
+    </div>
+
+<script src="bootstrap/bootstrap.bundle.min.js"></script>
+                <script>
+
+                    function logout() {
+                        if (confirm("Are you sure you want to log out?")) { // Added parentheses here
+                            // Redirect the user after successful logout
+                            window.location.href = "php/logout.php";
+                        }
+                    }
+
+                </script>
+                
+
+
+                </div>
+        </div>
     </div>
 </body>
+    
 </html>
